@@ -6,8 +6,12 @@ using TMPro;
 
 public class GameplayManager : MonoBehaviour
 {
+    // Gameplay Manager Singleton
+    public static GameplayManager Instance { get; private set; }
+
     //Constants
     private const int CAPSULE_TOTAL = 20;
+    private const float TOKEN_SPAWN_INTERVAL = 20f;
 
     [Header("Properties"), Space(8)]
     [SerializeField] private int score;
@@ -15,14 +19,18 @@ public class GameplayManager : MonoBehaviour
     [SerializeField] private float timeUntilDispense;
     [SerializeField] private GameObject capsuleDispenser;
     [SerializeField] private GameObject[] capsules;
+    private List<Color> capsuleColors = new List<Color>();
 
     [Header("UI"), Space(8)]
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private TMP_Text capsuleCountText;
     private float fullTime;
     [SerializeField] private Image fillTimer;
-    // Game Manager Singleton
-    public static GameplayManager Instance { get; private set; }
+
+    [Header("Token"), Space(8)]
+    [SerializeField] private GameObject token;
+    [SerializeField] private float timeUntilSpawnToken = TOKEN_SPAWN_INTERVAL;
+    [SerializeField] private Transform[] spawnLocations;
 
     private void Awake()
     {
@@ -43,6 +51,7 @@ public class GameplayManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SetCapsuleColors();
         scoreText.text = $"{score}";
         capsuleCountText.text = $"{capsuleDispenserCount}";
         DispenseCapsule();
@@ -52,6 +61,7 @@ public class GameplayManager : MonoBehaviour
     void Update()
     {
         CapsuleDispenserTimer();
+        TokenSpawnTimer();
     }
 
     private void CapsuleDispenserTimer()
@@ -65,6 +75,16 @@ public class GameplayManager : MonoBehaviour
         }
         else
             DispenseCapsule();
+    }
+    private void TokenSpawnTimer()
+    {
+        if (timeUntilSpawnToken > 0f)
+        {
+            timeUntilSpawnToken -= Time.deltaTime;
+            timeUntilSpawnToken = Mathf.Max(0f, timeUntilSpawnToken);
+        }
+        else
+            SpawnToken();
     }
 
     /// <summary>
@@ -81,6 +101,17 @@ public class GameplayManager : MonoBehaviour
         timeUntilDispense = 30f - ((GetExistingCapsules()) * 2);
         fullTime = timeUntilDispense;
         capsuleCountText.text = $"{capsuleDispenserCount}";
+    }
+
+    /// <summary>
+    /// Spawn token at a random location.
+    /// </summary>
+    public void SpawnToken()
+    {
+        int index = Random.Range(0, spawnLocations.Length);
+        token.SetActive(true);
+        token.transform.position = spawnLocations[index].position;
+        timeUntilSpawnToken = TOKEN_SPAWN_INTERVAL;
     }
 
     public void SetScore(int s)
@@ -116,4 +147,17 @@ public class GameplayManager : MonoBehaviour
     /// </summary>
     /// <returns>TRUE if capsule dispenser is empty. Otherwise, FALSE.</returns>
     private bool DispenserIsEmpty() => capsuleDispenserCount == 0;
+
+    private void SetCapsuleColors()
+    {
+        int colorCount = GameManager.Instance.mainPalette.possibleCapsuleColors.Length;
+        for (int i = 0; i < colorCount; i++)
+            capsuleColors.Add(GameManager.Instance.mainPalette.possibleCapsuleColors[i]);
+
+        foreach (GameObject capsule in capsules)
+        {
+            int rand = Random.Range(0, colorCount);
+            capsule.GetComponent<SpriteRenderer>().color = capsuleColors[rand];
+        }
+    }
 }

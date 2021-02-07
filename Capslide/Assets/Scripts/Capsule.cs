@@ -8,11 +8,11 @@ public class Capsule : MonoBehaviour
     // Constants
     private const float GRAVITY_INTERVAL = 1f;
     private const float MAX_SPEED = 720f;
+    private const float DEADZONE_VALUE = 200f;
 
     [SerializeField] private int points = 0;
     [SerializeField] private ParticleSystem BouncePS;
-    [SerializeField] private GameObject[] pointTallies;
-    [SerializeField] private GameObject floatingPoints;
+    [SerializeField] private GameObject floatingPoint;
     [SerializeField] private Rigidbody2D RB;
     [SerializeField] private CircleCollider2D circleCollider2d;
     [SerializeField] private LayerMask groundLayer;
@@ -23,11 +23,13 @@ public class Capsule : MonoBehaviour
     {
         startForce = new Vector3(Random.Range(-MAX_SPEED, MAX_SPEED), 0f, 0f);
         RB.AddForce(startForce, ForceMode2D.Impulse);
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        RB.velocity = new Vector2(Mathf.Clamp(RB.velocity.x, -MAX_SPEED, MAX_SPEED), Mathf.Clamp(RB.velocity.y, -MAX_SPEED, MAX_SPEED));
         HasTouchedSlider();
     }
 
@@ -44,11 +46,17 @@ public class Capsule : MonoBehaviour
 
             if (other.CompareTag("Slider") && HasTouchedSlider())
             {
+                var pp = BouncePS.main;
+
+                Color col1 = GameManager.Instance.GetColor(Random.Range(0, 5));
+                Color col2 = GameManager.Instance.GetColor(Random.Range(0, 5));
+                pp.startColor = new ParticleSystem.MinMaxGradient(col1, col2);
+
                 BouncePS.Play();
                 if (InDeadZone())
                     return;
 
-                GameObject fp = Instantiate(floatingPoints, this.gameObject.transform.position, Quaternion.identity);
+                GameObject fp = Instantiate(floatingPoint, this.gameObject.transform.position, Quaternion.identity);
                 GameplayManager.Instance.SetScore(++points);
                 fp.transform.GetChild(0).GetComponent<TMP_Text>().text = $"+{points}";
             }
@@ -60,12 +68,24 @@ public class Capsule : MonoBehaviour
         GameObject other = collision.gameObject;
 
         if (other.CompareTag("Dead Zone"))
+            StartCoroutine(ShakeScreen());
+        
+        if (other.CompareTag("Token"))
         {
-            this.gameObject.SetActive(false);
-
-            if (GameplayManager.Instance.NoCapsulesInGame())
-                GameplayManager.Instance.DispenseCapsule();
+            other.SetActive(false);
+            GameManager.Instance.tokens++;
         }
+    }
+
+    private IEnumerator ShakeScreen()
+    {
+        if (GameManager.Instance.screenShakeON)
+            yield return StartCoroutine(ScreenShake.Shake(20f, 0.5f));
+
+        this.gameObject.SetActive(false);
+
+        if (GameplayManager.Instance.NoCapsulesInGame())
+            GameplayManager.Instance.DispenseCapsule();
     }
 
     /// <summary>
@@ -98,8 +118,9 @@ public class Capsule : MonoBehaviour
         Debug.DrawRay(circleCollider2d.bounds.center, Vector2.right * (circleCollider2d.bounds.extents.x + 48f), raycastColor2);
         Debug.DrawRay(circleCollider2d.bounds.center, Vector2.left * (circleCollider2d.bounds.extents.x + 48f), raycastColor3);
 #endif
-        return raycastHit.collider != null || raycastRight.collider != null || raycastLeft.collider != null;
+        return true;
+        //return raycastHit.collider != null || raycastRight.collider != null || raycastLeft.collider != null;
     }
 
-    private bool InDeadZone() => RB.velocity.y < 100f && RB.velocity.y > -100f;
+    private bool InDeadZone() => RB.velocity.y < DEADZONE_VALUE && RB.velocity.y > -DEADZONE_VALUE;
 }

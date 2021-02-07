@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1509967990297670503}
   - component: {fileID: 1509967990297670496}
+  - component: {fileID: 574667723387885195}
   m_Layer: 0
   m_Name: Bar
   m_TagString: Untagged
@@ -81,6 +82,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &574667723387885195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509967990297670497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 413a7f3edb466914ca5d6b0e8391f5ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SPR: {fileID: 1509967990297670496}
+  image: {fileID: 0}
+  tmpText: {fileID: 0}
+  colorType: 4
 --- !u!1 &1509967990432488971
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,6 +108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1509967990432488970}
   - component: {fileID: 1509967990432488969}
+  - component: {fileID: 3327334394549998614}
   m_Layer: 0
   m_Name: Left Point
   m_TagString: Untagged
@@ -162,6 +180,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3327334394549998614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509967990432488971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 413a7f3edb466914ca5d6b0e8391f5ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SPR: {fileID: 1509967990432488969}
+  image: {fileID: 0}
+  tmpText: {fileID: 0}
+  colorType: 2
 --- !u!1 &1509967990568572581
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,6 +207,7 @@ GameObject:
   - component: {fileID: 1509967990568572580}
   - component: {fileID: 1509967990568572586}
   - component: {fileID: 1509967990568572587}
+  - component: {fileID: 2951198340300845063}
   m_Layer: 8
   m_Name: Fill Bar (Top)
   m_TagString: Slider
@@ -262,6 +297,22 @@ EdgeCollider2D:
   m_Points:
   - {x: -0.49999997, y: 0}
   - {x: 0.49999997, y: 0}
+--- !u!114 &2951198340300845063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509967990568572581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 413a7f3edb466914ca5d6b0e8391f5ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SPR: {fileID: 1509967990568572586}
+  image: {fileID: 0}
+  tmpText: {fileID: 0}
+  colorType: 2
 --- !u!1 &1509967990718658019
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,6 +323,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1509967990718658018}
   - component: {fileID: 1509967990718658017}
+  - component: {fileID: 2788206050163547465}
   m_Layer: 0
   m_Name: Right Point
   m_TagString: Untagged
@@ -343,6 +395,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2788206050163547465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509967990718658019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 413a7f3edb466914ca5d6b0e8391f5ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SPR: {fileID: 1509967990718658017}
+  image: {fileID: 0}
+  tmpText: {fileID: 0}
+  colorType: 2
 --- !u!1 &1509967991098411222
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,6 +422,7 @@ GameObject:
   - component: {fileID: 1509967991098411221}
   - component: {fileID: 1509967991098411227}
   - component: {fileID: 1509967991098411220}
+  - component: {fileID: 4989426256255665959}
   m_Layer: 8
   m_Name: Fill Bar (Right)
   m_TagString: Slider
@@ -443,6 +512,22 @@ EdgeCollider2D:
   m_Points:
   - {x: -0.49999997, y: 0}
   - {x: 0.49999997, y: 0}
+--- !u!114 &4989426256255665959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509967991098411222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 413a7f3edb466914ca5d6b0e8391f5ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SPR: {fileID: 1509967991098411227}
+  image: {fileID: 0}
+  tmpText: {fileID: 0}
+  colorType: 2
 --- !u!1 &1509967991250186083
 GameObject:
   m_ObjectHideFlags: 0
@@ -493,6 +578,7 @@ GameObject:
   - component: {fileID: 1509967991427741736}
   - component: {fileID: 1509967991427741742}
   - component: {fileID: 1509967991427741743}
+  - component: {fileID: 875697581707004648}
   m_Layer: 8
   m_Name: Fill Bar (Left)
   m_TagString: Slider
@@ -582,6 +668,22 @@ EdgeCollider2D:
   m_Points:
   - {x: -0.49999997, y: 0}
   - {x: 0.49999997, y: 0}
+--- !u!114 &875697581707004648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509967991427741737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 413a7f3edb466914ca5d6b0e8391f5ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SPR: {fileID: 1509967991427741742}
+  image: {fileID: 0}
+  tmpText: {fileID: 0}
+  colorType: 2
 --- !u!1 &1509967991525525467
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,6 +695,7 @@ GameObject:
   - component: {fileID: 1509967991525525466}
   - component: {fileID: 1509967991525525464}
   - component: {fileID: 1509967991525525465}
+  - component: {fileID: 135607917074848688}
   m_Layer: 8
   m_Name: Fill Bar (Center)
   m_TagString: Slider
@@ -682,6 +785,22 @@ EdgeCollider2D:
   m_Points:
   - {x: -0.49999997, y: 0}
   - {x: 0.49999997, y: 0}
+--- !u!114 &135607917074848688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509967991525525467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 413a7f3edb466914ca5d6b0e8391f5ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SPR: {fileID: 1509967991525525464}
+  image: {fileID: 0}
+  tmpText: {fileID: 0}
+  colorType: 2
 --- !u!1 &1509967991920255948
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,6 +812,7 @@ GameObject:
   - component: {fileID: 1509967991920255795}
   - component: {fileID: 1509967991920255793}
   - component: {fileID: 1509967991920255794}
+  - component: {fileID: 1153433829200592863}
   m_Layer: 8
   m_Name: Fill Bar (Bottom)
   m_TagString: Slider
@@ -782,6 +902,22 @@ EdgeCollider2D:
   m_Points:
   - {x: -0.49999997, y: 0}
   - {x: 0.49999997, y: 0}
+--- !u!114 &1153433829200592863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509967991920255948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 413a7f3edb466914ca5d6b0e8391f5ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SPR: {fileID: 1509967991920255793}
+  image: {fileID: 0}
+  tmpText: {fileID: 0}
+  colorType: 2
 --- !u!1 &1509967991998742943
 GameObject:
   m_ObjectHideFlags: 0

@@ -4828,6 +4828,7 @@ GameObject:
   - component: {fileID: 6591963302399487560}
   - component: {fileID: 6591963302399487561}
   - component: {fileID: 6591963302399487566}
+  - component: {fileID: 2444189122459180732}
   m_Layer: 5
   m_Name: Floating Points
   m_TagString: Untagged
@@ -4898,6 +4899,18 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &2444189122459180732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6591963302399487567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a35c245c4da7af84c8accc96dfd70e8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6591963303293020460
 GameObject:
   m_ObjectHideFlags: 0
