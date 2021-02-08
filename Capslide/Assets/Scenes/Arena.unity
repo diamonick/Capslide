@@ -2190,7 +2190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90867b6b6b347a9429f2af0cc2a1b081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainPalette: {fileID: 11400000, guid: a5aaef1b813ceba4eb5f4a86d87bd22a, type: 2}
+  mainPalette: {fileID: 11400000, guid: 03a3a9b0f1ee6a14b8d7b38fd1a9d493, type: 2}
   tokens: 0
   screenShakeON: 1
 --- !u!4 &898291489

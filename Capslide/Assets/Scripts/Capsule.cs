@@ -13,9 +13,12 @@ public class Capsule : MonoBehaviour
     [SerializeField] private int points = 0;
     [SerializeField] private ParticleSystem BouncePS;
     [SerializeField] private GameObject floatingPoint;
+    [SerializeField] private SpriteRenderer SPR;
+    [SerializeField] private Sprite starSprite;
     [SerializeField] private Rigidbody2D RB;
     [SerializeField] private CircleCollider2D circleCollider2d;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private bool starred = false;
     private Vector3 startForce;
 
     // Start is called before the first frame update
@@ -46,8 +49,9 @@ public class Capsule : MonoBehaviour
 
             if (other.CompareTag("Slider") && HasTouchedSlider())
             {
-                var pp = BouncePS.main;
+                SetCapsuleValue(ref points);
 
+                var pp = BouncePS.main;
                 Color col1 = GameManager.Instance.GetColor(Random.Range(0, 5));
                 Color col2 = GameManager.Instance.GetColor(Random.Range(0, 5));
                 pp.startColor = new ParticleSystem.MinMaxGradient(col1, col2);
@@ -57,7 +61,7 @@ public class Capsule : MonoBehaviour
                     return;
 
                 GameObject fp = Instantiate(floatingPoint, this.gameObject.transform.position, Quaternion.identity);
-                GameplayManager.Instance.SetScore(++points);
+                GameplayManager.Instance.SetScore(points);
                 fp.transform.GetChild(0).GetComponent<TMP_Text>().text = $"+{points}";
             }
         }
@@ -80,6 +84,25 @@ public class Capsule : MonoBehaviour
 
         if (GameplayManager.Instance.NoCapsulesInGame())
             GameplayManager.Instance.DispenseCapsule();
+    }
+
+    public void StarCapsule()
+    {
+        starred = true;
+        SPR.sprite = starSprite;
+        RB.gravityScale = 75f;
+    }
+
+    /// <summary>
+    /// Increments the amount of points the player recieves based on capsule type.
+    /// </summary>
+    /// <returns>Total points. Points are incremented by 1 or 3 for each bounce.</returns>
+    private void SetCapsuleValue(ref int pts)
+    {
+        if (starred)
+            pts += 3;
+        else
+            pts += 1;
     }
 
     /// <summary>

@@ -4957,8 +4957,11 @@ MonoBehaviour:
   BouncePS: {fileID: 397095926}
   floatingPoint: {fileID: 6591963302399487567, guid: 496381b984621e849ad13f2c70d3186d,
     type: 3}
+  SPR: {fileID: 8132649936946077131}
+  starSprite: {fileID: 21300000, guid: f105dae1120865b4a86bc8894fa8caf8, type: 3}
   RB: {fileID: 8132649936946077129}
   circleCollider2d: {fileID: 8132649936946077128}
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
+  starred: 0

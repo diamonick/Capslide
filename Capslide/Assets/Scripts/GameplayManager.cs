@@ -74,7 +74,7 @@ public class GameplayManager : MonoBehaviour
             timeUntilDispense = Mathf.Max(0f, timeUntilDispense);
         }
         else
-            DispenseCapsule();
+            DispenseCapsule(true);
     }
     private void TokenSpawnTimer()
     {
@@ -90,15 +90,24 @@ public class GameplayManager : MonoBehaviour
     /// <summary>
     /// Dispense capsule from the top screen.
     /// </summary>
-    public void DispenseCapsule()
+    public void DispenseCapsule(bool isCompleted = false)
     {
         if (DispenserIsEmpty())
             return;
 
-        capsules[GetExistingCapsules()].SetActive(true);
+        do
+        {
+            GameObject newCapsule = capsules[GetExistingCapsules()];
+            newCapsule.SetActive(true);
 
-        capsuleDispenserCount--;
-        timeUntilDispense = 30f - ((GetExistingCapsules()) * 2);
+            if (isCompleted && capsuleDispenserCount > 4)
+                newCapsule.GetComponent<Capsule>().StarCapsule();
+
+            capsuleDispenserCount--;
+        }
+        while (capsuleDispenserCount > 0 && capsuleDispenserCount < 5);
+
+        timeUntilDispense = 30f;
         fullTime = timeUntilDispense;
         capsuleCountText.text = $"{capsuleDispenserCount}";
     }
