@@ -114,6 +114,11 @@ public class GameplayManager : MonoBehaviour
         timeUntilSpawnToken = TOKEN_SPAWN_INTERVAL;
     }
 
+    /// <summary>
+    /// Reset timer for spawning token.
+    /// </summary>
+    public void ResetTokenSpawnTimer() => timeUntilSpawnToken = TOKEN_SPAWN_INTERVAL;
+
     public void SetScore(int s)
     {
         score += s;

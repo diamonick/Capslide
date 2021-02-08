@@ -8,7 +8,7 @@ public class Capsule : MonoBehaviour
     // Constants
     private const float GRAVITY_INTERVAL = 1f;
     private const float MAX_SPEED = 720f;
-    private const float DEADZONE_VALUE = 200f;
+    private const float DEADZONE_VALUE = 180f;
 
     [SerializeField] private int points = 0;
     [SerializeField] private ParticleSystem BouncePS;
@@ -69,12 +69,6 @@ public class Capsule : MonoBehaviour
 
         if (other.CompareTag("Dead Zone"))
             StartCoroutine(ShakeScreen());
-        
-        if (other.CompareTag("Token"))
-        {
-            other.SetActive(false);
-            GameManager.Instance.tokens++;
-        }
     }
 
     private IEnumerator ShakeScreen()

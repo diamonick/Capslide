@@ -114,6 +114,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SPR: {fileID: 3839961099938445498}
+  image: {fileID: 0}
+  tmpText: {fileID: 0}
   colorType: 2
 --- !u!1 &3839961100395203247
 GameObject:
@@ -229,6 +231,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SPR: {fileID: 3839961100395203234}
+  image: {fileID: 0}
+  tmpText: {fileID: 0}
   colorType: 2
 --- !u!1 &3839961100501827292
 GameObject:
@@ -325,6 +329,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SPR: {fileID: 3839961100501827282}
+  image: {fileID: 0}
+  tmpText: {fileID: 0}
   colorType: 2
 --- !u!1 &3839961100847294743
 GameObject:
@@ -440,6 +446,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SPR: {fileID: 3839961100847294762}
+  image: {fileID: 0}
+  tmpText: {fileID: 0}
   colorType: 2
 --- !u!1 &3839961100984823217
 GameObject:
@@ -555,6 +563,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SPR: {fileID: 3839961100984823220}
+  image: {fileID: 0}
+  tmpText: {fileID: 0}
   colorType: 2
 --- !u!1 &3839961100988735227
 GameObject:
@@ -651,6 +661,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SPR: {fileID: 3839961100988735225}
+  image: {fileID: 0}
+  tmpText: {fileID: 0}
   colorType: 2
 --- !u!1 &3839961101012477691
 GameObject:
@@ -786,6 +798,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SPR: {fileID: 3839961101230824869}
+  image: {fileID: 0}
+  tmpText: {fileID: 0}
   colorType: 4
 --- !u!1 &3839961101450839765
 GameObject:
@@ -1026,4 +1040,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SPR: {fileID: 3839961101951862546}
+  image: {fileID: 0}
+  tmpText: {fileID: 0}
   colorType: 2
