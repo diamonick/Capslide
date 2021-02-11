@@ -6,6 +6,7 @@ using TMPro;
 public class Capsule : MonoBehaviour
 {
     // Constants
+    private const float INITIAL_GRAVITY = 50f;
     private const float GRAVITY_INTERVAL = 1f;
     private const float MAX_SPEED = 720f;
     private const float DEADZONE_VALUE = 180f;
@@ -14,6 +15,7 @@ public class Capsule : MonoBehaviour
     [SerializeField] private ParticleSystem BouncePS;
     [SerializeField] private GameObject floatingPoint;
     [SerializeField] private SpriteRenderer SPR;
+    [SerializeField] private Sprite normalSprite;
     [SerializeField] private Sprite starSprite;
     [SerializeField] private Rigidbody2D RB;
     [SerializeField] private CircleCollider2D circleCollider2d;
@@ -22,11 +24,10 @@ public class Capsule : MonoBehaviour
     private Vector3 startForce;
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         startForce = new Vector3(Random.Range(-MAX_SPEED, MAX_SPEED), 0f, 0f);
         RB.AddForce(startForce, ForceMode2D.Impulse);
-
     }
 
     // Update is called once per frame
@@ -80,10 +81,19 @@ public class Capsule : MonoBehaviour
         if (GameManager.Instance.screenShakeON)
             yield return StartCoroutine(ScreenShake.Shake(20f, 0.5f));
 
+        points = 0;
+        RB.gravityScale = INITIAL_GRAVITY;
+        SPR.sprite = normalSprite;
+        starred = false;
         this.gameObject.SetActive(false);
 
         if (GameplayManager.Instance.NoCapsulesInGame())
-            GameplayManager.Instance.DispenseCapsule();
+        {
+            if (GameplayManager.Instance.DispenserIsEmpty())
+                GameplayManager.Instance.EndGame();
+            else
+                GameplayManager.Instance.DispenseCapsule();
+        }
     }
 
     public void StarCapsule()

@@ -67,7 +67,7 @@ public class Token : MonoBehaviour
             isCollected = true;
             CollectPS.Play();
             timeUntilDisappear = 1.5f;
-            GameManager.Instance.tokens++;
+            GameplayManager.Instance.tokensEarned++;
 
             StopAllCoroutines();
             StartCoroutine(Rise());

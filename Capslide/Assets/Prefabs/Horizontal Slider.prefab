@@ -96,6 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SPR: {fileID: 1509967990297670496}
   image: {fileID: 0}
+  button: {fileID: 0}
   tmpText: {fileID: 0}
   colorType: 4
 --- !u!1 &1509967990432488971
@@ -194,6 +195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SPR: {fileID: 1509967990432488969}
   image: {fileID: 0}
+  button: {fileID: 0}
   tmpText: {fileID: 0}
   colorType: 2
 --- !u!1 &1509967990568572581
@@ -311,6 +313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SPR: {fileID: 1509967990568572586}
   image: {fileID: 0}
+  button: {fileID: 0}
   tmpText: {fileID: 0}
   colorType: 2
 --- !u!1 &1509967990718658019
@@ -409,6 +412,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SPR: {fileID: 1509967990718658017}
   image: {fileID: 0}
+  button: {fileID: 0}
   tmpText: {fileID: 0}
   colorType: 2
 --- !u!1 &1509967991098411222
@@ -526,6 +530,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SPR: {fileID: 1509967991098411227}
   image: {fileID: 0}
+  button: {fileID: 0}
   tmpText: {fileID: 0}
   colorType: 2
 --- !u!1 &1509967991250186083
@@ -682,6 +687,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SPR: {fileID: 1509967991427741742}
   image: {fileID: 0}
+  button: {fileID: 0}
   tmpText: {fileID: 0}
   colorType: 2
 --- !u!1 &1509967991525525467
@@ -799,6 +805,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SPR: {fileID: 1509967991525525464}
   image: {fileID: 0}
+  button: {fileID: 0}
   tmpText: {fileID: 0}
   colorType: 2
 --- !u!1 &1509967991920255948
@@ -916,6 +923,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SPR: {fileID: 1509967991920255793}
   image: {fileID: 0}
+  button: {fileID: 0}
   tmpText: {fileID: 0}
   colorType: 2
 --- !u!1 &1509967991998742943

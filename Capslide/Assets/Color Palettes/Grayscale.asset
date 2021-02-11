@@ -27,3 +27,6 @@ MonoBehaviour:
   - {r: 0.49803925, g: 0.49803925, b: 0.49803925, a: 1}
   scoreColor: {r: 0.86274517, g: 0.86274517, b: 0.86274517, a: 1}
   capsuleTimerColor: {r: 0.49803925, g: 0.49803925, b: 0.49803925, a: 1}
+  backButtonColor: {r: 0.86274517, g: 0.86274517, b: 0.86274517, a: 1}
+  retryButtonColor: {r: 0.7058824, g: 0.7058824, b: 0.7058824, a: 1}
+  rewardedAdButtonColor: {r: 0.49803925, g: 0.49803925, b: 0.49803925, a: 1}

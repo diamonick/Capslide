@@ -32,4 +32,7 @@ public class GameManager : MonoBehaviour
     public Color GetColor(int index) => mainPalette.colors[index];
     public Color GetScoreColor() => mainPalette.scoreColor;
     public Color GetCapsuleTimerColor() => mainPalette.capsuleTimerColor;
+    public Color GetBackButtonColor() => mainPalette.backButtonColor;
+    public Color GetRetryButtonColor() => mainPalette.retryButtonColor;
+    public Color GetRewardedAdButtonColor() => mainPalette.rewardedAdButtonColor;
 }

@@ -14,4 +14,9 @@ public class Palette : ScriptableObject
     [Header("UI"), Space(8)]
     public Color scoreColor;
     public Color capsuleTimerColor;
+
+    [Header("Results Screen"), Space(8)]
+    public Color backButtonColor;
+    public Color retryButtonColor;
+    public Color rewardedAdButtonColor;
 }

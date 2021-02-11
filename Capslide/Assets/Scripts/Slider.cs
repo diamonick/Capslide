@@ -70,6 +70,9 @@ public class Slider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameplayManager.Instance.GameOver())
+            return;
+
         if (positionPrev != obj.transform.position)
             positionPrev = obj.transform.position;
 
