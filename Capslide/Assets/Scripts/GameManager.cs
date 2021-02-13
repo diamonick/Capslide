@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning($"WARNING: There can only be one instance of this class.");
         }
     }
-
+    
     public Color GetColor(int index) => mainPalette.colors[index];
     public Color GetScoreColor() => mainPalette.scoreColor;
     public Color GetCapsuleTimerColor() => mainPalette.capsuleTimerColor;

@@ -26,6 +26,8 @@ public class ColorChange : MonoBehaviour
     [SerializeField] private Button button;
     [SerializeField] private TMP_Text tmpText;
     [SerializeField] private ColorType colorType;
+    private ColorType colorTypePrev;
+    private Color mainColor;
     private GameObject obj;
 
     private void Awake()
@@ -34,6 +36,16 @@ public class ColorChange : MonoBehaviour
     }
 
     private void Start()
+    {
+        ChangeColor();
+    }
+
+    private void Update()
+    {
+        ChangeColor();
+    }
+
+    private void ChangeColor()
     {
         Color col;
         switch (colorType)
@@ -61,6 +73,9 @@ public class ColorChange : MonoBehaviour
                 break;
         }
 
+        if (col == mainColor)
+            return;
+
         if (SPR != null)
             SPR.color = col;
         if (image != null)
@@ -74,5 +89,7 @@ public class ColorChange : MonoBehaviour
             colors.selectedColor = new Color(col.r, col.g, col.b, 0f);
             button.colors = colors;
         }
+
+        mainColor = col;
     }
 }

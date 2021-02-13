@@ -15,6 +15,8 @@ public class GameplayManager : MonoBehaviour
     private const float COUNTDOWN_TIME = 3f;
 
     [Header("Properties"), Space(8)]
+    [SerializeField] private GameObject startupMenu;
+    [SerializeField] private GameObject gameplayCanvas;
     [SerializeField] private GameObject level;
     [SerializeField] private int score;
     [SerializeField] public int tokensEarned;
@@ -89,6 +91,7 @@ public class GameplayManager : MonoBehaviour
     public IEnumerator CountdownTimer()
     {
         countdownCanvas.SetActive(true);
+        overlay.color = new Color(overlay.color.r, overlay.color.g, overlay.color.b, 1f);
         timeUntilStartGame = COUNTDOWN_TIME;
 
         while (timeUntilStartGame > 0f)
@@ -102,6 +105,9 @@ public class GameplayManager : MonoBehaviour
         countdownCanvas.SetActive(false);
         StartGame();
         ResetManager();
+        yield return new WaitForSeconds(1f);
+
+        DispenseCapsule();
     }
 
     /// <summary>
@@ -262,6 +268,29 @@ public class GameplayManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Go to Startup Menu
+    /// </summary>
+    public void GoToStartupMenu()
+    {
+        gameOver = false;
+
+        totalScoreText.text = "0";
+        score = 0;
+        tokensEarned = 0;
+        capsuleDispenserCount = CAPSULE_TOTAL;
+        timeUntilDispense = 30f;
+
+        overlay.color = new Color(overlay.color.r, overlay.color.g, overlay.color.b, 0f);
+        bestScoreText.gameObject.SetActive(false);
+        tokenCanvas.SetActive(false);
+        resultsButtons.SetActive(false);
+        resultsScreen.SetActive(false);
+        level.SetActive(false);
+        gameplayCanvas.SetActive(false);
+        startupMenu.SetActive(true);
+    }
+
+    /// <summary>
     /// Resets the Gameplay Manager's variables.
     /// </summary>
     public void ResetManager()
@@ -275,7 +304,6 @@ public class GameplayManager : MonoBehaviour
         level.SetActive(true);
         scoreText.text = $"{score}";
         capsuleCountText.text = $"{capsuleDispenserCount}";
-        DispenseCapsule();
     }
 
     private int GetExistingCapsules() => CAPSULE_TOTAL - capsuleDispenserCount;
