@@ -38,7 +38,7 @@ public class Slider : MonoBehaviour
     [SerializeField] private Transform rightPoint;
     private GameObject mainBar;
     [SerializeField] private bool isDraggable;
-    private bool onDrag = false;
+    [SerializeField] private bool onDrag = false;
 
     [Header("Drag Timer"), Space(8)]
     [SerializeField] private float dragTime = 4f;
@@ -60,8 +60,8 @@ public class Slider : MonoBehaviour
     private void OnValidate()
     {
         SetupSlider();
-        leftPoint.position = new Vector3(startpoint.x, startpoint.y, -2f);
-        rightPoint.position = new Vector3(endpoint.x, endpoint.y, -2f);
+        leftPoint.position = new Vector3(startpoint.x, startpoint.y, 1f);
+        rightPoint.position = new Vector3(endpoint.x, endpoint.y, 1f);
         ResetFillBars();
         obj.transform.position = GetPlacement();
         origin = obj.transform.position;
@@ -146,22 +146,22 @@ public class Slider : MonoBehaviour
         {
             case Placement.Left:
                 leftBar.SetActive(true);
-                leftBar.transform.position = new Vector3(startpoint.x, startpoint.y, -1f);
+                leftBar.transform.position = new Vector3(startpoint.x, startpoint.y, 3f);
                 mainBar = leftBar;
                 return Vector3.Lerp(startpoint, endpoint, 0f);
             case Placement.Right:
                 rightBar.SetActive(true);
-                rightBar.transform.position = new Vector3(endpoint.x, endpoint.y, -1f);
+                rightBar.transform.position = new Vector3(endpoint.x, endpoint.y, 3f);
                 mainBar = rightBar;
                 return Vector3.Lerp(startpoint, endpoint, 1f);
             case Placement.Top:
                 upBar.SetActive(true);
-                upBar.transform.position = new Vector3(endpoint.x, endpoint.y, -1f);
+                upBar.transform.position = new Vector3(endpoint.x, endpoint.y, 3f);
                 mainBar = upBar;
                 return Vector3.Lerp(startpoint, endpoint, 1f);
             case Placement.Bottom:
                 downBar.SetActive(true);
-                downBar.transform.position = new Vector3(startpoint.x, startpoint.y, -1f);
+                downBar.transform.position = new Vector3(startpoint.x, startpoint.y, 3f);
                 mainBar = downBar;
                 return Vector3.Lerp(startpoint, endpoint, 0f);
             case Placement.Center:
@@ -186,6 +186,7 @@ public class Slider : MonoBehaviour
 
     private void OnMouseDown()
     {
+        onDrag = true;
         if (!isDraggable)
             return;
 
@@ -193,7 +194,6 @@ public class Slider : MonoBehaviour
         Vector3 mousePos = Input.mousePosition;
         mousePos = Camera.main.ScreenToWorldPoint(mousePos);
         obj.transform.position = AdjustSliderRange(mousePos);
-        onDrag = true;
     }
     private void OnMouseDrag()
     {
@@ -208,6 +208,7 @@ public class Slider : MonoBehaviour
 
     private void OnMouseUp()
     {
+        onDrag = false;
         ReleaseDrag();
     }
 
@@ -238,7 +239,6 @@ public class Slider : MonoBehaviour
     private void ReleaseDrag()
     {
         dragTime = 0f;
-        onDrag = false;
         isDraggable = false;
         float time = Vector2.Distance((Vector2)obj.transform.position, origin) / 200f;
         if (time == 0f)
@@ -255,7 +255,7 @@ public class Slider : MonoBehaviour
     /// Checks if slider button is at the origin.
     /// </summary>
     /// <returns>TRUE if slider button is at the origin. Otherwise, FALSE.</returns>
-    private bool AtOrigin() => (Vector2)obj.transform.position == origin;
+    private bool AtOrigin() => (Vector2)obj.transform.position == origin && !onDrag;
 
     public void ResetSlide()
     {

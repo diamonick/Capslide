@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3839961099938445479}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 169, z: -1}
+  m_LocalPosition: {x: 0, y: 169, z: 3}
   m_LocalScale: {x: 0, y: 8, z: 1}
   m_Children: []
   m_Father: {fileID: 3839961101012477688}
@@ -115,6 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SPR: {fileID: 3839961099938445498}
   image: {fileID: 0}
+  button: {fileID: 0}
   tmpText: {fileID: 0}
   colorType: 2
 --- !u!1 &3839961100395203247
@@ -144,7 +145,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3839961100395203247}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 169, z: -1}
+  m_LocalPosition: {x: 0, y: 169, z: 3}
   m_LocalScale: {x: 360, y: 8, z: 1}
   m_Children: []
   m_Father: {fileID: 3839961101012477688}
@@ -232,6 +233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SPR: {fileID: 3839961100395203234}
   image: {fileID: 0}
+  button: {fileID: 0}
   tmpText: {fileID: 0}
   colorType: 2
 --- !u!1 &3839961100501827292
@@ -260,7 +262,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3839961100501827292}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -191, z: -2}
+  m_LocalPosition: {x: 0, y: -191, z: 1}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 3839961101012477688}
@@ -330,6 +332,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SPR: {fileID: 3839961100501827282}
   image: {fileID: 0}
+  button: {fileID: 0}
   tmpText: {fileID: 0}
   colorType: 2
 --- !u!1 &3839961100847294743
@@ -359,7 +362,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3839961100847294743}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -191, z: -1}
+  m_LocalPosition: {x: 0, y: -191, z: 3}
   m_LocalScale: {x: 8, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 3839961101012477688}
@@ -447,6 +450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SPR: {fileID: 3839961100847294762}
   image: {fileID: 0}
+  button: {fileID: 0}
   tmpText: {fileID: 0}
   colorType: 2
 --- !u!1 &3839961100984823217
@@ -476,7 +480,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3839961100984823217}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 169, z: -1}
+  m_LocalPosition: {x: 0, y: 169, z: 3}
   m_LocalScale: {x: 8, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 3839961101012477688}
@@ -564,6 +568,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SPR: {fileID: 3839961100984823220}
   image: {fileID: 0}
+  button: {fileID: 0}
   tmpText: {fileID: 0}
   colorType: 2
 --- !u!1 &3839961100988735227
@@ -592,7 +597,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3839961100988735227}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 529, z: -2}
+  m_LocalPosition: {x: 0, y: 529, z: 1}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 3839961101012477688}
@@ -662,6 +667,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SPR: {fileID: 3839961100988735225}
   image: {fileID: 0}
+  button: {fileID: 0}
   tmpText: {fileID: 0}
   colorType: 2
 --- !u!1 &3839961101012477691
@@ -729,7 +735,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3839961101230824871}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 169, z: 0}
+  m_LocalPosition: {x: 0, y: 169, z: 5}
   m_LocalScale: {x: 8, y: 720, z: 0}
   m_Children: []
   m_Father: {fileID: 3839961101012477688}
@@ -799,6 +805,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SPR: {fileID: 3839961101230824869}
   image: {fileID: 0}
+  button: {fileID: 0}
   tmpText: {fileID: 0}
   colorType: 4
 --- !u!1 &3839961101450839765
@@ -953,7 +960,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3839961101951862559}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 169, z: -1}
+  m_LocalPosition: {x: 0, y: 169, z: 3}
   m_LocalScale: {x: 0, y: 8, z: 1}
   m_Children: []
   m_Father: {fileID: 3839961101012477688}
@@ -1041,5 +1048,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SPR: {fileID: 3839961101951862546}
   image: {fileID: 0}
+  button: {fileID: 0}
   tmpText: {fileID: 0}
   colorType: 2
