@@ -222,7 +222,8 @@ public class GameplayManager : MonoBehaviour
 
         while (totalScore < score)
         {
-            totalScoreText.text = $"{++totalScore}";
+            AddScorePerFrame(ref totalScore);
+            totalScoreText.text = $"{totalScore}";
             yield return new WaitForEndOfFrame();
         }
         yield return new WaitForSeconds(0.5f);
@@ -235,6 +236,24 @@ public class GameplayManager : MonoBehaviour
         tokenText.text = $"You got {tokenCount}";
         GameManager.Instance.tokens += tokensEarned;
         yield return new WaitForSeconds(1f);
+    }
+
+    private void AddScorePerFrame(ref int currentScore)
+    {
+        int pointsToAdd = GetRate(currentScore);
+        currentScore += pointsToAdd;
+        currentScore = Mathf.Min(currentScore, score);
+    }
+    private int GetRate(int currentScore)
+    {
+        if (currentScore < 100)
+            return 1;
+        else if (currentScore < 500)
+            return 2;
+        else if(currentScore < 2000)
+            return 4;
+        else
+            return 8;
     }
 
     /// <summary>

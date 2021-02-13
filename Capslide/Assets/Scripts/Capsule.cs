@@ -12,6 +12,7 @@ public class Capsule : MonoBehaviour
     private const float DEADZONE_VALUE = 144f;
 
     [SerializeField] private int points = 0;
+    [SerializeField] private ParticleSystem trailPS;
     [SerializeField] private ParticleSystem BouncePS;
     [SerializeField] private GameObject floatingPoint;
     [SerializeField] private SpriteRenderer SPR;
@@ -28,6 +29,9 @@ public class Capsule : MonoBehaviour
     {
         startForce = new Vector3(Random.Range(-MAX_SPEED, MAX_SPEED), 0f, 0f);
         RB.AddForce(startForce, ForceMode2D.Impulse);
+
+        var main = trailPS.main;
+        main.startColor = SPR.color;
     }
 
     // Update is called once per frame

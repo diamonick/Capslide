@@ -17,7 +17,9 @@ public class ScreenShake
             Vector3 offset = new Vector3(x, y, 0f);
 
             mainCamera.transform.position = origPos + offset;
-            frequency = Mathf.Max(0f, frequency - rate);
+            float fpsRatio = Application.targetFrameRate / 60f;
+            float fullRate = (frequency - rate) * fpsRatio;
+            frequency = Mathf.Max(0f, fullRate);
             yield return new WaitForEndOfFrame();
         }
         mainCamera.transform.position = origPos;
