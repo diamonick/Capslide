@@ -9,7 +9,7 @@ public class Capsule : MonoBehaviour
     private const float INITIAL_GRAVITY = 50f;
     private const float GRAVITY_INTERVAL = 1f;
     private const float MAX_SPEED = 720f;
-    private const float DEADZONE_VALUE = 180f;
+    private const float DEADZONE_VALUE = 144f;
 
     [SerializeField] private int points = 0;
     [SerializeField] private ParticleSystem BouncePS;

@@ -954,7 +954,7 @@ Transform:
   m_GameObject: {fileID: 1509967991998742943}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -360, y: 169, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children: []
   m_Father: {fileID: 1509967991250186082}
   m_RootOrder: 0
@@ -1032,6 +1032,7 @@ MonoBehaviour:
   leftPoint: {fileID: 1509967990432488970}
   rightPoint: {fileID: 1509967990718658018}
   isDraggable: 1
+  onDrag: 0
   dragTime: 3
   freezeX: 0
   freezeY: 1
