@@ -8,6 +8,7 @@ public class ColorChange : MonoBehaviour
 {
     public enum ColorType
     {
+        Black = -2,
         White = -1,
         Lightest,
         Light,
@@ -25,6 +26,7 @@ public class ColorChange : MonoBehaviour
     [SerializeField] private Image image;
     [SerializeField] private Button button;
     [SerializeField] private TMP_Text tmpText;
+    [SerializeField] private Camera camera;
     [SerializeField] private ColorType colorType;
     private ColorType colorTypePrev;
     private Color mainColor;
@@ -52,6 +54,9 @@ public class ColorChange : MonoBehaviour
         {
             case ColorType.White:
                 col = Color.white;
+                break;
+            case ColorType.Black:
+                col = Color.black;
                 break;
             case ColorType.Score:
                 col = GameManager.Instance.GetScoreColor();
@@ -89,6 +94,8 @@ public class ColorChange : MonoBehaviour
             colors.selectedColor = new Color(col.r, col.g, col.b, 0f);
             button.colors = colors;
         }
+        if (camera != null)
+            camera.backgroundColor = col;
 
         mainColor = col;
     }

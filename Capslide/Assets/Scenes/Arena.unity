@@ -363,6 +363,7 @@ MonoBehaviour:
   image: {fileID: 0}
   button: {fileID: 33595081}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: 7
 --- !u!114 &33595081
 MonoBehaviour:
@@ -555,6 +556,7 @@ MonoBehaviour:
   image: {fileID: 104164315}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: 6
 --- !u!114 &104164315
 MonoBehaviour:
@@ -648,6 +650,7 @@ MonoBehaviour:
   image: {fileID: 0}
   button: {fileID: 106327591}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: 2
 --- !u!114 &106327591
 MonoBehaviour:
@@ -976,6 +979,7 @@ MonoBehaviour:
   image: {fileID: 160460035}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: 7
 --- !u!1001 &163981560
 PrefabInstance:
@@ -1647,6 +1651,7 @@ MonoBehaviour:
   image: {fileID: 0}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: 2
 --- !u!1 &248531123
 GameObject:
@@ -1836,6 +1841,7 @@ MonoBehaviour:
   image: {fileID: 267467148}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: 2
 --- !u!114 &267467148
 MonoBehaviour:
@@ -1885,6 +1891,7 @@ GameObject:
   - component: {fileID: 299989626}
   - component: {fileID: 299989628}
   - component: {fileID: 299989627}
+  - component: {fileID: 299989629}
   m_Layer: 0
   m_Name: Overlay
   m_TagString: Untagged
@@ -1948,6 +1955,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 299989625}
   m_CullTransparentMesh: 0
+--- !u!114 &299989629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299989625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 413a7f3edb466914ca5d6b0e8391f5ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SPR: {fileID: 0}
+  image: {fileID: 299989627}
+  button: {fileID: 0}
+  tmpText: {fileID: 0}
+  camera: {fileID: 0}
+  colorType: 4
 --- !u!1 &355979400
 GameObject:
   m_ObjectHideFlags: 0
@@ -2222,6 +2247,7 @@ MonoBehaviour:
   image: {fileID: 420832110}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: 2
 --- !u!114 &420832110
 MonoBehaviour:
@@ -2588,6 +2614,7 @@ MonoBehaviour:
   image: {fileID: 469694614}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: 9
 --- !u!1 &490373420
 GameObject:
@@ -2939,6 +2966,7 @@ MonoBehaviour:
   image: {fileID: 548235899}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: -1
 --- !u!1 &557777492
 GameObject:
@@ -3107,6 +3135,7 @@ MonoBehaviour:
   image: {fileID: 575044188}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: 9
 --- !u!95 &575044191
 Animator:
@@ -3183,6 +3212,7 @@ MonoBehaviour:
   image: {fileID: 575320552}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: 2
 --- !u!114 &575320552
 MonoBehaviour:
@@ -3372,6 +3402,7 @@ MonoBehaviour:
   image: {fileID: 603191948}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: 0
 --- !u!1001 &605278867
 PrefabInstance:
@@ -3514,6 +3545,7 @@ MonoBehaviour:
   image: {fileID: 0}
   button: {fileID: 609578490}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: 7
 --- !u!114 &609578490
 MonoBehaviour:
@@ -3660,6 +3692,7 @@ MonoBehaviour:
   image: {fileID: 647020691}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: 8
 --- !u!114 &647020691
 MonoBehaviour:
@@ -4159,6 +4192,7 @@ MonoBehaviour:
   image: {fileID: 716773543}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: 2
 --- !u!114 &716773543
 MonoBehaviour:
@@ -4411,6 +4445,7 @@ MonoBehaviour:
   image: {fileID: 0}
   button: {fileID: 0}
   tmpText: {fileID: 776304798}
+  camera: {fileID: 0}
   colorType: 2
 --- !u!114 &776304798
 MonoBehaviour:
@@ -4807,6 +4842,7 @@ MonoBehaviour:
   image: {fileID: 858340644}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: 6
 --- !u!1001 &878743604
 PrefabInstance:
@@ -4923,7 +4959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90867b6b6b347a9429f2af0cc2a1b081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainPalette: {fileID: 11400000, guid: 03a3a9b0f1ee6a14b8d7b38fd1a9d493, type: 2}
+  mainPalette: {fileID: 11400000, guid: a198101fed26d5b48a71021017d99c88, type: 2}
   tokens: 0
   screenShakeON: 1
 --- !u!4 &898291489
@@ -5031,6 +5067,7 @@ MonoBehaviour:
   image: {fileID: 918392375}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: 2
 --- !u!1001 &923536481
 PrefabInstance:
@@ -5660,6 +5697,7 @@ MonoBehaviour:
   image: {fileID: 0}
   button: {fileID: 1007421035}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: 8
 --- !u!114 &1007421035
 MonoBehaviour:
@@ -5806,6 +5844,7 @@ MonoBehaviour:
   image: {fileID: 1049875433}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: -1
 --- !u!114 &1049875433
 MonoBehaviour:
@@ -5899,6 +5938,7 @@ MonoBehaviour:
   image: {fileID: 0}
   button: {fileID: 1054392005}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: 9
 --- !u!114 &1054392005
 MonoBehaviour:
@@ -6241,6 +6281,7 @@ MonoBehaviour:
   image: {fileID: 1112234055}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: 2
 --- !u!1 &1132391916
 GameObject:
@@ -6541,6 +6582,7 @@ MonoBehaviour:
   image: {fileID: 1193894548}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: -1
 --- !u!114 &1193894548
 MonoBehaviour:
@@ -6730,6 +6772,7 @@ MonoBehaviour:
   image: {fileID: 0}
   button: {fileID: 0}
   tmpText: {fileID: 1200952209}
+  camera: {fileID: 0}
   colorType: 5
 --- !u!1 &1234433261
 GameObject:
@@ -6958,6 +7001,7 @@ MonoBehaviour:
   image: {fileID: 1295309181}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: 2
 --- !u!1001 &1310051389
 PrefabInstance:
@@ -7234,6 +7278,7 @@ MonoBehaviour:
   image: {fileID: 0}
   button: {fileID: 0}
   tmpText: {fileID: 1475826487}
+  camera: {fileID: 0}
   colorType: -1
 --- !u!1 &1486089151
 GameObject:
@@ -7290,6 +7335,7 @@ MonoBehaviour:
   image: {fileID: 0}
   button: {fileID: 1486089154}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: 9
 --- !u!114 &1486089154
 MonoBehaviour:
@@ -7652,6 +7698,7 @@ GameObject:
   - component: {fileID: 1632175712}
   - component: {fileID: 1632175711}
   - component: {fileID: 1632175710}
+  - component: {fileID: 1632175713}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -7724,6 +7771,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1632175713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632175709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 413a7f3edb466914ca5d6b0e8391f5ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SPR: {fileID: 0}
+  image: {fileID: 0}
+  button: {fileID: 0}
+  tmpText: {fileID: 0}
+  camera: {fileID: 1632175711}
+  colorType: 4
 --- !u!1 &1656897117
 GameObject:
   m_ObjectHideFlags: 0
@@ -7815,6 +7880,7 @@ MonoBehaviour:
   image: {fileID: 1656897119}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: 2
 --- !u!1 &1672489375
 GameObject:
@@ -8285,6 +8351,7 @@ MonoBehaviour:
   image: {fileID: 1756589622}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: 2
 --- !u!114 &1756589622
 MonoBehaviour:
@@ -8435,6 +8502,7 @@ MonoBehaviour:
   image: {fileID: 1799926763}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: 8
 --- !u!1 &1801554930
 GameObject:
@@ -8490,6 +8558,7 @@ MonoBehaviour:
   image: {fileID: 1801554933}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: 9
 --- !u!114 &1801554933
 MonoBehaviour:
@@ -8653,6 +8722,7 @@ MonoBehaviour:
   image: {fileID: 0}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: 2
 --- !u!1 &1846973318
 GameObject:
@@ -8743,6 +8813,7 @@ MonoBehaviour:
   image: {fileID: 1860335530}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: 2
 --- !u!114 &1860335530
 MonoBehaviour:
@@ -8866,6 +8937,7 @@ MonoBehaviour:
   image: {fileID: 0}
   button: {fileID: 1898396374}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: 8
 --- !u!114 &1898396374
 MonoBehaviour:
@@ -9001,6 +9073,7 @@ MonoBehaviour:
   image: {fileID: 1932904550}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: 7
 --- !u!114 &1932904550
 MonoBehaviour:
@@ -9470,6 +9543,7 @@ MonoBehaviour:
   image: {fileID: 2069556061}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: 2
 --- !u!1 &2085177146
 GameObject:
@@ -9562,6 +9636,7 @@ MonoBehaviour:
   image: {fileID: 2085177148}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: 2
 --- !u!1001 &2098497192
 PrefabInstance:
@@ -9774,6 +9849,7 @@ MonoBehaviour:
   image: {fileID: 0}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: 2
 --- !u!1 &2119994400
 GameObject:
@@ -9926,7 +10002,8 @@ MonoBehaviour:
   image: {fileID: 0}
   button: {fileID: 0}
   tmpText: {fileID: 2119994402}
-  colorType: 0
+  camera: {fileID: 0}
+  colorType: -1
 --- !u!1 &2127713148
 GameObject:
   m_ObjectHideFlags: 0

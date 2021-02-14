@@ -98,7 +98,8 @@ MonoBehaviour:
   image: {fileID: 0}
   button: {fileID: 0}
   tmpText: {fileID: 0}
-  colorType: 4
+  camera: {fileID: 0}
+  colorType: -2
 --- !u!1 &1509967990432488971
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,6 +198,7 @@ MonoBehaviour:
   image: {fileID: 0}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: 2
 --- !u!1 &1509967990568572581
 GameObject:
@@ -315,6 +317,7 @@ MonoBehaviour:
   image: {fileID: 0}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: 2
 --- !u!1 &1509967990718658019
 GameObject:
@@ -414,6 +417,7 @@ MonoBehaviour:
   image: {fileID: 0}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: 2
 --- !u!1 &1509967991098411222
 GameObject:
@@ -532,6 +536,7 @@ MonoBehaviour:
   image: {fileID: 0}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: 2
 --- !u!1 &1509967991250186083
 GameObject:
@@ -689,6 +694,7 @@ MonoBehaviour:
   image: {fileID: 0}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: 2
 --- !u!1 &1509967991525525467
 GameObject:
@@ -807,6 +813,7 @@ MonoBehaviour:
   image: {fileID: 0}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: 2
 --- !u!1 &1509967991920255948
 GameObject:
@@ -925,6 +932,7 @@ MonoBehaviour:
   image: {fileID: 0}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  camera: {fileID: 0}
   colorType: 2
 --- !u!1 &1509967991998742943
 GameObject:
