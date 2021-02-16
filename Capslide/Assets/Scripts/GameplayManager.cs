@@ -250,10 +250,12 @@ public class GameplayManager : MonoBehaviour
             return 1;
         else if (currentScore < 500)
             return 2;
-        else if(currentScore < 2000)
+        else if (currentScore < 1000)
             return 4;
-        else
+        else if (currentScore < 2500)
             return 8;
+        else
+            return 10;
     }
 
     /// <summary>
