@@ -17,6 +17,7 @@ public class GameplayManager : MonoBehaviour
     [Header("Properties"), Space(8)]
     [SerializeField] private GameObject startupMenu;
     [SerializeField] private GameObject gameplayCanvas;
+    [SerializeField] private GameObject pauseAssets;
     [SerializeField] private GameObject level;
     [SerializeField] private int score;
     [SerializeField] public int tokensEarned;
@@ -268,30 +269,35 @@ public class GameplayManager : MonoBehaviour
         scoreText.text = $"{score}";
     }
 
-    /// <summary>
-    /// Resets the current level.
-    /// </summary>
-    public void ResetLevel()
+    public void TogglePause()
     {
-        gameOver = false;
+        if (!gameStarted)
+            return;
 
-        totalScoreText.text = "0";
-        score = 0;
-        tokensEarned = 0;
-        capsuleDispenserCount = CAPSULE_TOTAL;
-        timeUntilDispense = 30f;
-
-        bestScoreText.gameObject.SetActive(false);
-        tokenCanvas.SetActive(false);
-        resultsButtons.SetActive(false);
-        resultsScreen.SetActive(false);
-        StartCoroutine(CountdownTimer());
+        if (Time.timeScale == 1f)
+            PauseGame();
+        else
+            ResumeGame();
     }
 
     /// <summary>
-    /// Go to Startup Menu
+    /// Pauses the game.
     /// </summary>
-    public void GoToStartupMenu()
+    private void PauseGame()
+    {
+        Time.timeScale = 0f;
+        gameplayCanvas.SetActive(false);
+        pauseAssets.SetActive(true);
+    }
+
+    private void ResumeGame()
+    {
+        Time.timeScale = 1f;
+        gameplayCanvas.SetActive(true);
+        pauseAssets.SetActive(false);
+    }
+
+    public void ResetMainVariables()
     {
         gameOver = false;
 
@@ -306,8 +312,25 @@ public class GameplayManager : MonoBehaviour
         tokenCanvas.SetActive(false);
         resultsButtons.SetActive(false);
         resultsScreen.SetActive(false);
+    }
+
+    /// <summary>
+    /// Resets the current level.
+    /// </summary>
+    public void ResetLevel()
+    {
+        ResetMainVariables();
+        StartCoroutine(CountdownTimer());
+    }
+
+    /// <summary>
+    /// Go to Startup Menu from Results screen
+    /// </summary>
+    public void GoToStartupMenu(GameObject menuScreen)
+    {
+        ResetMainVariables();
         level.SetActive(false);
-        gameplayCanvas.SetActive(false);
+        menuScreen.SetActive(false);
         startupMenu.SetActive(true);
     }
 

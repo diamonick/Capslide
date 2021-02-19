@@ -82,7 +82,7 @@ public class Capsule : MonoBehaviour
 
     private IEnumerator ShakeScreen()
     {
-        if (GameManager.Instance.screenShakeON)
+        if (GameManager.Instance.screenShake)
             yield return StartCoroutine(ScreenShake.Shake(20f, 0.5f));
 
         points = 0;

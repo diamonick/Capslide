@@ -125,6 +125,31 @@ public class Ease
         }
         Obj.transform.position = new Vector3(TP.x, TP.y, Obj.transform.position.z);
     }
+
+    public static IEnumerator AnchoredTranslateTo(Image Obj, Vector2 target, float duration, uint power = 2, Easing ease = Easing.Linear)
+    {
+        float time = 0f;
+
+        Vector2 startPos = new Vector2(Obj.rectTransform.anchoredPosition.x, Obj.rectTransform.anchoredPosition.y);
+        Vector2 targetPos = new Vector2(target.x, target.y);
+
+        Vector2 SP = startPos;
+        Vector2 TP = targetPos;
+
+        Obj.rectTransform.anchoredPosition = SP;
+
+        while (time <= duration)
+        {
+            Vector3 currentPosition = SP;
+            currentPosition = CalculateVector(ease, SP, TP, time / duration, power, true, true, true);
+
+            Obj.rectTransform.anchoredPosition = currentPosition;
+            yield return null;
+            time += Time.deltaTime;
+        }
+        Obj.rectTransform.anchoredPosition = new Vector2(TP.x, TP.y);
+    }
+
     /// <summary>
     /// Translates GameObject along the x-axis.
     /// </summary>
