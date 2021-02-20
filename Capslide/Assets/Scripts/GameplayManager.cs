@@ -58,7 +58,7 @@ public class GameplayManager : MonoBehaviour
     [Header("Token"), Space(8)]
     [SerializeField] private GameObject token;
     [SerializeField] private float timeUntilSpawnToken = TOKEN_SPAWN_INTERVAL;
-    [SerializeField] private Transform[] spawnLocations;
+    private Level level;
 
     private void Awake()
     {
@@ -104,6 +104,7 @@ public class GameplayManager : MonoBehaviour
             countdownFillTimer.fillAmount = (timeUntilStartGame % 1f);
             yield return new WaitForEndOfFrame();
         }
+        level = GameManager.Instance.currentLevel.GetComponent<Level>();
         countdownCanvas.SetActive(false);
         gameplayCanvas.SetActive(true);
         StartGame();
@@ -179,7 +180,9 @@ public class GameplayManager : MonoBehaviour
     /// </summary>
     public void SpawnToken()
     {
+        Transform[] spawnLocations = level.spawnLocations;
         int index = Random.Range(0, spawnLocations.Length);
+
         token.SetActive(true);
         token.transform.position = spawnLocations[index].position;
         timeUntilSpawnToken = TOKEN_SPAWN_INTERVAL;
