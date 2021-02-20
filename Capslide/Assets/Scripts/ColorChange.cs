@@ -26,6 +26,7 @@ public class ColorChange : MonoBehaviour
     [SerializeField] private Image image;
     [SerializeField] private Button button;
     [SerializeField] private TMP_Text tmpText;
+    [SerializeField] private ForegroundOverlay overlay;
     [SerializeField] private Camera camera;
     [SerializeField] private ColorType colorType;
     private ColorType colorTypePrev;
@@ -93,6 +94,11 @@ public class ColorChange : MonoBehaviour
             colors.pressedColor = col;
             colors.selectedColor = new Color(col.r, col.g, col.b, 0f);
             button.colors = colors;
+        }
+        if (overlay != null)
+        {
+            overlay.SetForegroundColor(col);
+            overlay.FadeOutForeground(0f);
         }
         if (camera != null)
             camera.backgroundColor = col;

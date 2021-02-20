@@ -98,6 +98,7 @@ MonoBehaviour:
   image: {fileID: 0}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  overlay: {fileID: 0}
   camera: {fileID: 0}
   colorType: -2
 --- !u!1 &1509967990432488971
@@ -198,6 +199,7 @@ MonoBehaviour:
   image: {fileID: 0}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  overlay: {fileID: 0}
   camera: {fileID: 0}
   colorType: 2
 --- !u!1 &1509967990568572581
@@ -317,6 +319,7 @@ MonoBehaviour:
   image: {fileID: 0}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  overlay: {fileID: 0}
   camera: {fileID: 0}
   colorType: 2
 --- !u!1 &1509967990718658019
@@ -417,6 +420,7 @@ MonoBehaviour:
   image: {fileID: 0}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  overlay: {fileID: 0}
   camera: {fileID: 0}
   colorType: 2
 --- !u!1 &1509967991098411222
@@ -536,6 +540,7 @@ MonoBehaviour:
   image: {fileID: 0}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  overlay: {fileID: 0}
   camera: {fileID: 0}
   colorType: 2
 --- !u!1 &1509967991250186083
@@ -694,6 +699,7 @@ MonoBehaviour:
   image: {fileID: 0}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  overlay: {fileID: 0}
   camera: {fileID: 0}
   colorType: 2
 --- !u!1 &1509967991525525467
@@ -813,6 +819,7 @@ MonoBehaviour:
   image: {fileID: 0}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  overlay: {fileID: 0}
   camera: {fileID: 0}
   colorType: 2
 --- !u!1 &1509967991920255948
@@ -932,6 +939,7 @@ MonoBehaviour:
   image: {fileID: 0}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  overlay: {fileID: 0}
   camera: {fileID: 0}
   colorType: 2
 --- !u!1 &1509967991998742943

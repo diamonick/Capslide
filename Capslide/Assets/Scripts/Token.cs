@@ -16,16 +16,13 @@ public class Token : MonoBehaviour
     [SerializeField] private bool isCollected = false;
     private float timeUntilDisappear;
 
-    private void Awake()
-    {
-        obj = this.gameObject;
-
-        var main = CollectPS.main;
-        main.startColor = GameManager.Instance.GetColor(2);
-    }
+    private void Awake() => obj = this.gameObject;
 
     private void OnEnable()
     {
+        var main = CollectPS.main;
+        main.startColor = GameManager.Instance.GetColor(2);
+
         timeUntilDisappear = TIME_MAX;
         timeRunning = true;
         startBlinking = false;

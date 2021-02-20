@@ -16,9 +16,9 @@ public class GameplayManager : MonoBehaviour
 
     [Header("Properties"), Space(8)]
     [SerializeField] private GameObject startupMenu;
+    [SerializeField] private Menu gameplayMenu;
     [SerializeField] private GameObject gameplayCanvas;
     [SerializeField] private GameObject pauseAssets;
-    [SerializeField] private GameObject level;
     [SerializeField] private int score;
     [SerializeField] public int tokensEarned;
     [SerializeField] private int capsuleDispenserCount;
@@ -53,6 +53,7 @@ public class GameplayManager : MonoBehaviour
     [SerializeField] private TMP_Text bestScoreText;
     [SerializeField] private GameObject tokenCanvas;
     [SerializeField] private TMP_Text tokenText;
+    [SerializeField] private Menu resultsMenu;
 
     [Header("Token"), Space(8)]
     [SerializeField] private GameObject token;
@@ -74,7 +75,7 @@ public class GameplayManager : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         ResetLevel();
     }
@@ -92,7 +93,7 @@ public class GameplayManager : MonoBehaviour
     public IEnumerator CountdownTimer()
     {
         countdownCanvas.SetActive(true);
-        overlay.color = new Color(overlay.color.r, overlay.color.g, overlay.color.b, 1f);
+        ForegroundOverlay.Instance.FadeInForeground(0f);
         timeUntilStartGame = COUNTDOWN_TIME;
 
         while (timeUntilStartGame > 0f)
@@ -104,6 +105,7 @@ public class GameplayManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         countdownCanvas.SetActive(false);
+        gameplayCanvas.SetActive(true);
         StartGame();
         ResetManager();
         yield return new WaitForSeconds(1f);
@@ -165,9 +167,9 @@ public class GameplayManager : MonoBehaviour
 
             capsuleDispenserCount--;
         }
-        while (capsuleDispenserCount > 0 && capsuleDispenserCount < 5);
+        while (LastFiveCapsules());
 
-        timeUntilDispense = 30f;
+        timeUntilDispense = (DispenserIsEmpty() ? 0f : 30f);
         fullTime = timeUntilDispense;
         capsuleCountText.text = $"{capsuleDispenserCount}";
     }
@@ -202,6 +204,7 @@ public class GameplayManager : MonoBehaviour
     {
         float rightX = 1594f;
         float leftX = -766f;
+        float xTo = Screen.width / 2f;
         Color fullColor = new Color(overlay.color.r, overlay.color.g, overlay.color.b, 1f);
 
         yield return new WaitForSeconds(1f);
@@ -209,8 +212,14 @@ public class GameplayManager : MonoBehaviour
         yield return StartCoroutine(Ease.TranslateXTo(leftWall, leftX, 0.5f, 2, Easing.EaseOut));
         yield return StartCoroutine(Ease.ChangeImageColor(overlay, fullColor, 1f));
 
-        level.SetActive(false);
+        ForegroundOverlay.Instance.FadeOutForeground(0f);
+        GameManager.Instance.currentLevel.SetActive(false);
+        token.SetActive(false);
+        gameplayCanvas.SetActive(false);
+        countdownCanvas.SetActive(false);
         resultsScreen.SetActive(true);
+        foreach (GameObject resultCanvas in resultsMenu.menuCanvases)
+            resultCanvas.transform.position = new Vector3(xTo, resultCanvas.transform.position.y, 0f);
         yield return StartCoroutine(SetupResults());
 
         resultsButtons.SetActive(true);
@@ -286,14 +295,14 @@ public class GameplayManager : MonoBehaviour
     private void PauseGame()
     {
         Time.timeScale = 0f;
-        gameplayCanvas.SetActive(false);
+        gameplayCanvas.gameObject.SetActive(false);
         pauseAssets.SetActive(true);
     }
 
     private void ResumeGame()
     {
         Time.timeScale = 1f;
-        gameplayCanvas.SetActive(true);
+        gameplayCanvas.gameObject.SetActive(true);
         pauseAssets.SetActive(false);
     }
 
@@ -307,7 +316,6 @@ public class GameplayManager : MonoBehaviour
         capsuleDispenserCount = CAPSULE_TOTAL;
         timeUntilDispense = 30f;
 
-        overlay.color = new Color(overlay.color.r, overlay.color.g, overlay.color.b, 0f);
         bestScoreText.gameObject.SetActive(false);
         tokenCanvas.SetActive(false);
         resultsButtons.SetActive(false);
@@ -329,9 +337,8 @@ public class GameplayManager : MonoBehaviour
     public void GoToStartupMenu(GameObject menuScreen)
     {
         ResetMainVariables();
-        level.SetActive(false);
-        menuScreen.SetActive(false);
-        startupMenu.SetActive(true);
+        GameManager.Instance.currentLevel.SetActive(false);
+        GameManager.Instance.GoToStartupMenu(gameplayMenu);
     }
 
     /// <summary>
@@ -345,7 +352,7 @@ public class GameplayManager : MonoBehaviour
         rightWall.transform.position = new Vector3(1234f, rightWall.transform.position.y, rightWall.transform.position.z);
         leftWall.transform.position = new Vector3(-406f, leftWall.transform.position.y, leftWall.transform.position.z);
         overlay.color = new Color(overlay.color.r, overlay.color.g, overlay.color.b, 0f);
-        level.SetActive(true);
+        GameManager.Instance.currentLevel.SetActive(true);
         scoreText.text = $"{score}";
         capsuleCountText.text = $"{capsuleDispenserCount}";
     }
@@ -376,6 +383,12 @@ public class GameplayManager : MonoBehaviour
     public bool DispenserIsEmpty() => capsuleDispenserCount == 0;
 
     /// <summary>
+    /// Checks if there are 5 capsules remaining in the capsule dispenser.
+    /// </summary>
+    /// <returns></returns>
+    private bool LastFiveCapsules() => capsuleDispenserCount > 0 && capsuleDispenserCount < 5;
+
+    /// <summary>
     /// Checks if current game session is over.
     /// </summary>
     /// <returns>TRUE if game is over. Otherwise, FALSE.</returns>
@@ -397,6 +410,7 @@ public class GameplayManager : MonoBehaviour
     }
 
     private void StartGame() => gameStarted = true;
+    public bool GameStarted() => gameStarted;
 
     /// <summary>
     /// Sets all the capsules to a random color based on the color palette.

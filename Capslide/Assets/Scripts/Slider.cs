@@ -47,7 +47,7 @@ public class Slider : MonoBehaviour
     [SerializeField] private bool freezeX = false;
     [SerializeField] private bool freezeY = false;
 
-    private void Awake()
+    private void OnEnable()
     {
         SetupSlider();
 
@@ -186,7 +186,11 @@ public class Slider : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (!GameplayManager.Instance.GameStarted())
+            return;
+
         onDrag = true;
+
         if (!isDraggable)
             return;
 
@@ -197,6 +201,8 @@ public class Slider : MonoBehaviour
     }
     private void OnMouseDrag()
     {
+        if (!GameplayManager.Instance.GameStarted() || !onDrag)
+            return;
         if (!isDraggable)
             return;
 
