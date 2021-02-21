@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
 
     // Settings Variables
     [Header("Settings"), Space(8)]
+    public bool bgmON;
+    public bool sfxON;
     public bool screenShake;
     public bool powerSaving;
     [SerializeField] private Button bgmButton;
@@ -129,7 +131,8 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void ToggleBGM()
     {
-        ShiftButton(bgmButton, screenShake);
+        bgmON = !bgmON;
+        ShiftButton(bgmButton, bgmON);
     }
 
     /// <summary>
@@ -137,7 +140,8 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void ToggleSFX()
     {
-        ShiftButton(sfxButton, screenShake);
+        sfxON = !sfxON;
+        ShiftButton(sfxButton, sfxON);
     }
 
     /// <summary>
@@ -189,5 +193,6 @@ public class GameManager : MonoBehaviour
             StartCoroutine(Ease.AnchoredTranslateTo(button.image, toggleOnPos, 0.5f, 2, Easing.EaseOut));
         else
             StartCoroutine(Ease.AnchoredTranslateTo(button.image, toggleOffPos, 0.5f, 2, Easing.EaseOut));
+        AudioManager.Instance.PlaySFX("Toggle");
     }
 }

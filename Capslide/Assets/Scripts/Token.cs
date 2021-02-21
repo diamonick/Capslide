@@ -62,6 +62,7 @@ public class Token : MonoBehaviour
         if (other.CompareTag("Capsule"))
         {
             isCollected = true;
+            AudioManager.Instance.PlaySFX("CollectToken");
             CollectPS.Play();
             timeUntilDisappear = 1.5f;
             GameplayManager.Instance.tokensEarned++;

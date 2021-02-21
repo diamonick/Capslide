@@ -54,8 +54,6 @@ public class Capsule : MonoBehaviour
 
             if (other.CompareTag("Slider") && HasTouchedSlider())
             {
-                SetCapsuleValue(ref points);
-
                 var pp = BouncePS.main;
                 Color col1 = PaletteManager.Instance.GetColor(Random.Range(0, 4));
                 Color col2 = PaletteManager.Instance.GetColor(Random.Range(0, 4));
@@ -65,6 +63,8 @@ public class Capsule : MonoBehaviour
                 if (InDeadZone())
                     return;
 
+                SetCapsuleValue(ref points);
+                AudioManager.Instance.PlayAltSFX("Bounce", Random.Range(0.5f, 0.8f), Random.Range(0.8f, 1f));
                 GameObject fp = Instantiate(floatingPoint, this.gameObject.transform.position, Quaternion.identity);
                 GameplayManager.Instance.SetScore(points);
                 fp.transform.GetChild(0).GetComponent<TMP_Text>().text = $"+{points}";

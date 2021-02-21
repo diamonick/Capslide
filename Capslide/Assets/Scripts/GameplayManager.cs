@@ -93,6 +93,7 @@ public class GameplayManager : MonoBehaviour
     public IEnumerator CountdownTimer()
     {
         countdownCanvas.SetActive(true);
+        ResetTokenSpawnTimer();
         ForegroundOverlay.Instance.FadeInForeground(0f);
         timeUntilStartGame = COUNTDOWN_TIME;
 
@@ -102,6 +103,9 @@ public class GameplayManager : MonoBehaviour
             timeUntilStartGame = Mathf.Max(0f, timeUntilStartGame);
             countdownText.text = $"{(int)timeUntilStartGame + 1}";
             countdownFillTimer.fillAmount = (timeUntilStartGame % 1f);
+
+            if ((timeUntilStartGame % 1f) < 0.05f)
+                AudioManager.Instance.PlaySFX("Tick");
             yield return new WaitForEndOfFrame();
         }
         level = GameManager.Instance.currentLevel.GetComponent<Level>();
