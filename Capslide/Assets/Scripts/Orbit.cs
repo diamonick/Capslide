@@ -5,6 +5,7 @@ using UnityEngine;
 public class Orbit : MonoBehaviour
 {
     private float angle;
+    [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform center;
     [SerializeField] private float angleRate;
     [SerializeField] private float radius;
@@ -17,8 +18,11 @@ public class Orbit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        angle += angleRate;
-        this.gameObject.transform.position = RadialVector(center.position, radius);
+        if (Time.timeScale != 0)
+        {
+            angle += angleRate;
+            this.gameObject.transform.position = RadialVector(center.position, radius);
+        }
     }
 
     private Vector3 RadialVector(Vector3 center, float radius)

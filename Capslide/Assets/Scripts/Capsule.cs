@@ -57,8 +57,8 @@ public class Capsule : MonoBehaviour
                 SetCapsuleValue(ref points);
 
                 var pp = BouncePS.main;
-                Color col1 = GameManager.Instance.GetColor(Random.Range(0, 4));
-                Color col2 = GameManager.Instance.GetColor(Random.Range(0, 4));
+                Color col1 = PaletteManager.Instance.GetColor(Random.Range(0, 4));
+                Color col2 = PaletteManager.Instance.GetColor(Random.Range(0, 4));
                 pp.startColor = new ParticleSystem.MinMaxGradient(col1, col2);
 
                 BouncePS.Play();

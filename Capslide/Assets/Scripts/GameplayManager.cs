@@ -260,15 +260,15 @@ public class GameplayManager : MonoBehaviour
     private int GetRate(int currentScore)
     {
         if (currentScore < 100)
-            return 1;
-        else if (currentScore < 500)
             return 2;
-        else if (currentScore < 1000)
+        else if (currentScore < 500)
             return 4;
-        else if (currentScore < 2500)
+        else if (currentScore < 1000)
             return 8;
+        else if (currentScore < 2500)
+            return 16;
         else
-            return 10;
+            return 32;
     }
 
     /// <summary>
@@ -420,9 +420,11 @@ public class GameplayManager : MonoBehaviour
     /// </summary>
     private void SetCapsuleColors()
     {
-        int colorCount = GameManager.Instance.mainPalette.possibleCapsuleColors.Length;
+        int colorCount = PaletteManager.Instance.mainPalette.possibleCapsuleColors.Length;
+
+        capsuleColors.Clear();
         for (int i = 0; i < colorCount; i++)
-            capsuleColors.Add(GameManager.Instance.mainPalette.possibleCapsuleColors[i]);
+            capsuleColors.Add(PaletteManager.Instance.mainPalette.possibleCapsuleColors[i]);
 
         foreach (GameObject capsule in capsules)
         {

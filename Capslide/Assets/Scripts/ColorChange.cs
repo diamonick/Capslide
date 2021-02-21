@@ -60,22 +60,22 @@ public class ColorChange : MonoBehaviour
                 col = Color.black;
                 break;
             case ColorType.Score:
-                col = GameManager.Instance.GetScoreColor();
+                col = PaletteManager.Instance.GetScoreColor();
                 break;
             case ColorType.CapsuleTimer:
-                col = GameManager.Instance.GetCapsuleTimerColor();
+                col = PaletteManager.Instance.GetCapsuleTimerColor();
                 break;
             case ColorType.Back:
-                col = GameManager.Instance.GetBackButtonColor();
+                col = PaletteManager.Instance.GetBackButtonColor();
                 break;
             case ColorType.Retry:
-                col = GameManager.Instance.GetRetryButtonColor();
+                col = PaletteManager.Instance.GetRetryButtonColor();
                 break;
             case ColorType.RewardedAd:
-                col = GameManager.Instance.GetRewardedAdButtonColor();
+                col = PaletteManager.Instance.GetRewardedAdButtonColor();
                 break;
             default:
-                col = GameManager.Instance.GetColor((int)colorType);
+                col = PaletteManager.Instance.GetColor((int)colorType);
                 break;
         }
 

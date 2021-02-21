@@ -11,13 +11,13 @@ public class GameManager : MonoBehaviour
     [Header("Game Manager")]
     [SerializeField] private Menu startupMenu;
     [SerializeField] private Menu levelSelectMenu;
+    [SerializeField] private Menu paletteMenu;
     [SerializeField] private Menu settingsMenu;
     [SerializeField] private GameObject gameplayMenu;
     [SerializeField] private bool canSelect;
     [HideInInspector] public GameObject currentLevel;
 
     [Header("Game Info"), Space(8)]
-    public Palette mainPalette;
     public int tokens;
 
     // Settings Variables
@@ -55,6 +55,11 @@ public class GameManager : MonoBehaviour
     /// Go to Settings menu.
     /// </summary>
     public void GoToSettings() => StartCoroutine(ShiftMenu(startupMenu, settingsMenu));
+
+    /// <summary>
+    /// Go to Palette menu.
+    /// </summary>
+    public void GoToPalette() => StartCoroutine(ShiftMenu(startupMenu, paletteMenu));
 
     /// <summary>
     /// Go to Level Select menu.
@@ -185,12 +190,4 @@ public class GameManager : MonoBehaviour
         else
             StartCoroutine(Ease.AnchoredTranslateTo(button.image, toggleOffPos, 0.5f, 2, Easing.EaseOut));
     }
-    
-    // Color Getter methods
-    public Color GetColor(int index) => mainPalette.colors[index];
-    public Color GetScoreColor() => mainPalette.scoreColor;
-    public Color GetCapsuleTimerColor() => mainPalette.capsuleTimerColor;
-    public Color GetBackButtonColor() => mainPalette.backButtonColor;
-    public Color GetRetryButtonColor() => mainPalette.retryButtonColor;
-    public Color GetRewardedAdButtonColor() => mainPalette.rewardedAdButtonColor;
 }

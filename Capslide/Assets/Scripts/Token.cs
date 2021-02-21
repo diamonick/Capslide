@@ -21,7 +21,7 @@ public class Token : MonoBehaviour
     private void OnEnable()
     {
         var main = CollectPS.main;
-        main.startColor = GameManager.Instance.GetColor(2);
+        main.startColor = PaletteManager.Instance.GetColor(2);
 
         timeUntilDisappear = TIME_MAX;
         timeRunning = true;
