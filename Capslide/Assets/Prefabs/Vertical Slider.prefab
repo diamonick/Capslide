@@ -117,6 +117,7 @@ MonoBehaviour:
   image: {fileID: 0}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  overlay: {fileID: 0}
   camera: {fileID: 0}
   colorType: 2
 --- !u!1 &3839961100395203247
@@ -236,6 +237,7 @@ MonoBehaviour:
   image: {fileID: 0}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  overlay: {fileID: 0}
   camera: {fileID: 0}
   colorType: 2
 --- !u!1 &3839961100501827292
@@ -336,6 +338,7 @@ MonoBehaviour:
   image: {fileID: 0}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  overlay: {fileID: 0}
   camera: {fileID: 0}
   colorType: 2
 --- !u!1 &3839961100847294743
@@ -455,6 +458,7 @@ MonoBehaviour:
   image: {fileID: 0}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  overlay: {fileID: 0}
   camera: {fileID: 0}
   colorType: 2
 --- !u!1 &3839961100984823217
@@ -574,6 +578,7 @@ MonoBehaviour:
   image: {fileID: 0}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  overlay: {fileID: 0}
   camera: {fileID: 0}
   colorType: 2
 --- !u!1 &3839961100988735227
@@ -674,6 +679,7 @@ MonoBehaviour:
   image: {fileID: 0}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  overlay: {fileID: 0}
   camera: {fileID: 0}
   colorType: 2
 --- !u!1 &3839961101012477691
@@ -813,6 +819,7 @@ MonoBehaviour:
   image: {fileID: 0}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  overlay: {fileID: 0}
   camera: {fileID: 0}
   colorType: -2
 --- !u!1 &3839961101450839765
@@ -921,7 +928,6 @@ MonoBehaviour:
   leftPoint: {fileID: 3839961100501827293}
   rightPoint: {fileID: 3839961100988735224}
   isDraggable: 1
-  onDrag: 0
   dragTime: 3
   freezeX: 1
   freezeY: 0
@@ -1058,5 +1064,6 @@ MonoBehaviour:
   image: {fileID: 0}
   button: {fileID: 0}
   tmpText: {fileID: 0}
+  overlay: {fileID: 0}
   camera: {fileID: 0}
   colorType: 2

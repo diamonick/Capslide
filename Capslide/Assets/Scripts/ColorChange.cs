@@ -38,7 +38,7 @@ public class ColorChange : MonoBehaviour
         obj = this.gameObject;
     }
 
-    private void OnEnable()
+    private void Start()
     {
         ChangeColor();
     }

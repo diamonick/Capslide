@@ -1048,7 +1048,6 @@ MonoBehaviour:
   leftPoint: {fileID: 1509967990432488970}
   rightPoint: {fileID: 1509967990718658018}
   isDraggable: 1
-  onDrag: 0
   dragTime: 3
   freezeX: 0
   freezeY: 1

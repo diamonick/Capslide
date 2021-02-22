@@ -38,10 +38,9 @@ public class Slider : MonoBehaviour
     [SerializeField] private Transform rightPoint;
     private GameObject mainBar;
     [SerializeField] private bool isDraggable;
-    [SerializeField] private bool onDrag = false;
 
     [Header("Drag Timer"), Space(8)]
-    [SerializeField] private float dragTime = 4f;
+    [SerializeField] private float dragTime = 3f;
 
     [Header("Freeze Positions"), Space(8)]
     [SerializeField] private bool freezeX = false;
@@ -77,24 +76,27 @@ public class Slider : MonoBehaviour
             positionPrev = obj.transform.position;
 
         if (AtOrigin())
-            isDraggable = true;
-
-        if (Input.touchCount > 1)
         {
-            Touch touch = Input.GetTouch(0);
-
-            switch (touch.phase)
-            {
-                case TouchPhase.Began:
-                    obj.transform.position = AdjustSliderRange(touch.position);
-                    break;
-                case TouchPhase.Moved:
-                    obj.transform.position = AdjustSliderRange(touch.position);
-                    break;
-                case TouchPhase.Ended:
-                    break;
-            }
+            isDraggable = true;
+            dragTime = DRAG_TIME_INTERVAL;
         }
+
+        //if (Input.touchCount > 1)
+        //{
+        //    Touch touch = Input.GetTouch(0);
+
+        //    switch (touch.phase)
+        //    {
+        //        case TouchPhase.Began:
+        //            obj.transform.position = AdjustSliderRange(touch.position);
+        //            break;
+        //        case TouchPhase.Moved:
+        //            obj.transform.position = AdjustSliderRange(touch.position);
+        //            break;
+        //        case TouchPhase.Ended:
+        //            break;
+        //    }
+        //}
 
         DragTimer();
     }
@@ -137,6 +139,9 @@ public class Slider : MonoBehaviour
             case Placement.Bottom:
                 downBar.transform.localScale = new Vector2(SLIDER_WEIGHT, newY);
                 break;
+            case Placement.Center:
+                leftBar.transform.localScale = new Vector2(obj.transform.position.x - origin.x, SLIDER_WEIGHT);
+                break;
         }
     }
 
@@ -165,6 +170,9 @@ public class Slider : MonoBehaviour
                 mainBar = downBar;
                 return Vector3.Lerp(startpoint, endpoint, 0f);
             case Placement.Center:
+                leftBar.SetActive(true);
+                leftBar.transform.position = new Vector3(startpoint.x + (endpoint.x * 0.5f), startpoint.y, 3f);
+                mainBar = leftBar;
                 return Vector3.Lerp(startpoint, endpoint, 0.5f);
             default:
                 return Vector2.zero;
@@ -184,12 +192,32 @@ public class Slider : MonoBehaviour
         downBar.SetActive(false);
     }
 
+    /// <summary>
+    /// Sets the drag timer. Once drag time reaches 0, it will automatically release the slider button.
+    /// </summary>
+    private void DragTimer()
+    {
+        if (dragTime == 0f && !GameplayManager.Instance.onDrag)
+            dragTime = DRAG_TIME_INTERVAL;
+        if (!GameplayManager.Instance.onDrag)
+            return;
+
+        if (dragTime > 0f)
+        {
+            dragTime -= Time.deltaTime;
+            dragTime = Mathf.Max(0f, dragTime);
+            GameplayManager.Instance.DragOn(dragTime, DRAG_TIME_INTERVAL);
+        }
+        else
+            StartCoroutine(ReleaseDrag());
+    }
+
     private void OnMouseDown()
     {
         if (!GameplayManager.Instance.GameStarted())
             return;
 
-        onDrag = true;
+        GameplayManager.Instance.onDrag = true;
 
         if (!isDraggable)
             return;
@@ -201,7 +229,7 @@ public class Slider : MonoBehaviour
     }
     private void OnMouseDrag()
     {
-        if (!GameplayManager.Instance.GameStarted() || !onDrag)
+        if (!GameplayManager.Instance.GameStarted() || !GameplayManager.Instance.onDrag)
             return;
         if (!isDraggable)
             return;
@@ -214,54 +242,35 @@ public class Slider : MonoBehaviour
 
     private void OnMouseUp()
     {
-        onDrag = false;
-        ReleaseDrag();
+        GameplayManager.Instance.onDrag = false;
+        StartCoroutine(ReleaseDrag());
     }
 
-    /// <summary>
-    /// Sets the drag timer. Once drag time reaches 0, it will automatically release the slider button.
-    /// </summary>
-    private void DragTimer()
-    {
-        if (dragTime == 0f && !onDrag)
-            dragTime = DRAG_TIME_INTERVAL;
-        if (!onDrag)
-            return;
-
-
-        if (dragTime > 0f)
-        {
-            dragTime -= Time.deltaTime;
-            dragTime = Mathf.Max(0f, dragTime);
-        }
-        else
-            ReleaseDrag();
-
-    }
 
     /// <summary>
     /// Lets go of the slider button and move back to its origin.
     /// </summary>
-    private void ReleaseDrag()
+    private IEnumerator ReleaseDrag()
     {
         dragTime = 0f;
         isDraggable = false;
+        GameplayManager.Instance.DragOff();
         float time = Vector2.Distance((Vector2)obj.transform.position, origin) / 200f;
-        if (time == 0f)
-            return;
+        //if (time == 0f)
+            //return;
 
-        StartCoroutine(Ease.TranslateTo(obj, origin, time));
-        if (placement == Placement.Left || placement == Placement.Right)
-            StartCoroutine(Ease.ScaleTo(mainBar, new Vector2(0f, SLIDER_WEIGHT), time));
+        StartCoroutine(Ease.TranslateTo(obj, origin, 1f, 2, Easing.EaseOut));
+        if (placement == Placement.Left || placement == Placement.Right || placement == Placement.Center)
+            yield return StartCoroutine(Ease.ScaleTo(mainBar, new Vector2(0f, SLIDER_WEIGHT), 1f, 2, Easing.EaseOut));
         else if (placement == Placement.Top || placement == Placement.Bottom)
-            StartCoroutine(Ease.ScaleTo(mainBar, new Vector2(SLIDER_WEIGHT, 0f), time));
+            yield return StartCoroutine(Ease.ScaleTo(mainBar, new Vector2(SLIDER_WEIGHT, 0f), 1f, 2, Easing.EaseOut));
     }
 
     /// <summary>
     /// Checks if slider button is at the origin.
     /// </summary>
     /// <returns>TRUE if slider button is at the origin. Otherwise, FALSE.</returns>
-    private bool AtOrigin() => (Vector2)obj.transform.position == origin && !onDrag;
+    private bool AtOrigin() => (Vector2)obj.transform.position == origin && !GameplayManager.Instance.onDrag;
 
     public void ResetSlide()
     {

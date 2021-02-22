@@ -29,6 +29,7 @@ public class GameplayManager : MonoBehaviour
     [SerializeField] private GameObject rightWall;
     [SerializeField] private GameObject leftWall;
     [SerializeField] private Transform capsuleOrigin;
+    public bool onDrag = false;
     private List<Color> capsuleColors = new List<Color>();
     private bool gameStarted = false;
 
@@ -38,10 +39,11 @@ public class GameplayManager : MonoBehaviour
     [SerializeField] private TMP_Text countdownText;
     [SerializeField] private Image countdownFillTimer;
 
-
     [Header("UI"), Space(8)]
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private TMP_Text capsuleCountText;
+    [SerializeField] private Image dragBar;
+    [SerializeField] private Image dragTimeBar;
     private float fullTime;
     [SerializeField] private Image fillTimer;
     public Image overlay;
@@ -154,6 +156,23 @@ public class GameplayManager : MonoBehaviour
             SpawnToken();
     }
 
+    public void DragOn(float dragTime, float interval)
+    {
+        if (!dragTimeBar.gameObject.activeSelf)
+        {
+            dragBar.gameObject.SetActive(true);
+            dragTimeBar.gameObject.SetActive(true);
+        }
+
+        dragTimeBar.fillAmount = dragTime / interval;
+    }
+    public void DragOff()
+    {
+        dragTimeBar.fillAmount = 0f;
+        dragBar.gameObject.SetActive(false);
+        dragTimeBar.gameObject.SetActive(false);
+    }
+
     /// <summary>
     /// Dispense capsule from the top screen.
     /// </summary>
@@ -167,14 +186,15 @@ public class GameplayManager : MonoBehaviour
             GameObject newCapsule = capsules[GetExistingCapsules()];
             newCapsule.SetActive(true);
 
-            if (isCompleted && capsuleDispenserCount > 4)
+            if (isCompleted && capsuleDispenserCount > 2)
                 newCapsule.GetComponent<Capsule>().StarCapsule();
 
             capsuleDispenserCount--;
         }
-        while (LastFiveCapsules());
+        while (LastThreeCapsules());
 
-        timeUntilDispense = (DispenserIsEmpty() ? 0f : 30f);
+        timeUntilDispense = (DispenserIsEmpty() ? 0f : 20f);
+        fillTimer.fillAmount = (DispenserIsEmpty() ? 0f : (timeUntilDispense / fullTime));
         fullTime = timeUntilDispense;
         capsuleCountText.text = $"{capsuleDispenserCount}";
     }
@@ -316,6 +336,7 @@ public class GameplayManager : MonoBehaviour
     public void ResetMainVariables()
     {
         gameOver = false;
+        onDrag = false;
 
         totalScoreText.text = "0";
         score = 0;
@@ -327,6 +348,8 @@ public class GameplayManager : MonoBehaviour
         tokenCanvas.SetActive(false);
         resultsButtons.SetActive(false);
         resultsScreen.SetActive(false);
+        dragBar.gameObject.SetActive(false);
+        dragTimeBar.gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -390,10 +413,10 @@ public class GameplayManager : MonoBehaviour
     public bool DispenserIsEmpty() => capsuleDispenserCount == 0;
 
     /// <summary>
-    /// Checks if there are 5 capsules remaining in the capsule dispenser.
+    /// Checks if there are 3 capsules remaining in the capsule dispenser.
     /// </summary>
     /// <returns></returns>
-    private bool LastFiveCapsules() => capsuleDispenserCount > 0 && capsuleDispenserCount < 5;
+    private bool LastThreeCapsules() => capsuleDispenserCount > 0 && capsuleDispenserCount < 3;
 
     /// <summary>
     /// Checks if current game session is over.
