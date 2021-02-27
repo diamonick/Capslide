@@ -30,3 +30,4 @@ MonoBehaviour:
   backButtonColor: {r: 0.83921576, g: 0.7725491, b: 0.6862745, a: 1}
   retryButtonColor: {r: 0.87843144, g: 0.8196079, b: 0.6901961, a: 1}
   rewardedAdButtonColor: {r: 0.45882356, g: 0.37254903, b: 0.3372549, a: 1}
+  tokenColor: {r: 0.83921576, g: 0.7725491, b: 0.6862745, a: 1}

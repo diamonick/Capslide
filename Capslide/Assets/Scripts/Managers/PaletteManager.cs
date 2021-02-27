@@ -43,4 +43,5 @@ public class PaletteManager : MonoBehaviour
     public Color GetBackButtonColor() => mainPalette.backButtonColor;
     public Color GetRetryButtonColor() => mainPalette.retryButtonColor;
     public Color GetRewardedAdButtonColor() => mainPalette.rewardedAdButtonColor;
+    public Color GetTokenColor() => mainPalette.tokenColor;
 }

@@ -137,8 +137,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SPR: {fileID: 8510085831094226016}
   image: {fileID: 0}
+  button: {fileID: 0}
   tmpText: {fileID: 0}
-  colorType: 3
+  overlay: {fileID: 0}
+  camera: {fileID: 0}
+  colorType: 10
 --- !u!58 &1316603617321338653
 CircleCollider2D:
   m_ObjectHideFlags: 0

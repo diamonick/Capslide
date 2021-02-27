@@ -20,6 +20,7 @@ public class ColorChange : MonoBehaviour
         Back,
         Retry,
         RewardedAd,
+        Token
     }
 
     [SerializeField] private SpriteRenderer SPR;
@@ -73,6 +74,9 @@ public class ColorChange : MonoBehaviour
                 break;
             case ColorType.RewardedAd:
                 col = PaletteManager.Instance.GetRewardedAdButtonColor();
+                break;
+            case ColorType.Token:
+                col = PaletteManager.Instance.GetTokenColor();
                 break;
             default:
                 col = PaletteManager.Instance.GetColor((int)colorType);

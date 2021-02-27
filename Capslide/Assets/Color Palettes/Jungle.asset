@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b731c021e38e79b4f9af9635388f316c, type: 3}
+  m_Name: Jungle
+  m_EditorClassIdentifier: 
+  ID: 0
+  paletteName: Jungle
+  tokenCost: 0
+  colors:
+  - {r: 0.98823535, g: 0.37254903, b: 0.3921569, a: 1}
+  - {r: 0, g: 0.616132, b: 0.6415094, a: 1}
+  - {r: 0.22352943, g: 1, b: 0.078431375, a: 1}
+  - {r: 1, g: 0.68235296, b: 0, a: 1}
+  - {r: 0, g: 0.18382382, b: 0.1981132, a: 1}
+  possibleCapsuleColors:
+  - {r: 0.22352943, g: 1, b: 0.078431375, a: 1}
+  - {r: 0.98823535, g: 0.37254903, b: 0.3921569, a: 1}
+  - {r: 1, g: 0.68235296, b: 0, a: 1}
+  scoreColor: {r: 0.22352943, g: 1, b: 0.078431375, a: 1}
+  capsuleTimerColor: {r: 0, g: 0.6156863, b: 0.6431373, a: 1}
+  backButtonColor: {r: 0.98823535, g: 0.37254903, b: 0.3921569, a: 1}
+  retryButtonColor: {r: 0.22352943, g: 1, b: 0.078431375, a: 1}
+  rewardedAdButtonColor: {r: 1, g: 0.68235296, b: 0, a: 1}
+  tokenColor: {r: 0.98823535, g: 0.37254903, b: 0.3921569, a: 1}
+  lightModeColor: {r: 1, g: 1, b: 1, a: 1}

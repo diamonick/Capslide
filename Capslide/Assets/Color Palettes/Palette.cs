@@ -20,4 +20,7 @@ public class Palette : ScriptableObject
     public Color backButtonColor;
     public Color retryButtonColor;
     public Color rewardedAdButtonColor;
+
+    [Header("Miscellaneous"), Space(8)]
+    public Color tokenColor;
 }

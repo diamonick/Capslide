@@ -2396,7 +2396,7 @@ PrefabInstance:
     - target: {fileID: 8510085831094226017, guid: 0504efa14fb1f6d4b9cb16c0f7eced4b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8510085831094226017, guid: 0504efa14fb1f6d4b9cb16c0f7eced4b,
         type: 3}
@@ -8963,7 +8963,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf60f5a7f265b924ab5a55b13aab907a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainPalette: {fileID: 11400000, guid: ac799d2e79a0ced43990570783c4208c, type: 2}
+  mainPalette: {fileID: 11400000, guid: 20d200973fefd7f4faa36464d1f5c6fd, type: 2}
   palettes:
   - {fileID: 474452482}
   - {fileID: 588375592}
