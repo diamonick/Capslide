@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 [CreateAssetMenu(fileName="New Palette", menuName="Color Palette")]
 public class Palette : ScriptableObject
 {

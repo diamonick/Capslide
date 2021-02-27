@@ -18,6 +18,9 @@ public class PaletteButton : MonoBehaviour
     {
         for (int i = 0; i < PALETTE_SIZE; i++)
             paletteSquares[i].color = palette.colors[i];
+
+        if (PaletteManager.Instance.mainPalette == palette)
+            Equip();
     }
 
     public void Equip()

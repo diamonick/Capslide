@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +18,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Menu settingsMenu;
     [SerializeField] private GameObject gameplayMenu;
     [SerializeField] private bool canSelect;
+
+    // Level Select Variables
+    [Header("Level Select"), Space(8)]
+    public int[] levelHighscores = new int[6];
+    [SerializeField] private TMP_Text[] highscoreTexts = new TMP_Text[6];
     [HideInInspector] public GameObject currentLevel;
 
     [Header("Game Info"), Space(8)]
@@ -47,6 +55,30 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning($"WARNING: There can only be one instance of this class.");
         }
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+            EraseData();
+    }
+
+    public void EraseData()
+    {
+        string filePath = $"{Application.persistentDataPath}/CapslideData.dat";
+        if (File.Exists(filePath))
+        {
+            File.Delete(filePath);
+            Debug.Log("Data erased!");
+        }
+    }
+
+
+
+
+
+
+
+
 
     /// <summary>
     /// Go to a specified menu screen.
@@ -115,6 +147,12 @@ public class GameManager : MonoBehaviour
         menuSrc.gameObject.SetActive(false);
         menuDest.gameObject.SetActive(true);
 
+        if (levelSelectMenu.gameObject.activeSelf)
+        {
+            for (int i = 0; i < levelHighscores.Length; i++)
+                highscoreTexts[i].text = $"{levelHighscores[i]}";
+        }
+
         ForegroundOverlay.Instance.FadeOutForeground(0.2f);
         foreach (GameObject menuCanvas in menuDest.menuCanvases)
         {
@@ -150,17 +188,6 @@ public class GameManager : MonoBehaviour
     public void ToggleScreenShake()
     {
         screenShake = !screenShake;
-
-        // Turn Screen Shake: ON
-        if (screenShake)
-        {
-
-        }
-        // Turn Screen Shake: OFF
-        else
-        {
-
-        }
         ShiftButton(screenShakeButton, screenShake);
     }
 
@@ -173,14 +200,11 @@ public class GameManager : MonoBehaviour
 
         // Turn Power Saving: ON
         if (powerSaving)
-        {
             Application.targetFrameRate = 30;
-        }
         // Turn Power Saving: OFF
         else
-        {
             Application.targetFrameRate = 60;
-        }
+
         ShiftButton(powerSavingButton, powerSaving);
     }
 
@@ -193,6 +217,7 @@ public class GameManager : MonoBehaviour
             StartCoroutine(Ease.AnchoredTranslateTo(button.image, toggleOnPos, 0.5f, 2, Easing.EaseOut));
         else
             StartCoroutine(Ease.AnchoredTranslateTo(button.image, toggleOffPos, 0.5f, 2, Easing.EaseOut));
+
         AudioManager.Instance.PlaySFX("Toggle");
     }
 }

@@ -19,28 +19,32 @@ public class Slider : MonoBehaviour
     private const float SLIDER_WEIGHT = 8f;
     private const float DRAG_TIME_INTERVAL = 3f;
 
-    private Vector3 positionPrev;
     private GameObject obj;
 
     [Header("Slider"), Space(8)]
     [SerializeField] private Vector2 origin;
     [SerializeField] private Placement placement;
+    [SerializeField] private Transform leftPoint;
+    [SerializeField] private Transform rightPoint;
     private Vector2 startpoint;
     private Vector2 endpoint;
+
+    [Header("Bars"), Space(8)]
     [SerializeField] private GameObject sliderBar;
-    [Space(8)]
     [SerializeField, Range(0f,720f)] private float barLength;
     [SerializeField] private GameObject leftBar;
     [SerializeField] private GameObject rightBar;
     [SerializeField] private GameObject upBar;
     [SerializeField] private GameObject downBar;
-    [SerializeField] private Transform leftPoint;
-    [SerializeField] private Transform rightPoint;
-    private GameObject mainBar;
     [SerializeField] private bool isDraggable;
+    [SerializeField] private bool onDragLocal;
+    private GameObject mainBar;
 
     [Header("Drag Timer"), Space(8)]
-    [SerializeField] private float dragTime = 3f;
+    [SerializeField] private float dragTime;
+
+    [Header("Particles"), Space(8)]
+    [SerializeField] private ParticleSystem atOriginPS;
 
     [Header("Freeze Positions"), Space(8)]
     [SerializeField] private bool freezeX = false;
@@ -72,11 +76,14 @@ public class Slider : MonoBehaviour
         if (GameplayManager.Instance.GameOver())
             return;
 
-        if (positionPrev != obj.transform.position)
-            positionPrev = obj.transform.position;
+        //if (positionPrev != obj.transform.position)
+        //    positionPrev = obj.transform.position;
 
         if (AtOrigin())
         {
+            StopAllCoroutines();
+            obj.transform.position = origin;
+            atOriginPS.Play();
             isDraggable = true;
             dragTime = DRAG_TIME_INTERVAL;
         }
@@ -197,9 +204,9 @@ public class Slider : MonoBehaviour
     /// </summary>
     private void DragTimer()
     {
-        if (dragTime == 0f && !GameplayManager.Instance.onDrag)
-            dragTime = DRAG_TIME_INTERVAL;
         if (!GameplayManager.Instance.onDrag)
+            dragTime = DRAG_TIME_INTERVAL;
+        if (!GameplayManager.Instance.onDrag || !onDragLocal || !isDraggable)
             return;
 
         if (dragTime > 0f)
@@ -221,6 +228,7 @@ public class Slider : MonoBehaviour
 
         if (!isDraggable)
             return;
+        onDragLocal = GameplayManager.Instance.onDrag;
 
         StopAllCoroutines();
         Vector3 mousePos = Input.mousePosition;
@@ -229,8 +237,9 @@ public class Slider : MonoBehaviour
     }
     private void OnMouseDrag()
     {
-        if (!GameplayManager.Instance.GameStarted() || !GameplayManager.Instance.onDrag)
+        if (!GameplayManager.Instance.GameStarted() || !GameplayManager.Instance.onDrag || !onDragLocal)
             return;
+
         if (!isDraggable)
             return;
 
@@ -242,7 +251,9 @@ public class Slider : MonoBehaviour
 
     private void OnMouseUp()
     {
-        GameplayManager.Instance.onDrag = false;
+        if (!onDragLocal)
+            return;
+
         StartCoroutine(ReleaseDrag());
     }
 
@@ -252,6 +263,9 @@ public class Slider : MonoBehaviour
     /// </summary>
     private IEnumerator ReleaseDrag()
     {
+        GameplayManager.Instance.onDrag = false;
+        onDragLocal = GameplayManager.Instance.onDrag;
+
         dragTime = 0f;
         isDraggable = false;
         GameplayManager.Instance.DragOff();
@@ -270,7 +284,7 @@ public class Slider : MonoBehaviour
     /// Checks if slider button is at the origin.
     /// </summary>
     /// <returns>TRUE if slider button is at the origin. Otherwise, FALSE.</returns>
-    private bool AtOrigin() => (Vector2)obj.transform.position == origin && !GameplayManager.Instance.onDrag;
+    private bool AtOrigin() => (Vector2)obj.transform.position == origin && !onDragLocal && !isDraggable;
 
     public void ResetSlide()
     {

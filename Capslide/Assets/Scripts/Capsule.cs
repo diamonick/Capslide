@@ -18,10 +18,12 @@ public class Capsule : MonoBehaviour
     [SerializeField] private SpriteRenderer SPR;
     [SerializeField] private Sprite normalSprite;
     [SerializeField] private Sprite starSprite;
+    [SerializeField] private Sprite fakeSprite;
     [SerializeField] private Rigidbody2D RB;
     [SerializeField] private CircleCollider2D circleCollider2d;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private bool starred = false;
+    [SerializeField] private bool faked = false;
     private Vector3 startForce;
 
     // Start is called before the first frame update
@@ -67,7 +69,11 @@ public class Capsule : MonoBehaviour
                 AudioManager.Instance.PlayAltSFX("Bounce", Random.Range(0.5f, 0.8f), Random.Range(0.8f, 1f));
                 GameObject fp = Instantiate(floatingPoint, this.gameObject.transform.position, Quaternion.identity);
                 GameplayManager.Instance.SetScore(points);
-                fp.transform.GetChild(0).GetComponent<TMP_Text>().text = $"+{points}";
+
+                if (faked)
+                    fp.transform.GetChild(0).GetComponent<TMP_Text>().text = $"-{points}";
+                else
+                    fp.transform.GetChild(0).GetComponent<TMP_Text>().text = $"+{points}";
             }
         }
     }
@@ -100,6 +106,9 @@ public class Capsule : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Set this capsule into a Star Capsule.
+    /// </summary>
     public void StarCapsule()
     {
         starred = true;
@@ -108,13 +117,27 @@ public class Capsule : MonoBehaviour
     }
 
     /// <summary>
+    /// Set this capsule into a Fake Capsule.
+    /// </summary>
+    public void FakeCapsule()
+    {
+        faked = true;
+        SPR.sprite = fakeSprite;
+    }
+
+    /// <summary>
     /// Increments the amount of points the player recieves based on capsule type.
     /// </summary>
-    /// <returns>Total points. Points are incremented by 1 or 3 for each bounce.</returns>
+    /// <returns>Total points.
+    ///  |Normal Capsule: Add +1 point for each bounce.|
+    ///  |Star Capsule: Add +3 point for each bounce.|
+    ///  |Fake Capsule: Deduct -5 point for each bounce.|</returns>
     private void SetCapsuleValue(ref int pts)
     {
         if (starred)
             pts += 3;
+        else if (faked)
+            pts -= 5;
         else
             pts += 1;
     }

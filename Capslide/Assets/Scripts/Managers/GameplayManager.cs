@@ -10,7 +10,7 @@ public class GameplayManager : MonoBehaviour
     public static GameplayManager Instance { get; private set; }
 
     //Constants
-    private const int CAPSULE_TOTAL = 10;
+    private const int CAPSULE_TOTAL = 30;
     private const float TOKEN_SPAWN_INTERVAL = 20f;
     private const float COUNTDOWN_TIME = 3f;
 
@@ -42,7 +42,7 @@ public class GameplayManager : MonoBehaviour
     [Header("UI"), Space(8)]
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private TMP_Text capsuleCountText;
-    [SerializeField] private Image dragBar;
+    [SerializeField] private GameObject dragCanvas;
     [SerializeField] private Image dragTimeBar;
     private float fullTime;
     [SerializeField] private Image fillTimer;
@@ -158,19 +158,16 @@ public class GameplayManager : MonoBehaviour
 
     public void DragOn(float dragTime, float interval)
     {
-        if (!dragTimeBar.gameObject.activeSelf)
-        {
-            dragBar.gameObject.SetActive(true);
-            dragTimeBar.gameObject.SetActive(true);
-        }
+        if (!dragCanvas.gameObject.activeSelf)
+            dragCanvas.gameObject.SetActive(true);
 
         dragTimeBar.fillAmount = dragTime / interval;
     }
+
     public void DragOff()
     {
         dragTimeBar.fillAmount = 0f;
-        dragBar.gameObject.SetActive(false);
-        dragTimeBar.gameObject.SetActive(false);
+        dragCanvas.gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -193,7 +190,7 @@ public class GameplayManager : MonoBehaviour
         }
         while (LastThreeCapsules());
 
-        timeUntilDispense = (DispenserIsEmpty() ? 0f : 20f);
+        timeUntilDispense = (DispenserIsEmpty() ? 0f : 15f);
         fillTimer.fillAmount = (DispenserIsEmpty() ? 0f : (timeUntilDispense / fullTime));
         fullTime = timeUntilDispense;
         capsuleCountText.text = $"{capsuleDispenserCount}";
@@ -251,6 +248,7 @@ public class GameplayManager : MonoBehaviour
 
         resultsButtons.SetActive(true);
     }
+
     public IEnumerator SetupResults()
     {
         int totalScore = 0;
@@ -302,9 +300,13 @@ public class GameplayManager : MonoBehaviour
     public void SetScore(int s)
     {
         score += s;
+        score = Mathf.Max(0, score);
         scoreText.text = $"{score}";
     }
 
+    /// <summary>
+    /// Toggles when to enter/exit the Pause Menu.
+    /// </summary>
     public void TogglePause()
     {
         if (!gameStarted)
@@ -326,6 +328,9 @@ public class GameplayManager : MonoBehaviour
         pauseAssets.SetActive(true);
     }
 
+    /// <summary>
+    /// Resumes the game.
+    /// </summary>
     private void ResumeGame()
     {
         Time.timeScale = 1f;
@@ -348,8 +353,7 @@ public class GameplayManager : MonoBehaviour
         tokenCanvas.SetActive(false);
         resultsButtons.SetActive(false);
         resultsScreen.SetActive(false);
-        dragBar.gameObject.SetActive(false);
-        dragTimeBar.gameObject.SetActive(false);
+        dragCanvas.gameObject.SetActive(false);
     }
 
     /// <summary>
