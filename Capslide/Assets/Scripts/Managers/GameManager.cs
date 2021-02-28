@@ -56,6 +56,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        SetButtonPosition(bgmButton, bgmON);
+        SetButtonPosition(sfxButton, sfxON);
+        SetButtonPosition(screenShakeButton, screenShake);
+        SetButtonPosition(powerSavingButton, powerSaving);
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -71,14 +79,6 @@ public class GameManager : MonoBehaviour
             Debug.Log("Data erased!");
         }
     }
-
-
-
-
-
-
-
-
 
     /// <summary>
     /// Go to a specified menu screen.
@@ -221,5 +221,16 @@ public class GameManager : MonoBehaviour
             StartCoroutine(Ease.AnchoredTranslateTo(button.image, toggleOffPos, 0.5f, 2, Easing.EaseOut));
 
         AudioManager.Instance.PlaySFX("Toggle");
+    }
+
+    /// <summary>
+    /// Set the button's position.
+    /// </summary>
+    private void SetButtonPosition(Button button, bool isToggled)
+    {
+        if (isToggled)
+            button.image.rectTransform.anchoredPosition = toggleOnPos;
+        else
+            button.image.rectTransform.anchoredPosition = toggleOffPos;
     }
 }

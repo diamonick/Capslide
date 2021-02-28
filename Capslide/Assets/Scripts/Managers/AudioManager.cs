@@ -81,13 +81,13 @@ public class AudioManager : MonoBehaviour
     /// <summary>
     /// Play background music.
     /// </summary>
-    public void PlayMusic(string name)
+    public void PlayMusic(string name, float volume = 1f)
     {
         Music msc = Array.Find(backgroundMusic, m => m.name == name);
         if (!MusicAvailable(msc))
             return;
 
-        musicSource.volume = GetOverallVolume(musicVolume);
+        musicSource.volume = volume;
         musicSource.clip = msc.music;
         musicSource.Play();
     }

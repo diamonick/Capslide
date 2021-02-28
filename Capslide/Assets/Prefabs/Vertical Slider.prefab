@@ -5744,7 +5744,7 @@ MonoBehaviour:
   isDraggable: 1
   onDragLocal: 0
   dragTime: 3
-  atOriginPS: {fileID: 0}
+  atOriginPS: {fileID: 8892801043745184048}
   freezeX: 1
   freezeY: 0
 --- !u!58 &3839961101450839787
