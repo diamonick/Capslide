@@ -115,6 +115,7 @@ public class GameplayManager : MonoBehaviour
         gameplayCanvas.SetActive(true);
         StartGame();
         ResetManager();
+        AudioManager.Instance.PlayMusic("Main Theme");
         yield return new WaitForSeconds(1f);
 
         DispenseCapsule();

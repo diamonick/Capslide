@@ -88,8 +88,32 @@ public class AudioManager : MonoBehaviour
             return;
 
         musicSource.volume = GetOverallVolume(musicVolume);
+        musicSource.clip = msc.music;
         musicSource.Play();
     }
+
+    public IEnumerator FadeOut(float rate)
+    {
+        while (musicSource.volume > 0f)
+        {
+            musicSource.volume -= rate;
+            yield return new WaitForEndOfFrame();
+        }
+    }
+    public IEnumerator FadeIn(float rate, float volume = 1f)
+    {
+        while (musicSource.volume < volume)
+        {
+            musicSource.volume += rate;
+            yield return new WaitForEndOfFrame();
+        }
+    }
+
+    /// <summary>
+    /// Mute/unmute background music.
+    /// </summary>
+    public void ToggleMusic() => musicSource.enabled = GameManager.Instance.bgmON;
+
     /// <summary>
     /// Stop playing music.
     /// </summary>

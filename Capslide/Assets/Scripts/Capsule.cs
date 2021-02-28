@@ -66,7 +66,7 @@ public class Capsule : MonoBehaviour
                     return;
 
                 SetCapsuleValue(ref points);
-                AudioManager.Instance.PlayAltSFX("Bounce", Random.Range(0.5f, 0.8f), Random.Range(0.8f, 1f));
+                AudioManager.Instance.PlayAltSFX("Bounce", Random.Range(0.75f, 1f), Random.Range(0.8f, 1f));
                 GameObject fp = Instantiate(floatingPoint, this.gameObject.transform.position, Quaternion.identity);
                 GameplayManager.Instance.SetScore(points);
 

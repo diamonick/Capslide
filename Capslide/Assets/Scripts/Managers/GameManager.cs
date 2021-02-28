@@ -119,6 +119,7 @@ public class GameManager : MonoBehaviour
         float xTo = menuSrc.transform.position.x + (Screen.width / 2f);
         canSelect = false;
 
+        StartCoroutine(AudioManager.Instance.FadeOut(0.01f));
         ForegroundOverlay.Instance.FadeInForeground(0.2f);
         foreach (GameObject menuCanvas in menuSrc.menuCanvases)
             StartCoroutine(Ease.TranslateXTo(menuCanvas, xAway, 0.25f, 2, Easing.EaseOut));
@@ -170,6 +171,7 @@ public class GameManager : MonoBehaviour
     public void ToggleBGM()
     {
         bgmON = !bgmON;
+        AudioManager.Instance.ToggleMusic();
         ShiftButton(bgmButton, bgmON);
     }
 

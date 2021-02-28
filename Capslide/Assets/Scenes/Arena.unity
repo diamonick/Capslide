@@ -15361,7 +15361,9 @@ MonoBehaviour:
   musicSource: {fileID: 865355249}
   sfxSource: {fileID: 865355248}
   altSource: {fileID: 865355250}
-  backgroundMusic: []
+  backgroundMusic:
+  - name: Main Theme
+    music: {fileID: 8300000, guid: 006868f4bb2b0034fa63e5da3e6b378b, type: 3}
   soundEffects:
   - name: Tick
     sound: {fileID: 8300000, guid: 15b1ff786696bc842bc4187695b3d82e, type: 3}
@@ -15494,11 +15496,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
+  m_audioClip: {fileID: 8300000, guid: 006868f4bb2b0034fa63e5da3e6b378b, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.5
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -16171,9 +16173,9 @@ MonoBehaviour:
   - {fileID: 1329201700}
   currentLevel: {fileID: 0}
   tokens: 0
-  bgmON: 0
-  sfxON: 0
-  screenShake: 0
+  bgmON: 1
+  sfxON: 1
+  screenShake: 1
   powerSaving: 0
   bgmButton: {fileID: 1756502887}
   sfxButton: {fileID: 896415873}
