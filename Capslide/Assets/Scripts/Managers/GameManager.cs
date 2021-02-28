@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Button sfxButton;
     [SerializeField] private Button screenShakeButton;
     [SerializeField] private Button powerSavingButton;
+    [SerializeField] private Image[] toggleFills;
     private readonly Vector2 toggleOffPos = new Vector2(-54f, 0f);
     private readonly Vector2 toggleOnPos = new Vector2(54f, 0f);
 
@@ -58,10 +59,10 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
-        SetButtonPosition(bgmButton, bgmON);
-        SetButtonPosition(sfxButton, sfxON);
-        SetButtonPosition(screenShakeButton, screenShake);
-        SetButtonPosition(powerSavingButton, powerSaving);
+        SetButtonPosition(bgmButton, toggleFills[0], bgmON);
+        SetButtonPosition(sfxButton, toggleFills[1], sfxON);
+        SetButtonPosition(screenShakeButton, toggleFills[2], screenShake);
+        SetButtonPosition(powerSavingButton, toggleFills[3], powerSaving);
     }
 
     private void Update()
@@ -172,7 +173,7 @@ public class GameManager : MonoBehaviour
     {
         bgmON = !bgmON;
         AudioManager.Instance.ToggleMusic();
-        ShiftButton(bgmButton, bgmON);
+        ShiftButton(bgmButton, toggleFills[0], bgmON);
     }
 
     /// <summary>
@@ -181,7 +182,7 @@ public class GameManager : MonoBehaviour
     public void ToggleSFX()
     {
         sfxON = !sfxON;
-        ShiftButton(sfxButton, sfxON);
+        ShiftButton(sfxButton, toggleFills[1], sfxON);
     }
 
     /// <summary>
@@ -190,7 +191,7 @@ public class GameManager : MonoBehaviour
     public void ToggleScreenShake()
     {
         screenShake = !screenShake;
-        ShiftButton(screenShakeButton, screenShake);
+        ShiftButton(screenShakeButton, toggleFills[2], screenShake);
     }
 
     /// <summary>
@@ -207,18 +208,27 @@ public class GameManager : MonoBehaviour
         else
             Application.targetFrameRate = 60;
 
-        ShiftButton(powerSavingButton, powerSaving);
+        ShiftButton(powerSavingButton, toggleFills[3], powerSaving);
     }
 
     /// <summary>
     /// Shifts the button left or right.
     /// </summary>
-    private void ShiftButton(Button button, bool isToggled)
+    private void ShiftButton(Button button, Image toggleFill, bool isToggled)
     {
+        Color fillColor = new Color(toggleFill.color.r, toggleFill.color.g, toggleFill.color.b, 1f);
+        Color noFillColor = new Color(toggleFill.color.r, toggleFill.color.g, toggleFill.color.b, 0f);
+
         if (isToggled)
+        {
+            StartCoroutine(Ease.ChangeImageColor(toggleFill, fillColor, 0.5f));
             StartCoroutine(Ease.AnchoredTranslateTo(button.image, toggleOnPos, 0.5f, 2, Easing.EaseOut));
+        }
         else
+        {
+            StartCoroutine(Ease.ChangeImageColor(toggleFill, noFillColor, 0.5f));
             StartCoroutine(Ease.AnchoredTranslateTo(button.image, toggleOffPos, 0.5f, 2, Easing.EaseOut));
+        }
 
         AudioManager.Instance.PlaySFX("Toggle");
     }
@@ -226,11 +236,20 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// Set the button's position.
     /// </summary>
-    private void SetButtonPosition(Button button, bool isToggled)
+    private void SetButtonPosition(Button button, Image toggleFill, bool isToggled)
     {
+        Color fillColor = new Color(toggleFill.color.r, toggleFill.color.g, toggleFill.color.b, 1f);
+        Color noFillColor = new Color(toggleFill.color.r, toggleFill.color.g, toggleFill.color.b, 0f);
+
         if (isToggled)
+        {
+            toggleFill.color = fillColor;
             button.image.rectTransform.anchoredPosition = toggleOnPos;
+        }
         else
+        {
+            toggleFill.color = noFillColor;
             button.image.rectTransform.anchoredPosition = toggleOffPos;
+        }
     }
 }
