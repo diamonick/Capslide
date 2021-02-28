@@ -10,9 +10,10 @@ public class GameplayManager : MonoBehaviour
     public static GameplayManager Instance { get; private set; }
 
     //Constants
-    private const int CAPSULE_TOTAL = 30;
+    private const int CAPSULE_TOTAL = 20;
     private const float TOKEN_SPAWN_INTERVAL = 20f;
     private const float COUNTDOWN_TIME = 3f;
+    private const float FAKE_SPAWN_TIME = 8f;
 
     [Header("Properties"), Space(8)]
     [SerializeField] private GameObject startupMenu;
@@ -23,8 +24,10 @@ public class GameplayManager : MonoBehaviour
     [SerializeField] public int tokensEarned;
     [SerializeField] private int capsuleDispenserCount;
     [SerializeField] private float timeUntilDispense;
+    [SerializeField] private float timeUntilDispenseFake;
     [SerializeField] private GameObject capsuleDispenser;
-    [SerializeField] private GameObject[] capsules;
+    [SerializeField] private Capsule[] capsules;
+    [SerializeField] private Capsule[] fakeCapsules;
     [SerializeField] private bool gameOver = false;
     [SerializeField] private GameObject rightWall;
     [SerializeField] private GameObject leftWall;
@@ -87,6 +90,7 @@ public class GameplayManager : MonoBehaviour
     {
         CapsuleDispenserTimer();
         TokenSpawnTimer();
+        FakeCapsuleDispenserTimer();
     }
 
     /// <summary>
@@ -172,6 +176,44 @@ public class GameplayManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Sets a timer for dispensing fake capsules. Time is based on how long you hold the slider(s).
+    /// </summary>
+    public void FakeCapsuleDispenserTimer()
+    {
+        if (GameOver() || !onDrag)
+            return;
+
+        if (timeUntilDispenseFake > 0f)
+        {
+            timeUntilDispenseFake -= Time.deltaTime;
+            timeUntilDispenseFake = Mathf.Max(0f, timeUntilDispenseFake);
+        }
+        else
+            DispenseFakeCapsule();
+    }
+    /// <summary>
+    /// Dispense fake capsule from the top screen.
+    /// </summary>
+    public void DispenseFakeCapsule()
+    {
+        if (GameOver())
+            return;
+
+        foreach (Capsule capsule in fakeCapsules)
+        {
+            if (!capsule.gameObject.activeSelf)
+            {
+                capsule.gameObject.SetActive(true);
+                capsule.transform.position = capsuleOrigin.position;
+                capsule.FakeCapsule();
+                break;
+            }
+        }
+
+        timeUntilDispenseFake = FAKE_SPAWN_TIME;
+    }
+
+    /// <summary>
     /// Dispense capsule from the top screen.
     /// </summary>
     public void DispenseCapsule(bool isCompleted = false)
@@ -181,8 +223,8 @@ public class GameplayManager : MonoBehaviour
 
         do
         {
-            GameObject newCapsule = capsules[GetExistingCapsules()];
-            newCapsule.SetActive(true);
+            Capsule newCapsule = capsules[GetExistingCapsules()];
+            newCapsule.gameObject.SetActive(true);
 
             if (isCompleted && capsuleDispenserCount > 2)
                 newCapsule.GetComponent<Capsule>().StarCapsule();
@@ -191,7 +233,7 @@ public class GameplayManager : MonoBehaviour
         }
         while (LastThreeCapsules());
 
-        timeUntilDispense = (DispenserIsEmpty() ? 0f : 15f);
+        timeUntilDispense = (DispenserIsEmpty() ? 0f : 20f);
         fillTimer.fillAmount = (DispenserIsEmpty() ? 0f : (timeUntilDispense / fullTime));
         fullTime = timeUntilDispense;
         capsuleCountText.text = $"{capsuleDispenserCount}";
@@ -348,7 +390,8 @@ public class GameplayManager : MonoBehaviour
         score = 0;
         tokensEarned = 0;
         capsuleDispenserCount = CAPSULE_TOTAL;
-        timeUntilDispense = 30f;
+        timeUntilDispense = 20f;
+        timeUntilDispenseFake = FAKE_SPAWN_TIME;
 
         bestScoreText.gameObject.SetActive(false);
         tokenCanvas.SetActive(false);
@@ -382,6 +425,7 @@ public class GameplayManager : MonoBehaviour
     public void ResetManager()
     {
         DeactivateCapsules();
+        DeactivateFakeCapsules();
         SetCapsuleColors();
         DeactivateResultsScreen();
         rightWall.transform.position = new Vector3(1234f, rightWall.transform.position.y, rightWall.transform.position.z);
@@ -403,7 +447,7 @@ public class GameplayManager : MonoBehaviour
         int remainingCapsules = 0;
         for (int i = 0; i < CAPSULE_TOTAL; i++)
         {
-            if (!capsules[i].activeSelf)
+            if (!capsules[i].gameObject.activeSelf)
                 continue;
             remainingCapsules++;
         }
@@ -431,17 +475,26 @@ public class GameplayManager : MonoBehaviour
 
     private void DeactivateCapsules()
     {
-        foreach (GameObject capsule in capsules)
+        foreach (Capsule capsule in capsules)
         {
             capsule.transform.position = capsuleOrigin.position;
-            capsule.SetActive(false);
+            capsule.gameObject.SetActive(false);
+        }
+    }
+
+    private void DeactivateFakeCapsules()
+    {
+        foreach (Capsule capsule in fakeCapsules)
+        {
+            capsule.transform.position = capsuleOrigin.position;
+            capsule.gameObject.SetActive(false);
         }
     }
 
     private void DeactivateResultsScreen()
     {
-        foreach (GameObject capsule in capsules)
-            capsule.SetActive(false);
+        foreach (Capsule capsule in capsules)
+            capsule.gameObject.SetActive(false);
     }
 
     private void StartGame() => gameStarted = true;
@@ -458,10 +511,18 @@ public class GameplayManager : MonoBehaviour
         for (int i = 0; i < colorCount; i++)
             capsuleColors.Add(PaletteManager.Instance.mainPalette.possibleCapsuleColors[i]);
 
-        foreach (GameObject capsule in capsules)
+        // Set colors for normal capsules
+        foreach (Capsule capsule in capsules)
         {
             int rand = Random.Range(0, colorCount);
-            capsule.GetComponent<SpriteRenderer>().color = capsuleColors[rand];
+            capsule.SPR.color = capsuleColors[rand];
+        }
+
+        // Set colors for fake capsules
+        foreach (Capsule capsule in fakeCapsules)
+        {
+            int rand = Random.Range(0, colorCount);
+            capsule.SPR.color = capsuleColors[rand];
         }
     }
 }

@@ -11,11 +11,11 @@ public class Capsule : MonoBehaviour
     private const float MAX_SPEED = 720f;
     private const float DEADZONE_VALUE = 144f;
 
+    public SpriteRenderer SPR;
     [SerializeField] private int points = 0;
     [SerializeField] private ParticleSystem trailPS;
     [SerializeField] private ParticleSystem BouncePS;
     [SerializeField] private GameObject floatingPoint;
-    [SerializeField] private SpriteRenderer SPR;
     [SerializeField] private Sprite normalSprite;
     [SerializeField] private Sprite starSprite;
     [SerializeField] private Sprite fakeSprite;
@@ -71,7 +71,7 @@ public class Capsule : MonoBehaviour
                 GameplayManager.Instance.SetScore(points);
 
                 if (faked)
-                    fp.transform.GetChild(0).GetComponent<TMP_Text>().text = $"-{points}";
+                    fp.transform.GetChild(0).GetComponent<TMP_Text>().text = $"{points}";
                 else
                     fp.transform.GetChild(0).GetComponent<TMP_Text>().text = $"+{points}";
             }
@@ -113,7 +113,6 @@ public class Capsule : MonoBehaviour
     {
         starred = true;
         SPR.sprite = starSprite;
-        RB.gravityScale = 75f;
     }
 
     /// <summary>
