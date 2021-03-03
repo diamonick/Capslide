@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b731c021e38e79b4f9af9635388f316c, type: 3}
   m_Name: Purple
   m_EditorClassIdentifier: 
-  ID: 6
+  ID: 5
   paletteName: Purple
   tokenCost: 0
   colors:

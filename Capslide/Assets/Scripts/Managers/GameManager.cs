@@ -23,10 +23,12 @@ public class GameManager : MonoBehaviour
     [Header("Level Select"), Space(8)]
     public int[] levelHighscores = new int[6];
     [SerializeField] private TMP_Text[] highscoreTexts = new TMP_Text[6];
-    [HideInInspector] public GameObject currentLevel;
+    public int levelsPlayed;
+    [HideInInspector] public Level currentLevel;
 
     [Header("Game Info"), Space(8)]
     public int tokens;
+    public PaletteManager paletteManager;
 
     // Settings Variables
     [Header("Settings"), Space(8)]
@@ -59,6 +61,9 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
+        //SaveSystem.Erase();
+        Load();
+
         SetButtonPosition(bgmButton, toggleFills[0], bgmON);
         SetButtonPosition(sfxButton, toggleFills[1], sfxON);
         SetButtonPosition(screenShakeButton, toggleFills[2], screenShake);
@@ -67,18 +72,29 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-            EraseData();
+
     }
 
-    public void EraseData()
+    public void Save() => SaveSystem.Save(this);
+    public void Load()
     {
-        string filePath = $"{Application.persistentDataPath}/CapslideData.dat";
-        if (File.Exists(filePath))
-        {
-            File.Delete(filePath);
-            Debug.Log("Data erased!");
-        }
+        CapslideData data = SaveSystem.Load();
+
+        if (data == null)
+            return;
+
+        paletteManager.mainPalette = paletteManager.paletteList[data.paletteID];
+        tokens = data.tokens;
+
+        for (int i = 0; i < levelHighscores.Length; i++)
+            levelHighscores[i] = data.levelHighscores[i];
+
+        bgmON = data.bgmToggle;
+        sfxON = data.sfxToggle;
+        screenShake = data.screenShakeToggle;
+        powerSaving = data.powerSavingToggle;
+
+        levelsPlayed = data.levelsPlayed;
     }
 
     /// <summary>
@@ -109,9 +125,9 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// Go to specified level.
     /// </summary>
-    public void GoToLevel(GameObject level) => StartCoroutine(ShiftToLevel(levelSelectMenu, level));
+    public void GoToLevel(Level level) => StartCoroutine(ShiftToLevel(levelSelectMenu, level));
 
-    private IEnumerator ShiftToLevel(Menu menuSrc, GameObject level)
+    private IEnumerator ShiftToLevel(Menu menuSrc, Level level)
     {
         if (!canSelect)
             yield return null;
@@ -230,6 +246,7 @@ public class GameManager : MonoBehaviour
             StartCoroutine(Ease.AnchoredTranslateTo(button.image, toggleOffPos, 0.5f, 2, Easing.EaseOut));
         }
 
+        Save();
         AudioManager.Instance.PlaySFX("Toggle");
     }
 

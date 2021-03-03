@@ -28,6 +28,7 @@ public class PaletteButton : MonoBehaviour
         isEquipped = true;
         PaletteManager.Instance.mainPalette = palette;
         checkmark.SetActive(true);
+        GameManager.Instance.Save();
     }
 
     public void Unequip()

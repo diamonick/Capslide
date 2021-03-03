@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b731c021e38e79b4f9af9635388f316c, type: 3}
   m_Name: Yellow
   m_EditorClassIdentifier: 
-  ID: 3
+  ID: 2
   paletteName: Yellow
   tokenCost: 0
   colors:

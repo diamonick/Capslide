@@ -115,7 +115,7 @@ public class GameplayManager : MonoBehaviour
                 AudioManager.Instance.PlaySFX("Tick");
             yield return new WaitForEndOfFrame();
         }
-        level = GameManager.Instance.currentLevel.GetComponent<Level>();
+        level = GameManager.Instance.currentLevel;
         countdownCanvas.SetActive(false);
         gameplayCanvas.SetActive(true);
         StartGame();
@@ -281,7 +281,7 @@ public class GameplayManager : MonoBehaviour
         yield return StartCoroutine(Ease.ChangeImageColor(overlay, fullColor, 1f));
 
         ForegroundOverlay.Instance.FadeOutForeground(0f);
-        GameManager.Instance.currentLevel.SetActive(false);
+        GameManager.Instance.currentLevel.gameObject.SetActive(false);
         token.SetActive(false);
         gameplayCanvas.SetActive(false);
         countdownCanvas.SetActive(false);
@@ -307,14 +307,30 @@ public class GameplayManager : MonoBehaviour
         }
         yield return new WaitForSeconds(0.5f);
 
-        bestScoreText.gameObject.SetActive(true);
-        bestScoreText.text = $"Best: {score}";
+        SaveHighscore();
         yield return new WaitForSeconds(0.5f);
 
         tokenCanvas.SetActive(true);
         tokenText.text = $"You got {tokenCount}";
         GameManager.Instance.tokens += tokensEarned;
+        GameManager.Instance.levelsPlayed++;
         yield return new WaitForSeconds(1f);
+
+        GameManager.Instance.Save();
+    }
+
+    private void SaveHighscore()
+    {
+        int trueScore = level.highscore;
+        if (score > level.highscore)
+        {
+            level.highscore = score;
+            trueScore = score;
+            GameManager.Instance.levelHighscores[level.ID] = trueScore;
+        }
+
+        bestScoreText.gameObject.SetActive(true);
+        bestScoreText.text = $"Best: {trueScore}";
     }
 
     private void AddScorePerFrame(ref int currentScore)
@@ -416,7 +432,7 @@ public class GameplayManager : MonoBehaviour
     public void GoToStartupMenu(GameObject menuScreen)
     {
         ResetMainVariables();
-        GameManager.Instance.currentLevel.SetActive(false);
+        GameManager.Instance.currentLevel.gameObject.SetActive(false);
         GameManager.Instance.GoToStartupMenu(gameplayMenu);
     }
 
@@ -432,7 +448,7 @@ public class GameplayManager : MonoBehaviour
         rightWall.transform.position = new Vector3(1234f, rightWall.transform.position.y, rightWall.transform.position.z);
         leftWall.transform.position = new Vector3(-406f, leftWall.transform.position.y, leftWall.transform.position.z);
         overlay.color = new Color(overlay.color.r, overlay.color.g, overlay.color.b, 0f);
-        GameManager.Instance.currentLevel.SetActive(true);
+        GameManager.Instance.currentLevel.gameObject.SetActive(true);
         scoreText.text = $"{score}";
         capsuleCountText.text = $"{capsuleDispenserCount}";
     }

@@ -5216,8 +5216,8 @@ MonoBehaviour:
         m_MethodName: GoToLevel
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1552195553}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 1552195555}
+          m_ObjectArgumentAssemblyTypeName: Level, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -8990,8 +8990,8 @@ MonoBehaviour:
         m_MethodName: GoToLevel
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 543673649}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 543673651}
+          m_ObjectArgumentAssemblyTypeName: Level, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -9812,7 +9812,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf60f5a7f265b924ab5a55b13aab907a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainPalette: {fileID: 11400000, guid: 44dc1fcfd59ca8a46ae0fcedf7af7fe5, type: 2}
+  mainPalette: {fileID: 11400000, guid: 9b16e9be5854c3d48a225ab5af34dbcc, type: 2}
+  paletteList:
+  - {fileID: 11400000, guid: 9b16e9be5854c3d48a225ab5af34dbcc, type: 2}
+  - {fileID: 11400000, guid: a5aaef1b813ceba4eb5f4a86d87bd22a, type: 2}
+  - {fileID: 11400000, guid: a198101fed26d5b48a71021017d99c88, type: 2}
+  - {fileID: 11400000, guid: 9795b1f9ee31cf74dbdc2145661c3be4, type: 2}
+  - {fileID: 11400000, guid: b2d325e111b399449aa114f3e6e00134, type: 2}
+  - {fileID: 11400000, guid: 3ecd0db682c3cd34fbf79632650e8f4b, type: 2}
+  - {fileID: 11400000, guid: fdc7b85a3da4ed847abba8a5c1c5ea21, type: 2}
+  - {fileID: 11400000, guid: c1b850c9b24826741af81e9a21229d9d, type: 2}
   palettes:
   - {fileID: 474452482}
   - {fileID: 442384903}
@@ -10552,7 +10561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c25ab133daf31124c83bd666ab01acca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 3
+  ID: 2
   spawnLocations:
   - {fileID: 783433795}
   highscore: 0
@@ -17647,8 +17656,10 @@ MonoBehaviour:
   - {fileID: 1079819828}
   - {fileID: 1278911713}
   - {fileID: 1329201700}
+  levelsPlayed: 0
   currentLevel: {fileID: 0}
   tokens: 0
+  paletteManager: {fileID: 502568297}
   bgmON: 1
   sfxON: 1
   screenShake: 1
@@ -17724,7 +17735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c25ab133daf31124c83bd666ab01acca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 2
+  ID: 1
   spawnLocations:
   - {fileID: 292139532}
   - {fileID: 173115311}
@@ -22536,7 +22547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c25ab133daf31124c83bd666ab01acca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 6
+  ID: 5
   spawnLocations:
   - {fileID: 915350956}
   highscore: 0
@@ -25578,8 +25589,8 @@ MonoBehaviour:
         m_MethodName: GoToLevel
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1230258365}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 1230258367}
+          m_ObjectArgumentAssemblyTypeName: Level, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -28023,7 +28034,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c25ab133daf31124c83bd666ab01acca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 4
+  ID: 3
   spawnLocations:
   - {fileID: 373530314}
   - {fileID: 771124948}
@@ -30106,8 +30117,8 @@ MonoBehaviour:
         m_MethodName: GoToLevel
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2144938893}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 2144938895}
+          m_ObjectArgumentAssemblyTypeName: Level, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -34510,8 +34521,8 @@ MonoBehaviour:
         m_MethodName: GoToLevel
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 905020438}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 905020440}
+          m_ObjectArgumentAssemblyTypeName: Level, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -37642,7 +37653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c25ab133daf31124c83bd666ab01acca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 1
+  ID: 0
   spawnLocations:
   - {fileID: 2127713149}
   - {fileID: 1191233355}

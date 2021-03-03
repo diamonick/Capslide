@@ -8,6 +8,7 @@ public class PaletteManager : MonoBehaviour
     public static PaletteManager Instance { get; private set; }
 
     public Palette mainPalette;
+    public Palette[] paletteList;
     public PaletteButton[] palettes;
 
     private void Awake()
