@@ -10,7 +10,8 @@ public class GameplayManager : MonoBehaviour
     public static GameplayManager Instance { get; private set; }
 
     //Constants
-    private const int CAPSULE_TOTAL = 20;
+    private const int CAPSULE_TOTAL = 15;
+    private const int FAKE_CAPSULE_TOTAL = 10;
     private const float TOKEN_SPAWN_INTERVAL = 20f;
     private const float COUNTDOWN_TIME = 3f;
     private const float FAKE_SPAWN_TIME = 8f;
@@ -180,7 +181,7 @@ public class GameplayManager : MonoBehaviour
     /// </summary>
     public void FakeCapsuleDispenserTimer()
     {
-        if (GameOver() || !onDrag)
+        if (GameOver() || !onDrag || (NoCapsulesInGame() && capsuleDispenserCount == 0))
             return;
 
         if (timeUntilDispenseFake > 0f)
@@ -458,8 +459,26 @@ public class GameplayManager : MonoBehaviour
     /// <summary>
     /// Checks if capsule dispenser is empty.
     /// </summary>
-    /// <returns>TRUE if capsule dispenser is empty. Otherwise, FALSE.</returns>
+    /// <returns>TRUE if capsuleDispenserCount is equal to 0. Otherwise, FALSE.</returns>
     public bool DispenserIsEmpty() => capsuleDispenserCount == 0;
+
+
+    /// <summary>
+    /// Checks if there are currently no fake capsules in the level.
+    /// </summary>
+    /// <returns>TRUE if there are 0 remaining fake capsules in the level. Otherwise, FALSE.</returns>
+    public bool NoFakeCapsulesInGame()
+    {
+        int remainingCapsules = 0;
+        for (int i = 0; i < FAKE_CAPSULE_TOTAL; i++)
+        {
+            if (!fakeCapsules[i].gameObject.activeSelf)
+                continue;
+            remainingCapsules++;
+        }
+
+        return remainingCapsules == 0;
+    }
 
     /// <summary>
     /// Checks if there are 3 capsules remaining in the capsule dispenser.

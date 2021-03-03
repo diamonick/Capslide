@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bouncer : MonoBehaviour
 {
     // Constants
-    private const float ACTIVATION_TIME = 10f;
+    private const float ACTIVATION_TIME = 5f;
 
     [SerializeField] private SpriteRenderer SPR;
     [SerializeField] private BoxCollider2D boxcollider2D;

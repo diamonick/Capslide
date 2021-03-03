@@ -100,7 +100,10 @@ public class Capsule : MonoBehaviour
         if (GameplayManager.Instance.NoCapsulesInGame())
         {
             if (GameplayManager.Instance.DispenserIsEmpty())
-                GameplayManager.Instance.EndGame();
+            {
+                if (GameplayManager.Instance.NoFakeCapsulesInGame())
+                    GameplayManager.Instance.EndGame();
+            }
             else
                 GameplayManager.Instance.DispenseCapsule();
         }
