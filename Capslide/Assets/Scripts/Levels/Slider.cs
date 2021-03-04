@@ -108,6 +108,8 @@ public class Slider : MonoBehaviour
         DragTimer();
     }
 
+    public float GetBarRatio() => Vector2.Distance((Vector2)obj.transform.position, origin) / barLength;
+
     private Vector2 AdjustSliderRange(Vector2 touchPos)
     {
         float clampedX = Mathf.Clamp(touchPos.x, startpoint.x, endpoint.x);

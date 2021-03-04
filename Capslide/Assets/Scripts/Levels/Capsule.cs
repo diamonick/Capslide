@@ -88,6 +88,9 @@ public class Capsule : MonoBehaviour
 
     private IEnumerator ShakeScreen()
     {
+        if (GameplayManager.Instance.GetCapsulesInGame() == 1 && !faked)
+            GameplayManager.Instance.timeStopped = true;
+
         if (GameManager.Instance.screenShake)
             yield return StartCoroutine(ScreenShake.Shake(20f, 0.5f));
 

@@ -83,6 +83,9 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     public void PlayMusic(string name, float volume = 1f)
     {
+        if (!GameManager.Instance.bgmON)
+            return;
+
         Music msc = Array.Find(backgroundMusic, m => m.name == name);
         if (!MusicAvailable(msc))
             return;
@@ -112,7 +115,13 @@ public class AudioManager : MonoBehaviour
     /// <summary>
     /// Mute/unmute background music.
     /// </summary>
-    public void ToggleMusic() => musicSource.enabled = GameManager.Instance.bgmON;
+    public void ToggleMusic()
+    {
+        musicSource.enabled = GameManager.Instance.bgmON;
+
+        if (!musicSource.isPlaying)
+            PlayMusic("Main Theme");
+    }
 
     /// <summary>
     /// Stop playing music.

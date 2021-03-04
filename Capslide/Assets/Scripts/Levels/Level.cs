@@ -6,5 +6,4 @@ public class Level : MonoBehaviour
 {
     public int ID;
     public Transform[] spawnLocations;
-    public int highscore;
 }

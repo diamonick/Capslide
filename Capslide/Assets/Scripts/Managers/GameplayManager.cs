@@ -42,6 +42,7 @@ public class GameplayManager : MonoBehaviour
     [SerializeField] private float timeUntilStartGame;
     [SerializeField] private TMP_Text countdownText;
     [SerializeField] private Image countdownFillTimer;
+    public bool timeStopped = false;
 
     [Header("UI"), Space(8)]
     [SerializeField] private TMP_Text scoreText;
@@ -131,7 +132,7 @@ public class GameplayManager : MonoBehaviour
     /// </summary>
     private void CapsuleDispenserTimer()
     {
-        if (GameOver() || DispenserIsEmpty())
+        if (GameOver() || DispenserIsEmpty() || timeStopped)
             return;
 
         fillTimer.fillAmount = (timeUntilDispense / fullTime);
@@ -234,6 +235,7 @@ public class GameplayManager : MonoBehaviour
         }
         while (LastThreeCapsules());
 
+        timeStopped = false;
         timeUntilDispense = (DispenserIsEmpty() ? 0f : 20f);
         fillTimer.fillAmount = (DispenserIsEmpty() ? 0f : (timeUntilDispense / fullTime));
         fullTime = timeUntilDispense;
@@ -321,12 +323,11 @@ public class GameplayManager : MonoBehaviour
 
     private void SaveHighscore()
     {
-        int trueScore = level.highscore;
-        if (score > level.highscore)
+        int trueScore = GameManager.Instance.levelHighscores[level.ID];
+        if (score > trueScore)
         {
-            level.highscore = score;
+            GameManager.Instance.levelHighscores[level.ID] = score;
             trueScore = score;
-            GameManager.Instance.levelHighscores[level.ID] = trueScore;
         }
 
         bestScoreText.gameObject.SetActive(true);
@@ -402,6 +403,7 @@ public class GameplayManager : MonoBehaviour
     {
         gameOver = false;
         onDrag = false;
+        timeStopped = false;
 
         totalScoreText.text = "0";
         score = 0;
@@ -461,6 +463,15 @@ public class GameplayManager : MonoBehaviour
     /// <returns>TRUE if there are no capsules in the level. Otherwise, FALSE.</returns>
     public bool NoCapsulesInGame()
     {
+        int remainingCapsules = GetCapsulesInGame();
+        return remainingCapsules == 0;
+    }
+
+    /// <summary>
+    /// Get the number of capsules currently visible in the game.
+    /// </summary>
+    public int GetCapsulesInGame()
+    {
         int remainingCapsules = 0;
         for (int i = 0; i < CAPSULE_TOTAL; i++)
         {
@@ -469,7 +480,7 @@ public class GameplayManager : MonoBehaviour
             remainingCapsules++;
         }
 
-        return remainingCapsules == 0;
+        return remainingCapsules;
     }
 
     /// <summary>

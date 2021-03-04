@@ -28,7 +28,11 @@ public class GameManager : MonoBehaviour
 
     [Header("Game Info"), Space(8)]
     public int tokens;
+
+    // Palette Variables
+    [Header("Palette")]
     public PaletteManager paletteManager;
+    [SerializeField] private TMP_Text tokenText;
 
     // Settings Variables
     [Header("Settings"), Space(8)]
@@ -46,6 +50,8 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        Load();
+
         Application.targetFrameRate = 60;
         if (Instance == null)
         {
@@ -57,17 +63,14 @@ public class GameManager : MonoBehaviour
             Destroy(this.gameObject);
             Debug.LogWarning($"WARNING: There can only be one instance of this class.");
         }
+
+        if (bgmON)
+            AudioManager.Instance.PlayMusic("Main Theme");
     }
 
     private void OnEnable()
     {
         //SaveSystem.Erase();
-        Load();
-
-        SetButtonPosition(bgmButton, toggleFills[0], bgmON);
-        SetButtonPosition(sfxButton, toggleFills[1], sfxON);
-        SetButtonPosition(screenShakeButton, toggleFills[2], screenShake);
-        SetButtonPosition(powerSavingButton, toggleFills[3], powerSaving);
     }
 
     private void Update()
@@ -165,11 +168,21 @@ public class GameManager : MonoBehaviour
         menuSrc.gameObject.SetActive(false);
         menuDest.gameObject.SetActive(true);
 
+        if (settingsMenu.gameObject.activeSelf)
+        {
+            SetButtonPosition(bgmButton, toggleFills[0], bgmON);
+            SetButtonPosition(sfxButton, toggleFills[1], sfxON);
+            SetButtonPosition(screenShakeButton, toggleFills[2], screenShake);
+            SetButtonPosition(powerSavingButton, toggleFills[3], powerSaving);
+        }
+
         if (levelSelectMenu.gameObject.activeSelf)
         {
             for (int i = 0; i < levelHighscores.Length; i++)
                 highscoreTexts[i].text = $"{levelHighscores[i]}";
         }
+        else if (paletteMenu.gameObject.activeSelf)
+            SetTokenText();
 
         ForegroundOverlay.Instance.FadeOutForeground(0.2f);
         foreach (GameObject menuCanvas in menuDest.menuCanvases)
@@ -181,6 +194,8 @@ public class GameManager : MonoBehaviour
 
         canSelect = true;
     }
+
+    public void SetTokenText() => tokenText.text = $"{tokens}";
 
     /// <summary>
     /// Toggle BGM (Background Music) setting.
