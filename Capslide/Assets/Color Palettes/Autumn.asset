@@ -12,22 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b731c021e38e79b4f9af9635388f316c, type: 3}
   m_Name: Autumn
   m_EditorClassIdentifier: 
-  ID: 0
+  ID: 15
   paletteName: Autumn
-  tokenCost: 0
+  tokenCost: 10
   colors:
-  - {r: 1, g: 0.85638046, b: 0, a: 1}
+  - {r: 1, g: 0.48235297, b: 0, a: 1}
   - {r: 1, g: 0.3820755, b: 0.3820755, a: 1}
-  - {r: 1, g: 0.48083812, b: 0, a: 1}
-  - {r: 0, g: 0.55083764, b: 0.6039216, a: 1}
-  - {r: 0.9056604, g: 0.7919705, b: 0.6707013, a: 1}
+  - {r: 0.9339623, g: 0.6757639, b: 0.3127893, a: 1}
+  - {r: 0, g: 0.6509434, b: 0.6509434, a: 1}
+  - {r: 0.43529412, g: 0.34531352, b: 0.31764707, a: 1}
   possibleCapsuleColors:
   - {r: 0, g: 0.54901963, b: 0.6039216, a: 1}
   - {r: 1, g: 0.3803922, b: 0.3803922, a: 1}
   - {r: 1, g: 0.48235297, b: 0, a: 1}
-  scoreColor: {r: 0, g: 0.54901963, b: 0.6039216, a: 1}
-  capsuleTimerColor: {r: 1, g: 0.3803922, b: 0.3803922, a: 1}
-  backButtonColor: {r: 1, g: 0.854902, b: 0, a: 1}
+  scoreColor: {r: 0.9333334, g: 0.6745098, b: 0.3137255, a: 1}
+  capsuleTimerColor: {r: 0, g: 0.6509804, b: 0.6509804, a: 1}
+  backButtonColor: {r: 1, g: 0.3803922, b: 0.3803922, a: 1}
   retryButtonColor: {r: 1, g: 0.48235297, b: 0, a: 1}
-  rewardedAdButtonColor: {r: 0, g: 0.54901963, b: 0.6039216, a: 1}
+  rewardedAdButtonColor: {r: 0, g: 0.6509804, b: 0.6509804, a: 1}
   tokenColor: {r: 1, g: 0.48235297, b: 0, a: 1}

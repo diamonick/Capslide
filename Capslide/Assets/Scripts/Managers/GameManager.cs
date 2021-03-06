@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     // Palette Variables
     [Header("Palette")]
     public PaletteManager paletteManager;
+    public bool[] palettesUnlocked = new bool[16];
     [SerializeField] private TMP_Text tokenText;
 
     // Settings Variables
@@ -92,12 +93,24 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < levelHighscores.Length; i++)
             levelHighscores[i] = data.levelHighscores[i];
 
+        for (int i = 0; i < palettesUnlocked.Length; i++)
+            palettesUnlocked[i] = data.paletteUnlocked[i];
+
         bgmON = data.bgmToggle;
         sfxON = data.sfxToggle;
         screenShake = data.screenShakeToggle;
         powerSaving = data.powerSavingToggle;
 
         levelsPlayed = data.levelsPlayed;
+    }
+
+    public void LoadPalettesUnlocked()
+    {
+        for (int i = 0; i < palettesUnlocked.Length; i++)
+        {
+            paletteManager.palettes[i].isUnlocked = palettesUnlocked[i];
+            paletteManager.palettes[i].SetPaletteButton();
+        }
     }
 
     /// <summary>
@@ -182,7 +195,10 @@ public class GameManager : MonoBehaviour
                 highscoreTexts[i].text = $"{levelHighscores[i]}";
         }
         else if (paletteMenu.gameObject.activeSelf)
+        {
+            LoadPalettesUnlocked();
             SetTokenText();
+        }
 
         ForegroundOverlay.Instance.FadeOutForeground(0.2f);
         foreach (GameObject menuCanvas in menuDest.menuCanvases)

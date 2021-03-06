@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b731c021e38e79b4f9af9635388f316c, type: 3}
   m_Name: Rose Gold
   m_EditorClassIdentifier: 
-  ID: 0
+  ID: 10
   paletteName: Rose Gold
-  tokenCost: 0
+  tokenCost: 10
   colors:
   - {r: 1, g: 0.84705883, b: 0.8156863, a: 1}
   - {r: 1, g: 0.79607844, b: 0.79607844, a: 1}

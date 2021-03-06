@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b731c021e38e79b4f9af9635388f316c, type: 3}
   m_Name: Summer
   m_EditorClassIdentifier: 
-  ID: 0
+  ID: 14
   paletteName: Summer
-  tokenCost: 0
+  tokenCost: 10
   colors:
   - {r: 1, g: 1, b: 0.6509804, a: 1}
   - {r: 0.6901961, g: 1, b: 1, a: 1}
@@ -26,9 +26,9 @@ MonoBehaviour:
   - {r: 0.6901961, g: 1, b: 1, a: 1}
   - {r: 1, g: 1, b: 0.6509804, a: 1}
   - {r: 1, g: 0.3529412, b: 0.6666667, a: 1}
-  scoreColor: {r: 1, g: 1, b: 0.6509804, a: 1}
+  scoreColor: {r: 0.6901961, g: 1, b: 1, a: 1}
   capsuleTimerColor: {r: 1, g: 0.3529412, b: 0.6666667, a: 1}
-  backButtonColor: {r: 0, g: 0.54509807, b: 1, a: 1}
+  backButtonColor: {r: 0.6901961, g: 1, b: 1, a: 1}
   retryButtonColor: {r: 1, g: 0.3529412, b: 0.6666667, a: 1}
-  rewardedAdButtonColor: {r: 0.6901961, g: 1, b: 1, a: 1}
+  rewardedAdButtonColor: {r: 0, g: 0.54509807, b: 1, a: 1}
   tokenColor: {r: 1, g: 1, b: 0.6509804, a: 1}

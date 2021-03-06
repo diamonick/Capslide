@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PaletteButton : MonoBehaviour
 {
@@ -13,14 +14,28 @@ public class PaletteButton : MonoBehaviour
     public bool isEquipped;
     public bool isUnlocked;
     public GameObject checkmark;
+    public GameObject costPrompt;
+    public TMP_Text paletteName;
+    public TMP_Text costText;
 
     private void OnEnable()
     {
-        for (int i = 0; i < PALETTE_SIZE; i++)
-            paletteSquares[i].color = palette.colors[i];
+        SetPaletteButton();
+    }
+
+    public void SetPaletteButton()
+    {
+        if (isUnlocked)
+            SetPaletteColors();
 
         if (PaletteManager.Instance.mainPalette == palette)
             Equip();
+
+        paletteName.text = $"{palette.name}";
+        costText.text = $"Pay {palette.tokenCost}";
+
+        costPrompt.SetActive(!isUnlocked);
+        paletteName.gameObject.SetActive(isUnlocked);
     }
 
     public void Equip()
@@ -35,6 +50,34 @@ public class PaletteButton : MonoBehaviour
     {
         isEquipped = false;
         checkmark.SetActive(false);
+    }
+
+    public void Purchase()
+    {
+        if (GameManager.Instance.tokens < palette.tokenCost)
+            return;
+
+        Deduct();
+        isUnlocked = true;
+        costPrompt.SetActive(false);
+        paletteName.gameObject.SetActive(true);
+        paletteName.text = $"{palette.name}";
+        SetPaletteColors();
+
+        GameManager.Instance.palettesUnlocked[palette.ID] = isUnlocked;
+        GameManager.Instance.Save();
+    }
+
+    private void Deduct()
+    {
+        GameManager.Instance.tokens -= palette.tokenCost;
+        GameManager.Instance.SetTokenText();
+    }
+
+    private void SetPaletteColors()
+    {
+        for (int i = 0; i < PALETTE_SIZE; i++)
+            paletteSquares[i].color = palette.colors[i];
     }
 
 }

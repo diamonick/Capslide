@@ -25,6 +25,14 @@ public class PaletteManager : MonoBehaviour
         }
     }
 
+    public void OnClick(PaletteButton pb)
+    {
+        if (pb.isUnlocked)
+            Equip(pb);
+        else
+            pb.Purchase();
+    }
+
     public void Equip(PaletteButton pb)
     {
         if (pb.isEquipped || !pb.isUnlocked)

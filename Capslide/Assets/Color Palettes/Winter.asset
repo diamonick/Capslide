@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b731c021e38e79b4f9af9635388f316c, type: 3}
   m_Name: Winter
   m_EditorClassIdentifier: 
-  ID: 0
+  ID: 12
   paletteName: Winter
-  tokenCost: 0
+  tokenCost: 10
   colors:
   - {r: 0.8980392, g: 0.96862745, b: 1, a: 1}
   - {r: 0.65882355, g: 0.89411765, b: 1, a: 1}

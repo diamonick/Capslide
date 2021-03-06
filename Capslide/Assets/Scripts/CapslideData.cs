@@ -10,6 +10,9 @@ public class CapslideData
     public int tokens;
     public int[] levelHighscores;
 
+    // Palette
+    public bool[] paletteUnlocked;
+
     // Settings
     public bool bgmToggle;
     public bool sfxToggle;
@@ -27,6 +30,10 @@ public class CapslideData
         levelHighscores = new int[6];
         for (int i = 0; i < levelHighscores.Length; i++)
             levelHighscores[i] = GM.levelHighscores[i];
+
+        paletteUnlocked = new bool[16];
+        for (int i = 0; i < paletteUnlocked.Length; i++)
+            paletteUnlocked[i] = GM.paletteManager.palettes[i].isUnlocked;
 
         bgmToggle = GM.bgmON;
         sfxToggle = GM.sfxON;
