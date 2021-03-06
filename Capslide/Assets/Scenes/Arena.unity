@@ -1617,7 +1617,7 @@ MonoBehaviour:
   tmpText: {fileID: 0}
   overlay: {fileID: 0}
   camera: {fileID: 0}
-  colorType: 8
+  colorType: 9
 --- !u!114 &62847194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12078,6 +12078,7 @@ MonoBehaviour:
   startupMenu: {fileID: 1544861353}
   gameplayMenu: {fileID: 490373422}
   gameplayCanvas: {fileID: 987415462}
+  pauseMenu: {fileID: 425473277}
   pauseAssets: {fileID: 527616909}
   score: 0
   tokensEarned: 0
@@ -20381,6 +20382,7 @@ MonoBehaviour:
   currentLevel: {fileID: 0}
   tokens: 0
   paletteManager: {fileID: 502568297}
+  palettesUnlocked: 00000000000000000000000000000000
   tokenText: {fileID: 1345559139}
   bgmON: 1
   sfxON: 1
@@ -33294,7 +33296,7 @@ MonoBehaviour:
   tmpText: {fileID: 0}
   overlay: {fileID: 0}
   camera: {fileID: 0}
-  colorType: 8
+  colorType: 9
 --- !u!114 &1558932086
 MonoBehaviour:
   m_ObjectHideFlags: 0

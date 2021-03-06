@@ -20,6 +20,7 @@ public class GameplayManager : MonoBehaviour
     [SerializeField] private GameObject startupMenu;
     [SerializeField] private Menu gameplayMenu;
     [SerializeField] private GameObject gameplayCanvas;
+    [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject pauseAssets;
     [SerializeField] private int score;
     [SerializeField] public int tokensEarned;
@@ -285,6 +286,7 @@ public class GameplayManager : MonoBehaviour
         ForegroundOverlay.Instance.FadeOutForeground(0f);
         GameManager.Instance.currentLevel.gameObject.SetActive(false);
         token.SetActive(false);
+        pauseMenu.SetActive(false);
         gameplayCanvas.SetActive(false);
         countdownCanvas.SetActive(false);
         resultsScreen.SetActive(true);
@@ -373,6 +375,9 @@ public class GameplayManager : MonoBehaviour
         if (!gameStarted)
             return;
 
+        if (GetCapsulesInGame() == 1 && DispenserIsEmpty() && timeStopped)
+            return;
+
         if (Time.timeScale == 1f)
             PauseGame();
         else
@@ -425,6 +430,7 @@ public class GameplayManager : MonoBehaviour
     public void ResetLevel()
     {
         ResetMainVariables();
+        pauseMenu.SetActive(true);
         StartCoroutine(CountdownTimer());
     }
 
