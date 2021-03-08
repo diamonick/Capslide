@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     // Palette Variables
     [Header("Palette")]
     public PaletteManager paletteManager;
-    public bool[] palettesUnlocked = new bool[16];
+    public bool[] palettesUnlocked;
     [SerializeField] private TMP_Text tokenText;
 
     // Settings Variables
@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        //SaveSystem.Erase();
         Load();
 
         Application.targetFrameRate = 60;
@@ -66,7 +67,7 @@ public class GameManager : MonoBehaviour
         }
 
         if (bgmON)
-            AudioManager.Instance.PlayMusic("Main Theme");
+            AudioManager.Instance.PlayMusic("Main Theme", 0.5f);
     }
 
     private void OnEnable()

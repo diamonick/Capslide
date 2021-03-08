@@ -24,11 +24,13 @@ public class Capsule : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private bool starred = false;
     [SerializeField] private bool faked = false;
+    public bool isLaunched = false;
     private Vector3 startForce;
 
     // Start is called before the first frame update
     void OnEnable()
     {
+        points = 0;
         startForce = new Vector3(Random.Range(-MAX_SPEED, MAX_SPEED), 0f, 0f);
         RB.AddForce(startForce, ForceMode2D.Impulse);
 
@@ -147,6 +149,17 @@ public class Capsule : MonoBehaviour
             pts += 1;
     }
 
+    public void Launch()
+    {
+        isLaunched = true;
+        RB.velocity = Vector3.zero;
+        startForce = new Vector3(Random.Range(-MAX_SPEED, MAX_SPEED), 720f, 0f);
+        RB.AddForce(startForce, ForceMode2D.Impulse);
+        Invoke("TurnOffLaunch", 0.5f);
+    }
+
+    private void TurnOffLaunch() => isLaunched = false;
+
     /// <summary>
     /// Checks if capsule is touching the silder from the top.
     /// </summary>
@@ -182,4 +195,9 @@ public class Capsule : MonoBehaviour
     }
 
     private bool InDeadZone() => RB.velocity.y < DEADZONE_VALUE && RB.velocity.y > -DEADZONE_VALUE;
+
+    private void OnDisable()
+    {
+        CancelInvoke();
+    }
 }

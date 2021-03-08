@@ -15,6 +15,7 @@ public class GameplayManager : MonoBehaviour
     private const float TOKEN_SPAWN_INTERVAL = 20f;
     private const float COUNTDOWN_TIME = 3f;
     private const float FAKE_SPAWN_TIME = 8f;
+    private const float FAKE_FAST_SPAWN_TIME = 4f;
 
     [Header("Properties"), Space(8)]
     [SerializeField] private GameObject startupMenu;
@@ -37,6 +38,7 @@ public class GameplayManager : MonoBehaviour
     public bool onDrag = false;
     private List<Color> capsuleColors = new List<Color>();
     private bool gameStarted = false;
+    private bool finalStretch = false;
 
     [Header("Countdown"), Space(8)]
     [SerializeField] private GameObject countdownCanvas;
@@ -57,6 +59,7 @@ public class GameplayManager : MonoBehaviour
     [Header("Results Screen"), Space(8)]
     [SerializeField] private GameObject resultsScreen;
     [SerializeField] private GameObject resultsButtons;
+    [SerializeField] private GameObject starIcon;
     [SerializeField] private TMP_Text totalScoreText;
     [SerializeField] private TMP_Text bestScoreText;
     [SerializeField] private GameObject tokenCanvas;
@@ -113,11 +116,12 @@ public class GameplayManager : MonoBehaviour
             countdownText.text = $"{(int)timeUntilStartGame + 1}";
             countdownFillTimer.fillAmount = (timeUntilStartGame % 1f);
 
-            if ((timeUntilStartGame % 1f) < 0.05f)
+            if ((timeUntilStartGame % 1f) < 0.05f && timeUntilStartGame < 3f)
                 AudioManager.Instance.PlaySFX("Tick");
             yield return new WaitForEndOfFrame();
         }
         level = GameManager.Instance.currentLevel;
+        level.gameObject.SetActive(true);
         countdownCanvas.SetActive(false);
         gameplayCanvas.SetActive(true);
         StartGame();
@@ -213,7 +217,7 @@ public class GameplayManager : MonoBehaviour
             }
         }
 
-        timeUntilDispenseFake = FAKE_SPAWN_TIME;
+        SetFakeSpawnTimer();
     }
 
     /// <summary>
@@ -235,6 +239,12 @@ public class GameplayManager : MonoBehaviour
             capsuleDispenserCount--;
         }
         while (LastThreeCapsules());
+
+        if (capsuleDispenserCount == 5 && !finalStretch)
+        {
+            AudioManager.Instance.PlayMusic("Main Theme", 0.5f, 1.2f);
+            finalStretch = true;
+        }
 
         timeStopped = false;
         timeUntilDispense = (DispenserIsEmpty() ? 0f : 20f);
@@ -328,6 +338,7 @@ public class GameplayManager : MonoBehaviour
         int trueScore = GameManager.Instance.levelHighscores[level.ID];
         if (score > trueScore)
         {
+            starIcon.SetActive(true);
             GameManager.Instance.levelHighscores[level.ID] = score;
             trueScore = score;
         }
@@ -375,7 +386,7 @@ public class GameplayManager : MonoBehaviour
         if (!gameStarted)
             return;
 
-        if (GetCapsulesInGame() == 1 && DispenserIsEmpty() && timeStopped)
+        if (GetCapsulesInGame() <= 1 && DispenserIsEmpty() && timeStopped && GetFakeCapsulesInGame() <= 1)
             return;
 
         if (Time.timeScale == 1f)
@@ -390,25 +401,29 @@ public class GameplayManager : MonoBehaviour
     private void PauseGame()
     {
         Time.timeScale = 0f;
-        gameplayCanvas.gameObject.SetActive(false);
         pauseAssets.SetActive(true);
+        gameplayCanvas.gameObject.SetActive(false);
     }
 
     /// <summary>
     /// Resumes the game.
     /// </summary>
-    private void ResumeGame()
+    private void ResumeGame(bool trueResume = true)
     {
+        if (trueResume)
+            gameplayCanvas.gameObject.SetActive(true);
+
         Time.timeScale = 1f;
-        gameplayCanvas.gameObject.SetActive(true);
         pauseAssets.SetActive(false);
     }
 
     public void ResetMainVariables()
     {
+        gameStarted = false;
         gameOver = false;
         onDrag = false;
-        timeStopped = false;
+        timeStopped = true;
+        fillTimer.fillAmount = 1f;
 
         totalScoreText.text = "0";
         score = 0;
@@ -417,11 +432,19 @@ public class GameplayManager : MonoBehaviour
         timeUntilDispense = 20f;
         timeUntilDispenseFake = FAKE_SPAWN_TIME;
 
+        if (level != null)
+            level.gameObject.SetActive(false);
+
+        finalStretch = false;
+        starIcon.SetActive(false);
+        token.SetActive(false);
         bestScoreText.gameObject.SetActive(false);
         tokenCanvas.SetActive(false);
         resultsButtons.SetActive(false);
         resultsScreen.SetActive(false);
         dragCanvas.gameObject.SetActive(false);
+        DeactivateCapsules();
+        DeactivateFakeCapsules();
     }
 
     /// <summary>
@@ -429,8 +452,10 @@ public class GameplayManager : MonoBehaviour
     /// </summary>
     public void ResetLevel()
     {
+        ResumeGame(false);
         ResetMainVariables();
         pauseMenu.SetActive(true);
+        AudioManager.Instance.Stop("Main Theme");
         StartCoroutine(CountdownTimer());
     }
 
@@ -439,6 +464,7 @@ public class GameplayManager : MonoBehaviour
     /// </summary>
     public void GoToStartupMenu(GameObject menuScreen)
     {
+        ResumeGame(false);
         ResetMainVariables();
         GameManager.Instance.currentLevel.gameObject.SetActive(false);
         GameManager.Instance.GoToStartupMenu(gameplayMenu);
@@ -456,7 +482,6 @@ public class GameplayManager : MonoBehaviour
         rightWall.transform.position = new Vector3(1234f, rightWall.transform.position.y, rightWall.transform.position.z);
         leftWall.transform.position = new Vector3(-406f, leftWall.transform.position.y, leftWall.transform.position.z);
         overlay.color = new Color(overlay.color.r, overlay.color.g, overlay.color.b, 0f);
-        GameManager.Instance.currentLevel.gameObject.SetActive(true);
         scoreText.text = $"{score}";
         capsuleCountText.text = $"{capsuleDispenserCount}";
     }
@@ -487,6 +512,33 @@ public class GameplayManager : MonoBehaviour
         }
 
         return remainingCapsules;
+    }
+
+    /// <summary>
+    /// Get the number of fake capsules currently visible in the game.
+    /// </summary>
+    public int GetFakeCapsulesInGame()
+    {
+        int remainingCapsules = 0;
+        for (int i = 0; i < fakeCapsules.Length; i++)
+        {
+            if (!fakeCapsules[i].gameObject.activeSelf)
+                continue;
+            remainingCapsules++;
+        }
+
+        return remainingCapsules;
+    }
+
+    /// <summary>
+    /// Set the Fake Capsule Dispenser Timer based on the number of capsules inthe dispenser.
+    /// </summary>
+    private void SetFakeSpawnTimer()
+    {
+        if (finalStretch)
+            timeUntilDispenseFake = FAKE_FAST_SPAWN_TIME;
+        else
+            timeUntilDispenseFake = FAKE_SPAWN_TIME;
     }
 
     /// <summary>

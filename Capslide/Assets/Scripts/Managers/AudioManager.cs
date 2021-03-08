@@ -81,7 +81,7 @@ public class AudioManager : MonoBehaviour
     /// <summary>
     /// Play background music.
     /// </summary>
-    public void PlayMusic(string name, float volume = 1f)
+    public void PlayMusic(string name, float volume = 1f, float pitch = 1f)
     {
         if (!GameManager.Instance.bgmON)
             return;
@@ -91,6 +91,7 @@ public class AudioManager : MonoBehaviour
             return;
 
         musicSource.volume = volume;
+        musicSource.pitch = pitch;
         musicSource.clip = msc.music;
         musicSource.Play();
     }

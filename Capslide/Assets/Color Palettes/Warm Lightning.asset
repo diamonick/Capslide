@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b731c021e38e79b4f9af9635388f316c, type: 3}
   m_Name: Warm Lightning
   m_EditorClassIdentifier: 
-  ID: 20
+  ID: 18
   paletteName: Warm Lightning
-  tokenCost: 0
+  tokenCost: 15
   colors:
   - {r: 1, g: 0.6777429, b: 0, a: 1}
   - {r: 1, g: 0.2326675, b: 0, a: 1}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b731c021e38e79b4f9af9635388f316c, type: 3}
   m_Name: Spring
   m_EditorClassIdentifier: 
-  ID: 13
+  ID: 12
   paletteName: Spring
   tokenCost: 10
   colors:

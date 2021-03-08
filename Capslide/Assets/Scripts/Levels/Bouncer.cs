@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class Bouncer : MonoBehaviour
 {
-    // Constants
-    private const float ACTIVATION_TIME = 5f;
-
+    [SerializeField] private float ACTIVATION_TIME;
     [SerializeField] private SpriteRenderer SPR;
     [SerializeField] private BoxCollider2D boxcollider2D;
-    [SerializeField] private float activationTime;
+    private float activationTime;
 
 
     private void OnEnable()

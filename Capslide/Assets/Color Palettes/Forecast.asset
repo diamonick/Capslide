@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b731c021e38e79b4f9af9635388f316c, type: 3}
   m_Name: Forecast
   m_EditorClassIdentifier: 
-  ID: 19
+  ID: 17
   paletteName: Forecast
-  tokenCost: 0
+  tokenCost: 15
   colors:
   - {r: 0.8503916, g: 0.88301176, b: 0.9245283, a: 1}
   - {r: 0.5518868, g: 0.83392423, b: 1, a: 1}
