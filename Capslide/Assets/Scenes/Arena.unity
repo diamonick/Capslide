@@ -5664,7 +5664,7 @@ PrefabInstance:
     - target: {fileID: 1509967991250186082, guid: 3a10d852b69dc5043a9f9b77fde2059e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 845
+      value: 784
       objectReference: {fileID: 0}
     - target: {fileID: 1509967991250186082, guid: 3a10d852b69dc5043a9f9b77fde2059e,
         type: 3}
@@ -5739,7 +5739,7 @@ PrefabInstance:
     - target: {fileID: 1509967991998742942, guid: 3a10d852b69dc5043a9f9b77fde2059e,
         type: 3}
       propertyPath: origin.y
-      value: 1014
+      value: 953
       objectReference: {fileID: 0}
     - target: {fileID: 1509967991998742942, guid: 3a10d852b69dc5043a9f9b77fde2059e,
         type: 3}
@@ -6625,7 +6625,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 236875868}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 414, y: 809, z: 0}
+  m_LocalPosition: {x: 414, y: 748, z: 0}
   m_LocalScale: {x: 600, y: 64, z: 1}
   m_Children: []
   m_Father: {fileID: 2144938894}
@@ -22334,7 +22334,7 @@ MonoBehaviour:
   currentLevel: {fileID: 0}
   tokens: 0
   paletteManager: {fileID: 502568297}
-  palettesUnlocked: 010101010101010100000000000000000000
+  palettesUnlocked: 01010101010101010000000000000000000000
   tokenText: {fileID: 1345559139}
   bgmON: 1
   sfxON: 1
@@ -22767,7 +22767,7 @@ PrefabInstance:
     - target: {fileID: 1509967991250186082, guid: 3a10d852b69dc5043a9f9b77fde2059e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 414
+      value: 530
       objectReference: {fileID: 0}
     - target: {fileID: 1509967991250186082, guid: 3a10d852b69dc5043a9f9b77fde2059e,
         type: 3}
@@ -22847,7 +22847,7 @@ PrefabInstance:
     - target: {fileID: 1509967991998742942, guid: 3a10d852b69dc5043a9f9b77fde2059e,
         type: 3}
       propertyPath: origin.x
-      value: 624
+      value: 740
       objectReference: {fileID: 0}
     - target: {fileID: 1509967991998742942, guid: 3a10d852b69dc5043a9f9b77fde2059e,
         type: 3}
@@ -23190,7 +23190,7 @@ PrefabInstance:
     - target: {fileID: 1509967991250186082, guid: 3a10d852b69dc5043a9f9b77fde2059e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1064
+      value: 1003
       objectReference: {fileID: 0}
     - target: {fileID: 1509967991250186082, guid: 3a10d852b69dc5043a9f9b77fde2059e,
         type: 3}
@@ -23265,7 +23265,7 @@ PrefabInstance:
     - target: {fileID: 1509967991998742942, guid: 3a10d852b69dc5043a9f9b77fde2059e,
         type: 3}
       propertyPath: origin.y
-      value: 1233
+      value: 1172
       objectReference: {fileID: 0}
     - target: {fileID: 1509967991998742942, guid: 3a10d852b69dc5043a9f9b77fde2059e,
         type: 3}
@@ -27106,7 +27106,7 @@ PrefabInstance:
     - target: {fileID: 1509967991250186082, guid: 3a10d852b69dc5043a9f9b77fde2059e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 414
+      value: 298
       objectReference: {fileID: 0}
     - target: {fileID: 1509967991250186082, guid: 3a10d852b69dc5043a9f9b77fde2059e,
         type: 3}
@@ -27181,7 +27181,7 @@ PrefabInstance:
     - target: {fileID: 1509967991998742942, guid: 3a10d852b69dc5043a9f9b77fde2059e,
         type: 3}
       propertyPath: origin.x
-      value: 204
+      value: 88
       objectReference: {fileID: 0}
     - target: {fileID: 1509967991998742942, guid: 3a10d852b69dc5043a9f9b77fde2059e,
         type: 3}
@@ -43453,7 +43453,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1846973318}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 118, z: 0}
+  m_LocalPosition: {x: 0, y: 57, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2127713149}
@@ -50412,7 +50412,7 @@ PrefabInstance:
     - target: {fileID: 1509967991250186082, guid: 3a10d852b69dc5043a9f9b77fde2059e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 845
+      value: 784
       objectReference: {fileID: 0}
     - target: {fileID: 1509967991250186082, guid: 3a10d852b69dc5043a9f9b77fde2059e,
         type: 3}
@@ -50477,7 +50477,7 @@ PrefabInstance:
     - target: {fileID: 1509967991998742942, guid: 3a10d852b69dc5043a9f9b77fde2059e,
         type: 3}
       propertyPath: origin.y
-      value: 1014
+      value: 953
       objectReference: {fileID: 0}
     - target: {fileID: 1509967991998742942, guid: 3a10d852b69dc5043a9f9b77fde2059e,
         type: 3}
