@@ -29,7 +29,7 @@ public class PaletteButton : MonoBehaviour
             SetPaletteColors();
 
         if (PaletteManager.Instance.mainPalette == palette)
-            Equip();
+            Equip(false);
 
         paletteName.text = $"{palette.name}";
         costText.text = $"Pay {palette.tokenCost}";
@@ -38,8 +38,11 @@ public class PaletteButton : MonoBehaviour
         paletteName.gameObject.SetActive(isUnlocked);
     }
 
-    public void Equip()
+    public void Equip(bool playSound = true)
     {
+        if (playSound)
+            AudioManager.Instance.PlaySFX("Select Palette");
+
         isEquipped = true;
         PaletteManager.Instance.mainPalette = palette;
         checkmark.SetActive(true);

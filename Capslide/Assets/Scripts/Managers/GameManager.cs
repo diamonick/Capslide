@@ -51,10 +51,6 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        //SaveSystem.Erase();
-        Load();
-
-        Application.targetFrameRate = 60;
         if (Instance == null)
         {
             Instance = this;
@@ -66,13 +62,18 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning($"WARNING: There can only be one instance of this class.");
         }
 
-        if (bgmON)
-            AudioManager.Instance.PlayMusic("Main Theme", 0.5f);
     }
 
     private void OnEnable()
     {
-        //SaveSystem.Erase();
+        SaveSystem.Erase();
+        //Load();
+
+        if (bgmON)
+            AudioManager.Instance.PlayMusic("Main Theme", 0.5f);
+
+        // Set current device's framerate (30 or 60 FPS).
+        Application.targetFrameRate = powerSaving ? 30 : 60;
     }
 
     private void Update()
@@ -88,7 +89,6 @@ public class GameManager : MonoBehaviour
         if (data == null)
             return;
 
-        paletteManager.mainPalette = paletteManager.paletteList[data.paletteID];
         tokens = data.tokens;
 
         for (int i = 0; i < levelHighscores.Length; i++)
@@ -96,6 +96,7 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < palettesUnlocked.Length; i++)
             palettesUnlocked[i] = data.paletteUnlocked[i];
+
 
         bgmON = data.bgmToggle;
         sfxON = data.sfxToggle;
@@ -153,6 +154,7 @@ public class GameManager : MonoBehaviour
         float xTo = menuSrc.transform.position.x + (Screen.width / 2f);
         canSelect = false;
 
+        AudioManager.Instance.PlaySFX("Click");
         StartCoroutine(AudioManager.Instance.FadeOut(0.01f));
         ForegroundOverlay.Instance.FadeInForeground(0.2f);
         foreach (GameObject menuCanvas in menuSrc.menuCanvases)
@@ -174,6 +176,7 @@ public class GameManager : MonoBehaviour
         float xTo = menuSrc.transform.position.x + (Screen.width / 2f);
         canSelect = false;
 
+        AudioManager.Instance.PlaySFX("Click");
         ForegroundOverlay.Instance.FadeInForeground(0.2f);
         foreach (GameObject menuCanvas in menuSrc.menuCanvases)
             StartCoroutine(Ease.TranslateXTo(menuCanvas, xAway, 0.25f, 2, Easing.EaseOut));

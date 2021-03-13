@@ -10,7 +10,7 @@ public class GameplayManager : MonoBehaviour
     public static GameplayManager Instance { get; private set; }
 
     //Constants
-    private const int CAPSULE_TOTAL = 15;
+    private const int CAPSULE_TOTAL = 12;
     private const int FAKE_CAPSULE_TOTAL = 10;
     private const float TOKEN_SPAWN_INTERVAL = 20f;
     private const float COUNTDOWN_TIME = 3f;
@@ -117,7 +117,7 @@ public class GameplayManager : MonoBehaviour
             countdownFillTimer.fillAmount = (timeUntilStartGame % 1f);
 
             if ((timeUntilStartGame % 1f) < 0.05f && timeUntilStartGame < 3f)
-                AudioManager.Instance.PlaySFX("Tick");
+                AudioManager.Instance.PlaySingleSFX("Tick", 1f);
             yield return new WaitForEndOfFrame();
         }
         level = GameManager.Instance.currentLevel;
@@ -228,17 +228,13 @@ public class GameplayManager : MonoBehaviour
         if (GameOver())
             return;
 
-        do
-        {
-            Capsule newCapsule = capsules[GetExistingCapsules()];
-            newCapsule.gameObject.SetActive(true);
+        Capsule newCapsule = capsules[GetExistingCapsules()];
+        newCapsule.gameObject.SetActive(true);
 
-            if (isCompleted && capsuleDispenserCount > 2)
-                newCapsule.GetComponent<Capsule>().StarCapsule();
+        if (isCompleted)
+            newCapsule.GetComponent<Capsule>().StarCapsule();
 
-            capsuleDispenserCount--;
-        }
-        while (LastThreeCapsules());
+        capsuleDispenserCount--;
 
         if (capsuleDispenserCount == 5 && !finalStretch)
         {
@@ -389,6 +385,7 @@ public class GameplayManager : MonoBehaviour
         if (GetCapsulesInGame() <= 1 && DispenserIsEmpty() && timeStopped && GetFakeCapsulesInGame() <= 1)
             return;
 
+        AudioManager.Instance.PlaySFX("Click");
         if (Time.timeScale == 1f)
             PauseGame();
         else
@@ -400,6 +397,7 @@ public class GameplayManager : MonoBehaviour
     /// </summary>
     private void PauseGame()
     {
+        AudioManager.Instance.SetMusicVolume(0.15f);
         Time.timeScale = 0f;
         pauseAssets.SetActive(true);
         gameplayCanvas.gameObject.SetActive(false);
@@ -412,7 +410,10 @@ public class GameplayManager : MonoBehaviour
     {
         if (trueResume)
             gameplayCanvas.gameObject.SetActive(true);
+        else if (gameStarted)
+            AudioManager.Instance.PlaySFX("Click");
 
+        AudioManager.Instance.SetMusicVolume(0.5f);
         Time.timeScale = 1f;
         pauseAssets.SetActive(false);
     }

@@ -87,11 +87,11 @@ public class ColorChange : MonoBehaviour
             return;
 
         if (SPR != null)
-            SPR.color = col;
+            SPR.color = new Color(col.r, col.g, col.b, SPR.color.a);
         if (image != null)
-            image.color = col;
+            image.color = new Color(col.r, col.g, col.b, image.color.a);
         if (tmpText != null)
-            tmpText.color = col;
+            tmpText.color = new Color(col.r, col.g, col.b, tmpText.color.a);
         if (button != null)
         {
             var colors = button.colors;

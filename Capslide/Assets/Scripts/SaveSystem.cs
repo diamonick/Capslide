@@ -53,8 +53,6 @@ public static class SaveSystem
             CapslideData data = (CapslideData)BF.Deserialize(file);
             file.Close();
 
-            //Loaded data
-            //diamonds = data.player_Diamonds;
             Debug.Log("Data loaded!");
 
             return data;

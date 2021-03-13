@@ -218,12 +218,12 @@ public class Slider : MonoBehaviour
             GameplayManager.Instance.DragOn(dragTime, DRAG_TIME_INTERVAL);
         }
         else
-            StartCoroutine(ReleaseDrag());
+            StartCoroutine(ReleaseDrag(true));
     }
 
     private void OnMouseDown()
     {
-        if (!GameplayManager.Instance.GameStarted())
+        if (!GameplayManager.Instance.GameStarted() || Time.timeScale == 0f)
             return;
 
         GameplayManager.Instance.onDrag = true;
@@ -239,7 +239,7 @@ public class Slider : MonoBehaviour
     }
     private void OnMouseDrag()
     {
-        if (!GameplayManager.Instance.GameStarted() || !GameplayManager.Instance.onDrag || !onDragLocal)
+        if (!GameplayManager.Instance.GameStarted() || !GameplayManager.Instance.onDrag || !onDragLocal || Time.timeScale == 0f)
             return;
 
         if (!isDraggable)
@@ -263,7 +263,7 @@ public class Slider : MonoBehaviour
     /// <summary>
     /// Lets go of the slider button and move back to its origin.
     /// </summary>
-    private IEnumerator ReleaseDrag()
+    private IEnumerator ReleaseDrag(bool timesUp = false)
     {
         GameplayManager.Instance.onDrag = false;
         onDragLocal = GameplayManager.Instance.onDrag;
@@ -271,15 +271,13 @@ public class Slider : MonoBehaviour
         dragTime = 0f;
         isDraggable = false;
         GameplayManager.Instance.DragOff();
-        float time = Vector2.Distance((Vector2)obj.transform.position, origin) / 200f;
-        //if (time == 0f)
-            //return;
 
-        StartCoroutine(Ease.TranslateTo(obj, origin, 1f, 2, Easing.EaseOut));
+        float time = (timesUp ? 1f : 0.2f);
+        StartCoroutine(Ease.TranslateTo(obj, origin, time, 2, Easing.EaseOut));
         if (placement == Placement.Left || placement == Placement.Right || placement == Placement.Center)
-            yield return StartCoroutine(Ease.ScaleTo(mainBar, new Vector2(0f, SLIDER_WEIGHT), 1f, 2, Easing.EaseOut));
+            yield return StartCoroutine(Ease.ScaleTo(mainBar, new Vector2(0f, SLIDER_WEIGHT), time, 2, Easing.EaseOut));
         else if (placement == Placement.Top || placement == Placement.Bottom)
-            yield return StartCoroutine(Ease.ScaleTo(mainBar, new Vector2(SLIDER_WEIGHT, 0f), 1f, 2, Easing.EaseOut));
+            yield return StartCoroutine(Ease.ScaleTo(mainBar, new Vector2(SLIDER_WEIGHT, 0f), time, 2, Easing.EaseOut));
     }
 
     /// <summary>

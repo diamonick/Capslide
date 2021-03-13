@@ -33,7 +33,7 @@ public class CapslideData
 
         paletteUnlocked = new bool[64];
         for (int i = 0; i < paletteUnlocked.Length; i++)
-            paletteUnlocked[i] = GM.paletteManager.palettes[i].isUnlocked;
+            paletteUnlocked[i] = GM.palettesUnlocked[i];
 
         bgmToggle = GM.bgmON;
         sfxToggle = GM.sfxON;

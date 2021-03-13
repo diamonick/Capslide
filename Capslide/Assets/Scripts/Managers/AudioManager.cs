@@ -49,6 +49,21 @@ public class AudioManager : MonoBehaviour
         SFX sfx = Array.Find(soundEffects, sound => sound.name == name);
         if (!SoundAvailable(sfx))
             return;
+        
+        sfxSource.PlayOneShot(sfx.sound, volume);
+    }
+
+    /// <summary>
+    /// Play single sound effect (SFX).
+    /// </summary>
+    public void PlaySingleSFX(string name, float volume = 1f)
+    {
+        if (!GameManager.Instance.sfxON)
+            return;
+
+        SFX sfx = Array.Find(soundEffects, sound => sound.name == name);
+        if (!SoundAvailable(sfx))
+            return;
 
         if (!sfxSource.isPlaying)
             sfxSource.PlayOneShot(sfx.sound, volume);
@@ -159,9 +174,8 @@ public class AudioManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Calculate the overall volume. Overall volume is the product of the master volume & the current volume.
+    /// Set the music volume.
     /// </summary>
-    /// <param name="volume">The volume to multiply into the master volume</param>
-    /// <returns>The product of the master volume & the current volume</returns>
-    public float GetOverallVolume(float volume) => masterVolume * volume;
+    /// <param name="volume">The volume to change</param>
+    public void SetMusicVolume(float volume) => musicSource.volume = volume;
 }
