@@ -66,8 +66,8 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
-        SaveSystem.Erase();
-        //Load();
+        //SaveSystem.Erase();
+        Load();
 
         if (bgmON)
             AudioManager.Instance.PlayMusic("Main Theme", 0.5f);
@@ -97,6 +97,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < palettesUnlocked.Length; i++)
             palettesUnlocked[i] = data.paletteUnlocked[i];
 
+        paletteManager.mainPalette = paletteManager.paletteList[data.paletteID];
 
         bgmON = data.bgmToggle;
         sfxON = data.sfxToggle;
