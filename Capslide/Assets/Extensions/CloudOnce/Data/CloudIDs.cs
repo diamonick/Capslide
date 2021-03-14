@@ -20,6 +20,205 @@ namespace CloudOnce
         /// </summary>
         public static class AchievementIDs
         {
+            public static string ArenaCleared
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "CgkIm7Xjl_oXEAIQBw";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "";
+#elif UNITY_EDITOR
+                    return "ArenaCleared";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string DiamondCleared
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "CgkIm7Xjl_oXEAIQCA";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "";
+#elif UNITY_EDITOR
+                    return "DiamondCleared";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string OrbitCleared
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "CgkIm7Xjl_oXEAIQCQ";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "";
+#elif UNITY_EDITOR
+                    return "OrbitCleared";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string PinballCleared
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "CgkIm7Xjl_oXEAIQCg";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "";
+#elif UNITY_EDITOR
+                    return "PinballCleared";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string WarpCleared
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "CgkIm7Xjl_oXEAIQCw";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "";
+#elif UNITY_EDITOR
+                    return "WarpCleared";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string ClockCleared
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "CgkIm7Xjl_oXEAIQDA";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "";
+#elif UNITY_EDITOR
+                    return "ClockCleared";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string TokenPlayer
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "CgkIm7Xjl_oXEAIQDQ";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "";
+#elif UNITY_EDITOR
+                    return "TokenPlayer";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string StarPlayer
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "CgkIm7Xjl_oXEAIQDg";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "";
+#elif UNITY_EDITOR
+                    return "StarPlayer";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string Capslider
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "CgkIm7Xjl_oXEAIQDw";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "";
+#elif UNITY_EDITOR
+                    return "Capslider";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
+
+            public static string ColorMeImpressed
+            {
+                get
+                {
+#if UNITY_ANDROID && !UNITY_EDITOR
+#if CLOUDONCE_GOOGLE
+                    return "CgkIm7Xjl_oXEAIQEA";
+#else
+                    return string.Empty;
+#endif
+#elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
+                    return "";
+#elif UNITY_EDITOR
+                    return "ColorMeImpressed";
+#else
+                    return string.Empty;
+#endif
+                }
+            }
         }
 
         /// <summary>

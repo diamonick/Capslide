@@ -305,4 +305,31 @@ public class GameManager : MonoBehaviour
             button.image.rectTransform.anchoredPosition = toggleOffPos;
         }
     }
+
+    public void CheckPotentialAwards()
+    {
+        switch (currentLevel.ID)
+        {
+            case 0:
+                CloudOnceServices.Instance.AwardArenaCleared();
+                break;
+            case 1:
+                CloudOnceServices.Instance.AwardDiamondCleared();
+                break;
+            case 2:
+                CloudOnceServices.Instance.AwardOrbitCleared();
+                break;
+            case 3:
+                CloudOnceServices.Instance.AwardPinballCleared();
+                break;
+            case 4:
+                CloudOnceServices.Instance.AwardWarpCleared();
+                break;
+            case 5:
+                CloudOnceServices.Instance.AwardClockCleared();
+                break;
+        }
+
+        CloudOnceServices.Instance.AwardCapslider();
+    }
 }

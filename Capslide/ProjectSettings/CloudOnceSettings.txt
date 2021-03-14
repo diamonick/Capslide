@@ -1,5 +1,56 @@
 {
-	"AchievementIDs":[],
+	"AchievementIDs":[
+		{
+			"InternalID":"ArenaCleared",
+			"AppleID":"",
+			"GoogleID":"CgkIm7Xjl_oXEAIQBw"
+		},
+		{
+			"InternalID":"DiamondCleared",
+			"AppleID":"",
+			"GoogleID":"CgkIm7Xjl_oXEAIQCA"
+		},
+		{
+			"InternalID":"OrbitCleared",
+			"AppleID":"",
+			"GoogleID":"CgkIm7Xjl_oXEAIQCQ"
+		},
+		{
+			"InternalID":"PinballCleared",
+			"AppleID":"",
+			"GoogleID":"CgkIm7Xjl_oXEAIQCg"
+		},
+		{
+			"InternalID":"WarpCleared",
+			"AppleID":"",
+			"GoogleID":"CgkIm7Xjl_oXEAIQCw"
+		},
+		{
+			"InternalID":"ClockCleared",
+			"AppleID":"",
+			"GoogleID":"CgkIm7Xjl_oXEAIQDA"
+		},
+		{
+			"InternalID":"TokenPlayer",
+			"AppleID":"",
+			"GoogleID":"CgkIm7Xjl_oXEAIQDQ"
+		},
+		{
+			"InternalID":"StarPlayer",
+			"AppleID":"",
+			"GoogleID":"CgkIm7Xjl_oXEAIQDg"
+		},
+		{
+			"InternalID":"Capslider",
+			"AppleID":"",
+			"GoogleID":"CgkIm7Xjl_oXEAIQDw"
+		},
+		{
+			"InternalID":"ColorMeImpressed",
+			"AppleID":"",
+			"GoogleID":"CgkIm7Xjl_oXEAIQEA"
+		}
+	],
 	"LeaderboardIDs":[
 		{
 			"InternalID":"Arena",
@@ -33,7 +84,7 @@
 		}
 	],
 	"CloudVariables":[],
-	"AppleSupported":true,
+	"AppleSupported":false,
 	"GoogleSupported":true,
 	"GoogleAppID":"823072971419",
 	"GoogleSetupRun":true,

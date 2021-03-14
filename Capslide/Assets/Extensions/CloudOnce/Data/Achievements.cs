@@ -14,8 +14,168 @@ namespace CloudOnce
     /// </summary>
     public static class Achievements
     {
+        private static readonly UnifiedAchievement s_arenaCleared = new UnifiedAchievement("ArenaCleared",
+#if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
+            ""
+#elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
+            "CgkIm7Xjl_oXEAIQBw"
+#else
+            "ArenaCleared"
+#endif
+            );
+
+        public static UnifiedAchievement ArenaCleared
+        {
+            get { return s_arenaCleared; }
+        }
+
+        private static readonly UnifiedAchievement s_diamondCleared = new UnifiedAchievement("DiamondCleared",
+#if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
+            ""
+#elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
+            "CgkIm7Xjl_oXEAIQCA"
+#else
+            "DiamondCleared"
+#endif
+            );
+
+        public static UnifiedAchievement DiamondCleared
+        {
+            get { return s_diamondCleared; }
+        }
+
+        private static readonly UnifiedAchievement s_orbitCleared = new UnifiedAchievement("OrbitCleared",
+#if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
+            ""
+#elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
+            "CgkIm7Xjl_oXEAIQCQ"
+#else
+            "OrbitCleared"
+#endif
+            );
+
+        public static UnifiedAchievement OrbitCleared
+        {
+            get { return s_orbitCleared; }
+        }
+
+        private static readonly UnifiedAchievement s_pinballCleared = new UnifiedAchievement("PinballCleared",
+#if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
+            ""
+#elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
+            "CgkIm7Xjl_oXEAIQCg"
+#else
+            "PinballCleared"
+#endif
+            );
+
+        public static UnifiedAchievement PinballCleared
+        {
+            get { return s_pinballCleared; }
+        }
+
+        private static readonly UnifiedAchievement s_warpCleared = new UnifiedAchievement("WarpCleared",
+#if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
+            ""
+#elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
+            "CgkIm7Xjl_oXEAIQCw"
+#else
+            "WarpCleared"
+#endif
+            );
+
+        public static UnifiedAchievement WarpCleared
+        {
+            get { return s_warpCleared; }
+        }
+
+        private static readonly UnifiedAchievement s_clockCleared = new UnifiedAchievement("ClockCleared",
+#if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
+            ""
+#elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
+            "CgkIm7Xjl_oXEAIQDA"
+#else
+            "ClockCleared"
+#endif
+            );
+
+        public static UnifiedAchievement ClockCleared
+        {
+            get { return s_clockCleared; }
+        }
+
+        private static readonly UnifiedAchievement s_tokenPlayer = new UnifiedAchievement("TokenPlayer",
+#if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
+            ""
+#elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
+            "CgkIm7Xjl_oXEAIQDQ"
+#else
+            "TokenPlayer"
+#endif
+            );
+
+        public static UnifiedAchievement TokenPlayer
+        {
+            get { return s_tokenPlayer; }
+        }
+
+        private static readonly UnifiedAchievement s_starPlayer = new UnifiedAchievement("StarPlayer",
+#if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
+            ""
+#elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
+            "CgkIm7Xjl_oXEAIQDg"
+#else
+            "StarPlayer"
+#endif
+            );
+
+        public static UnifiedAchievement StarPlayer
+        {
+            get { return s_starPlayer; }
+        }
+
+        private static readonly UnifiedAchievement s_capslider = new UnifiedAchievement("Capslider",
+#if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
+            ""
+#elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
+            "CgkIm7Xjl_oXEAIQDw"
+#else
+            "Capslider"
+#endif
+            );
+
+        public static UnifiedAchievement Capslider
+        {
+            get { return s_capslider; }
+        }
+
+        private static readonly UnifiedAchievement s_colorMeImpressed = new UnifiedAchievement("ColorMeImpressed",
+#if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
+            ""
+#elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
+            "CgkIm7Xjl_oXEAIQEA"
+#else
+            "ColorMeImpressed"
+#endif
+            );
+
+        public static UnifiedAchievement ColorMeImpressed
+        {
+            get { return s_colorMeImpressed; }
+        }
+
         public static readonly UnifiedAchievement[] All =
         {
+            s_arenaCleared,
+            s_diamondCleared,
+            s_orbitCleared,
+            s_pinballCleared,
+            s_warpCleared,
+            s_clockCleared,
+            s_tokenPlayer,
+            s_starPlayer,
+            s_capslider,
+            s_colorMeImpressed,
         };
 
         public static string GetPlatformID(string internalId)
@@ -27,7 +187,16 @@ namespace CloudOnce
 
         private static readonly Dictionary<string, UnifiedAchievement> s_achievementDictionary = new Dictionary<string, UnifiedAchievement>
         {
-
+            { "ArenaCleared", s_arenaCleared },
+            { "DiamondCleared", s_diamondCleared },
+            { "OrbitCleared", s_orbitCleared },
+            { "PinballCleared", s_pinballCleared },
+            { "WarpCleared", s_warpCleared },
+            { "ClockCleared", s_clockCleared },
+            { "TokenPlayer", s_tokenPlayer },
+            { "StarPlayer", s_starPlayer },
+            { "Capslider", s_capslider },
+            { "ColorMeImpressed", s_colorMeImpressed },
         };
     }
 }

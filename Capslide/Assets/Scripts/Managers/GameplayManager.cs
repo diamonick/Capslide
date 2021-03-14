@@ -324,6 +324,7 @@ public class GameplayManager : MonoBehaviour
         tokenText.text = $"You got {tokenCount}";
         GameManager.Instance.tokens += tokensEarned;
         GameManager.Instance.levelsPlayed++;
+        GameManager.Instance.CheckPotentialAwards();
         yield return new WaitForSeconds(1f);
 
         GameManager.Instance.Save();
@@ -335,8 +336,12 @@ public class GameplayManager : MonoBehaviour
         if (score > trueScore)
         {
             starIcon.SetActive(true);
+            CloudOnceServices.Level levelType = (CloudOnceServices.Level)level.ID;
             GameManager.Instance.levelHighscores[level.ID] = score;
             trueScore = score;
+
+            // Submit score to leaderboards.
+            CloudOnceServices.Instance.SubmitScoreToLeaderboard(levelType, score);
         }
 
         bestScoreText.gameObject.SetActive(true);

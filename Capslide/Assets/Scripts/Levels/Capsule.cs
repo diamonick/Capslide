@@ -77,6 +77,9 @@ public class Capsule : MonoBehaviour
                 GameObject fp = Instantiate(floatingPoint, this.gameObject.transform.position, Quaternion.identity);
                 GameplayManager.Instance.SetScore(points);
 
+                if (points == 72 && starred)
+                    CloudOnceServices.Instance.AwardStarPlayer();
+
                 if (faked)
                     fp.transform.GetChild(0).GetComponent<TMP_Text>().text = $"{points}";
                 else
