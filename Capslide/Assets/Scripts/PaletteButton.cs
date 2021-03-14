@@ -68,6 +68,7 @@ public class PaletteButton : MonoBehaviour
         SetPaletteColors();
 
         GameManager.Instance.palettesUnlocked[palette.ID] = isUnlocked;
+        CloudOnceServices.Instance.AwardColorMeImpressed();
         GameManager.Instance.Save();
     }
 
@@ -82,5 +83,4 @@ public class PaletteButton : MonoBehaviour
         for (int i = 0; i < PALETTE_SIZE; i++)
             paletteSquares[i].color = palette.colors[i];
     }
-
 }

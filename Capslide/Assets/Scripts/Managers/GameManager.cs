@@ -27,7 +27,10 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public Level currentLevel;
 
     [Header("Game Info"), Space(8)]
+    [Range(0,999)]
     public int tokens;
+    [Range(0,256)]
+    public int tokensNeededForTokenPlayer;
 
     // Palette Variables
     [Header("Palette")]
@@ -76,11 +79,6 @@ public class GameManager : MonoBehaviour
         Application.targetFrameRate = powerSaving ? 30 : 60;
     }
 
-    private void Update()
-    {
-
-    }
-
     public void Save() => SaveSystem.Save(this);
     public void Load()
     {
@@ -90,6 +88,7 @@ public class GameManager : MonoBehaviour
             return;
 
         tokens = data.tokens;
+        tokensNeededForTokenPlayer = data.tokensNeededForTokenPlayer;
 
         for (int i = 0; i < levelHighscores.Length; i++)
             levelHighscores[i] = data.levelHighscores[i];
@@ -330,6 +329,7 @@ public class GameManager : MonoBehaviour
                 break;
         }
 
+        CloudOnceServices.Instance.AwardTokenPlayer();
         CloudOnceServices.Instance.AwardCapslider();
     }
 }

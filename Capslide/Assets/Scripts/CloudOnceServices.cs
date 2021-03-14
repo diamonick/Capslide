@@ -113,7 +113,7 @@ public class CloudOnceServices : MonoBehaviour
     {
         if (Achievements.TokenPlayer.IsUnlocked) { return; }
 
-        int currentProgress = GameManager.Instance.tokens;
+        int currentProgress = GameManager.Instance.tokensNeededForTokenPlayer;
         Achievements.TokenPlayer.Increment(currentProgress, 256.0);
     }
 
@@ -144,7 +144,11 @@ public class CloudOnceServices : MonoBehaviour
     {
         if (Achievements.ColorMeImpressed.IsUnlocked) { return; }
 
-        int currentProgress = GameManager.Instance.levelsPlayed;
-        Achievements.ColorMeImpressed.Increment(currentProgress, 25.0);
+        int currentProgress = 0;
+
+        foreach (bool paletteUnlocked in GameManager.Instance.palettesUnlocked)
+            currentProgress += paletteUnlocked ? 1 : 0;
+
+        Achievements.ColorMeImpressed.Increment(currentProgress, 64.0);
     }
 }

@@ -8,6 +8,7 @@ public class CapslideData
 {
     public int paletteID;
     public int tokens;
+    public int tokensNeededForTokenPlayer;
     public int[] levelHighscores;
 
     // Palette
@@ -26,6 +27,7 @@ public class CapslideData
     {
         paletteID = GM.paletteManager.mainPalette.ID;
         tokens = GM.tokens;
+        tokensNeededForTokenPlayer = GM.tokensNeededForTokenPlayer;
 
         levelHighscores = new int[6];
         for (int i = 0; i < levelHighscores.Length; i++)

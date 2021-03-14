@@ -323,6 +323,7 @@ public class GameplayManager : MonoBehaviour
         tokenCanvas.SetActive(true);
         tokenText.text = $"You got {tokenCount}";
         GameManager.Instance.tokens += tokensEarned;
+        GameManager.Instance.tokensNeededForTokenPlayer += tokensEarned;
         GameManager.Instance.levelsPlayed++;
         GameManager.Instance.CheckPotentialAwards();
         yield return new WaitForSeconds(1f);
