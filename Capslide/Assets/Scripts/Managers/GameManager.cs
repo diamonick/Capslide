@@ -23,7 +23,9 @@ public class GameManager : MonoBehaviour
     [Header("Level Select"), Space(8)]
     public int[] levelHighscores = new int[6];
     [SerializeField] private TMP_Text[] highscoreTexts = new TMP_Text[6];
+    [Range(0, 999)]
     public int levelsPlayed;
+    public int levelsPlayedUntilDisplayAd;
     [HideInInspector] public Level currentLevel;
 
     [Header("Game Info"), Space(8)]
@@ -104,6 +106,7 @@ public class GameManager : MonoBehaviour
         powerSaving = data.powerSavingToggle;
 
         levelsPlayed = data.levelsPlayed;
+        levelsPlayedUntilDisplayAd = data.levelsPlayedUntilDisplayAd;
     }
 
     public void LoadPalettesUnlocked()
@@ -305,6 +308,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Method to check for any achievements to award to the player.
+    /// </summary>
     public void CheckPotentialAwards()
     {
         switch (currentLevel.ID)

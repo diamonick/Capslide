@@ -58,7 +58,8 @@ public class GameplayManager : MonoBehaviour
 
     [Header("Results Screen"), Space(8)]
     [SerializeField] private GameObject resultsScreen;
-    [SerializeField] private GameObject resultsButtons;
+    [SerializeField] private GameObject resultsButtons1;
+    [SerializeField] private GameObject resultsButtons2;
     [SerializeField] private GameObject starIcon;
     [SerializeField] private TMP_Text totalScoreText;
     [SerializeField] private TMP_Text bestScoreText;
@@ -274,6 +275,7 @@ public class GameplayManager : MonoBehaviour
     {
         gameStarted = false;
         gameOver = true;
+        GameManager.Instance.levelsPlayed++;
         StartCoroutine(ShowResults());
     }
 
@@ -289,6 +291,17 @@ public class GameplayManager : MonoBehaviour
         yield return StartCoroutine(Ease.TranslateXTo(leftWall, leftX, 0.5f, 2, Easing.EaseOut));
         yield return StartCoroutine(Ease.ChangeImageColor(overlay, fullColor, 1f));
 
+        // Show interstitial ad if you've reached
+        if (AdManager.Instance.InterstitialAdReady(score))
+            AdManager.Instance.PlayInterstitialAd();
+
+        // Wait until the interstitial ad is finished.
+        while (AdManager.Instance.adIsRunning)
+        {
+            Debug.Log("Waiting...");
+            yield return new WaitForEndOfFrame();
+        }
+
         ForegroundOverlay.Instance.FadeOutForeground(0f);
         GameManager.Instance.currentLevel.gameObject.SetActive(false);
         token.SetActive(false);
@@ -300,7 +313,8 @@ public class GameplayManager : MonoBehaviour
             resultCanvas.transform.position = new Vector3(xTo, resultCanvas.transform.position.y, 0f);
         yield return StartCoroutine(SetupResults());
 
-        resultsButtons.SetActive(true);
+        resultsButtons1.SetActive(true);
+        resultsButtons2.SetActive(false);
     }
 
     public IEnumerator SetupResults()
@@ -324,11 +338,22 @@ public class GameplayManager : MonoBehaviour
         tokenText.text = $"You got {tokenCount}";
         GameManager.Instance.tokens += tokensEarned;
         GameManager.Instance.tokensNeededForTokenPlayer += tokensEarned;
-        GameManager.Instance.levelsPlayed++;
         GameManager.Instance.CheckPotentialAwards();
         yield return new WaitForSeconds(1f);
 
         GameManager.Instance.Save();
+    }
+
+    public void EarnDoubleTokens()
+    {
+        // Disable Rewarded Ad button and ad prompt after you've watched the ad.
+        resultsButtons1.SetActive(false);
+        resultsButtons2.SetActive(true);
+
+        int tokenCount = tokensEarned * 2;
+        GameManager.Instance.tokens += tokensEarned;
+        GameManager.Instance.tokensNeededForTokenPlayer += tokensEarned;
+        tokenText.text = $"You got {tokenCount}";
     }
 
     private void SaveHighscore()
@@ -338,6 +363,7 @@ public class GameplayManager : MonoBehaviour
         {
             starIcon.SetActive(true);
             CloudOnceServices.Level levelType = (CloudOnceServices.Level)level.ID;
+            Debug.Log($"{levelType}");
             GameManager.Instance.levelHighscores[level.ID] = score;
             trueScore = score;
 
@@ -447,7 +473,8 @@ public class GameplayManager : MonoBehaviour
         token.SetActive(false);
         bestScoreText.gameObject.SetActive(false);
         tokenCanvas.SetActive(false);
-        resultsButtons.SetActive(false);
+        resultsButtons1.SetActive(false);
+        resultsButtons2.SetActive(false);
         resultsScreen.SetActive(false);
         dragCanvas.gameObject.SetActive(false);
         DeactivateCapsules();

@@ -88,7 +88,7 @@
 	"GoogleSupported":true,
 	"GoogleAppID":"823072971419",
 	"GoogleSetupRun":true,
-	"DebugModeEnabled":false,
+	"DebugModeEnabled":true,
 	"Version":"2.7.2",
 	"SettingsLocation":"0"
 }

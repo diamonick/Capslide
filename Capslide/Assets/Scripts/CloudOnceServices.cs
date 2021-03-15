@@ -15,7 +15,7 @@ public class CloudOnceServices : MonoBehaviour
         Clock = 5
     }
 
-    private readonly Dictionary<Level, CloudOnce.Internal.UnifiedLeaderboard> levelLeaderboards = new Dictionary<Level, CloudOnce.Internal.UnifiedLeaderboard>()
+    private Dictionary<Level, CloudOnce.Internal.UnifiedLeaderboard> levelLeaderboards = new Dictionary<Level, CloudOnce.Internal.UnifiedLeaderboard>()
     {
         {Level.Arena, Leaderboards.Arena},
         {Level.Diamond, Leaderboards.Diamond},

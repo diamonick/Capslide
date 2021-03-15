@@ -129,7 +129,7 @@ public class AudioManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Mute/unmute background music.
+    /// Toggle background music.
     /// </summary>
     public void ToggleMusic()
     {
@@ -137,6 +137,26 @@ public class AudioManager : MonoBehaviour
 
         if (!musicSource.isPlaying)
             PlayMusic("Main Theme");
+    }
+
+    /// <summary>
+    /// Mute all audio.
+    /// </summary>
+    public void MuteAudio()
+    {
+        musicSource.volume = 0f;
+        sfxSource.volume = 0f;
+        altSource.volume = 0f;
+    }
+
+    /// <summary>
+    /// Unmute all audio.
+    /// </summary>
+    public void UnmuteAudio()
+    {
+        musicSource.volume = 0.5f;
+        sfxSource.volume = 1f;
+        altSource.volume = 1f;
     }
 
     /// <summary>

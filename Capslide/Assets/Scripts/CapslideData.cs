@@ -22,6 +22,7 @@ public class CapslideData
 
     // Miscellaneous
     public int levelsPlayed;
+    public int levelsPlayedUntilDisplayAd;
 
     public CapslideData(GameManager GM)
     {
@@ -43,5 +44,6 @@ public class CapslideData
         powerSavingToggle = GM.powerSaving;
 
         levelsPlayed = GM.levelsPlayed;
+        levelsPlayedUntilDisplayAd = GM.levelsPlayedUntilDisplayAd;
     }
 }
