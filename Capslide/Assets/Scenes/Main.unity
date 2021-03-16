@@ -13321,6 +13321,7 @@ MonoBehaviour:
   ID: 2
   spawnLocations:
   - {fileID: 783433795}
+  launchers: ff0000003d010000be000000
 --- !u!1 &553584152
 GameObject:
   m_ObjectHideFlags: 0
@@ -21859,6 +21860,7 @@ MonoBehaviour:
   - {fileID: 292139532}
   - {fileID: 173115311}
   - {fileID: 613166284}
+  launchers: 3b010000c8000000
 --- !u!1 &907703091
 GameObject:
   m_ObjectHideFlags: 0
@@ -22075,7 +22077,7 @@ PrefabInstance:
     - target: {fileID: 1509967991250186082, guid: 3a10d852b69dc5043a9f9b77fde2059e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 530
+      value: 414
       objectReference: {fileID: 0}
     - target: {fileID: 1509967991250186082, guid: 3a10d852b69dc5043a9f9b77fde2059e,
         type: 3}
@@ -22155,7 +22157,7 @@ PrefabInstance:
     - target: {fileID: 1509967991998742942, guid: 3a10d852b69dc5043a9f9b77fde2059e,
         type: 3}
       propertyPath: origin.x
-      value: 740
+      value: 624
       objectReference: {fileID: 0}
     - target: {fileID: 1509967991998742942, guid: 3a10d852b69dc5043a9f9b77fde2059e,
         type: 3}
@@ -23513,6 +23515,7 @@ MonoBehaviour:
   spawnLocations:
   - {fileID: 315079952}
   - {fileID: 1673474027}
+  launchers: d400000049010000
 --- !u!1 &980582600
 GameObject:
   m_ObjectHideFlags: 0
@@ -26093,7 +26096,7 @@ PrefabInstance:
     - target: {fileID: 1509967991250186082, guid: 3a10d852b69dc5043a9f9b77fde2059e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 298
+      value: 414
       objectReference: {fileID: 0}
     - target: {fileID: 1509967991250186082, guid: 3a10d852b69dc5043a9f9b77fde2059e,
         type: 3}
@@ -26168,7 +26171,7 @@ PrefabInstance:
     - target: {fileID: 1509967991998742942, guid: 3a10d852b69dc5043a9f9b77fde2059e,
         type: 3}
       propertyPath: origin.x
-      value: 88
+      value: 204
       objectReference: {fileID: 0}
     - target: {fileID: 1509967991998742942, guid: 3a10d852b69dc5043a9f9b77fde2059e,
         type: 3}
@@ -27601,6 +27604,7 @@ MonoBehaviour:
   ID: 5
   spawnLocations:
   - {fileID: 915350956}
+  launchers: 
 --- !u!1 &1234433261
 GameObject:
   m_ObjectHideFlags: 0
@@ -29622,8 +29626,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0b61b1435f9334fa4019bbbedc28f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTargetPlayStore: 1
+  isTargetPlayStore: 0
   isTestAd: 1
+  adIsRunning: 0
 --- !u!4 &1302170540
 Transform:
   m_ObjectHideFlags: 0
@@ -35824,6 +35829,7 @@ MonoBehaviour:
   - {fileID: 373530314}
   - {fileID: 771124948}
   - {fileID: 1422462143}
+  launchers: 
 --- !u!95 &1552195556
 Animator:
   serializedVersion: 3
@@ -40333,7 +40339,7 @@ PrefabInstance:
     - target: {fileID: 1280545866066320774, guid: 6a2cd57246bc5854397a717031c1bae6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1056
+      value: 900
       objectReference: {fileID: 0}
     - target: {fileID: 1280545866066320774, guid: 6a2cd57246bc5854397a717031c1bae6,
         type: 3}
@@ -49449,6 +49455,7 @@ MonoBehaviour:
   - {fileID: 2127713149}
   - {fileID: 1191233355}
   - {fileID: 1872706500}
+  launchers: 00000000b4000000d200000022010000
 --- !u!1 &2147375597
 GameObject:
   m_ObjectHideFlags: 0
@@ -49638,7 +49645,7 @@ PrefabInstance:
     - target: {fileID: 1280545866066320774, guid: 6a2cd57246bc5854397a717031c1bae6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 744
+      value: 900
       objectReference: {fileID: 0}
     - target: {fileID: 1280545866066320774, guid: 6a2cd57246bc5854397a717031c1bae6,
         type: 3}

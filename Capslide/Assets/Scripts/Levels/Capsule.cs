@@ -31,8 +31,9 @@ public class Capsule : MonoBehaviour
     void OnEnable()
     {
         points = 0;
-        startForce = new Vector3(Random.Range(-MAX_SPEED, MAX_SPEED), 0f, 0f);
-        RB.AddForce(startForce, ForceMode2D.Impulse);
+        StartLaunch();
+        //startForce = new Vector3(Random.Range(-MAX_SPEED, MAX_SPEED), 0f, 0f);
+        //RB.AddForce(startForce, ForceMode2D.Impulse);
 
         var main = trailPS.main;
         main.startColor = SPR.color;
@@ -43,6 +44,23 @@ public class Capsule : MonoBehaviour
     {
         RB.velocity = new Vector2(Mathf.Clamp(RB.velocity.x, -MAX_SPEED, MAX_SPEED), Mathf.Clamp(RB.velocity.y, -MAX_SPEED, MAX_SPEED));
         HasTouchedSlider();
+    }
+
+    private void StartLaunch()
+    {
+        Level level = GameManager.Instance.currentLevel;
+
+        float ballSpeed = Random.Range(360f, MAX_SPEED);
+        Vector3 direction = VectorFromAngle(level.GetRandomLauncher());
+        RB.velocity = direction * ballSpeed;
+    }
+
+    //Converts an angle (in degrees) to a 2D vector
+    private Vector3 VectorFromAngle(float theta)
+    {
+        var force = Quaternion.AngleAxis(theta, Vector3.forward) * Vector3.right;
+        force.Normalize();
+        return force;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

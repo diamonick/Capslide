@@ -112,25 +112,25 @@ public class AdManager : MonoBehaviour, IUnityAdsListener
         switch (showResult)
         {
             case ShowResult.Failed:
-                if (placementId == rewardedAd_ANDROID)
+                if (placementId == rewardedAd_ANDROID || placementId == rewardedAd_IOS)
                 {
                     GameplayManager.Instance.EarnDoubleTokens();
                     Debug.Log("Rewarded ad failed. You've earned double tokens.");
                 }
-                if (placementId == interstitialAd_ANDROID)
+                if (placementId == interstitialAd_ANDROID || placementId == interstitialAd_IOS)
                     Debug.Log("Interstitial ad failed.");
                 break;
             case ShowResult.Skipped:
-                if (placementId == interstitialAd_ANDROID)
+                if (placementId == interstitialAd_ANDROID || placementId == interstitialAd_IOS)
                     Debug.Log("Interstitial ad skipped.");
                 break;
             case ShowResult.Finished:
-                if (placementId == rewardedAd_ANDROID)
+                if (placementId == rewardedAd_ANDROID || placementId == rewardedAd_IOS)
                 {
                     GameplayManager.Instance.EarnDoubleTokens();
                     Debug.Log("Finished rewarded ad. You've earned double tokens.");
                 }
-                if (placementId == interstitialAd_ANDROID)
+                if (placementId == interstitialAd_ANDROID || placementId == interstitialAd_IOS)
                     Debug.Log("Finished interstitial ad.");
                 break;
         }
