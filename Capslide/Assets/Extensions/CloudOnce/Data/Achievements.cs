@@ -16,7 +16,7 @@ namespace CloudOnce
     {
         private static readonly UnifiedAchievement s_arenaCleared = new UnifiedAchievement("ArenaCleared",
 #if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
-            ""
+            "capslide_arenacleared_01"
 #elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
             "CgkIm7Xjl_oXEAIQBw"
 #else
@@ -31,7 +31,7 @@ namespace CloudOnce
 
         private static readonly UnifiedAchievement s_diamondCleared = new UnifiedAchievement("DiamondCleared",
 #if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
-            ""
+            "capslide_diamondcleared_02"
 #elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
             "CgkIm7Xjl_oXEAIQCA"
 #else
@@ -46,7 +46,7 @@ namespace CloudOnce
 
         private static readonly UnifiedAchievement s_orbitCleared = new UnifiedAchievement("OrbitCleared",
 #if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
-            ""
+            "capslide_orbitcleared_03"
 #elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
             "CgkIm7Xjl_oXEAIQCQ"
 #else
@@ -61,7 +61,7 @@ namespace CloudOnce
 
         private static readonly UnifiedAchievement s_pinballCleared = new UnifiedAchievement("PinballCleared",
 #if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
-            ""
+            "capslide_pinballcleared_04"
 #elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
             "CgkIm7Xjl_oXEAIQCg"
 #else
@@ -76,7 +76,7 @@ namespace CloudOnce
 
         private static readonly UnifiedAchievement s_warpCleared = new UnifiedAchievement("WarpCleared",
 #if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
-            ""
+            "capslide_warpcleared_05"
 #elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
             "CgkIm7Xjl_oXEAIQCw"
 #else
@@ -91,7 +91,7 @@ namespace CloudOnce
 
         private static readonly UnifiedAchievement s_clockCleared = new UnifiedAchievement("ClockCleared",
 #if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
-            ""
+            "capslide_clockcleared_06"
 #elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
             "CgkIm7Xjl_oXEAIQDA"
 #else
@@ -106,7 +106,7 @@ namespace CloudOnce
 
         private static readonly UnifiedAchievement s_tokenPlayer = new UnifiedAchievement("TokenPlayer",
 #if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
-            ""
+            "capslide_tokenplayer_07"
 #elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
             "CgkIm7Xjl_oXEAIQDQ"
 #else
@@ -121,7 +121,7 @@ namespace CloudOnce
 
         private static readonly UnifiedAchievement s_starPlayer = new UnifiedAchievement("StarPlayer",
 #if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
-            ""
+            "capslide_starplayer_08"
 #elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
             "CgkIm7Xjl_oXEAIQDg"
 #else
@@ -136,7 +136,7 @@ namespace CloudOnce
 
         private static readonly UnifiedAchievement s_capslider = new UnifiedAchievement("Capslider",
 #if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
-            ""
+            "capslide_capslider_09"
 #elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
             "CgkIm7Xjl_oXEAIQDw"
 #else
@@ -151,7 +151,7 @@ namespace CloudOnce
 
         private static readonly UnifiedAchievement s_colorMeImpressed = new UnifiedAchievement("ColorMeImpressed",
 #if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
-            ""
+            "capslide_colormeimpressed_10"
 #elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
             "CgkIm7Xjl_oXEAIQEA"
 #else

@@ -31,7 +31,7 @@ namespace CloudOnce
                     return string.Empty;
 #endif
 #elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
-                    return "";
+                    return "capslide_arenacleared_01";
 #elif UNITY_EDITOR
                     return "ArenaCleared";
 #else
@@ -51,7 +51,7 @@ namespace CloudOnce
                     return string.Empty;
 #endif
 #elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
-                    return "";
+                    return "capslide_diamondcleared_02";
 #elif UNITY_EDITOR
                     return "DiamondCleared";
 #else
@@ -71,7 +71,7 @@ namespace CloudOnce
                     return string.Empty;
 #endif
 #elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
-                    return "";
+                    return "capslide_orbitcleared_03";
 #elif UNITY_EDITOR
                     return "OrbitCleared";
 #else
@@ -91,7 +91,7 @@ namespace CloudOnce
                     return string.Empty;
 #endif
 #elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
-                    return "";
+                    return "capslide_pinballcleared_04";
 #elif UNITY_EDITOR
                     return "PinballCleared";
 #else
@@ -111,7 +111,7 @@ namespace CloudOnce
                     return string.Empty;
 #endif
 #elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
-                    return "";
+                    return "capslide_warpcleared_05";
 #elif UNITY_EDITOR
                     return "WarpCleared";
 #else
@@ -131,7 +131,7 @@ namespace CloudOnce
                     return string.Empty;
 #endif
 #elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
-                    return "";
+                    return "capslide_clockcleared_06";
 #elif UNITY_EDITOR
                     return "ClockCleared";
 #else
@@ -151,7 +151,7 @@ namespace CloudOnce
                     return string.Empty;
 #endif
 #elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
-                    return "";
+                    return "capslide_tokenplayer_07";
 #elif UNITY_EDITOR
                     return "TokenPlayer";
 #else
@@ -171,7 +171,7 @@ namespace CloudOnce
                     return string.Empty;
 #endif
 #elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
-                    return "";
+                    return "capslide_starplayer_08";
 #elif UNITY_EDITOR
                     return "StarPlayer";
 #else
@@ -191,7 +191,7 @@ namespace CloudOnce
                     return string.Empty;
 #endif
 #elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
-                    return "";
+                    return "capslide_capslider_09";
 #elif UNITY_EDITOR
                     return "Capslider";
 #else
@@ -211,7 +211,7 @@ namespace CloudOnce
                     return string.Empty;
 #endif
 #elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
-                    return "";
+                    return "capslide_colormeimpressed_10";
 #elif UNITY_EDITOR
                     return "ColorMeImpressed";
 #else
@@ -237,7 +237,7 @@ namespace CloudOnce
                     return string.Empty;
 #endif
 #elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
-                    return "";
+                    return "capslide_level1_arena";
 #elif UNITY_EDITOR
                     return "Arena";
 #else
@@ -257,7 +257,7 @@ namespace CloudOnce
                     return string.Empty;
 #endif
 #elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
-                    return "";
+                    return "capslide_level2_diamond";
 #elif UNITY_EDITOR
                     return "Diamond";
 #else
@@ -277,7 +277,7 @@ namespace CloudOnce
                     return string.Empty;
 #endif
 #elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
-                    return "";
+                    return "capslide_level3_orbit";
 #elif UNITY_EDITOR
                     return "Orbit";
 #else
@@ -297,7 +297,7 @@ namespace CloudOnce
                     return string.Empty;
 #endif
 #elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
-                    return "";
+                    return "capslide_level4_pinball";
 #elif UNITY_EDITOR
                     return "Pinball";
 #else
@@ -317,7 +317,7 @@ namespace CloudOnce
                     return string.Empty;
 #endif
 #elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
-                    return "";
+                    return "capslide_level5_warp";
 #elif UNITY_EDITOR
                     return "Warp";
 #else
@@ -337,7 +337,7 @@ namespace CloudOnce
                     return string.Empty;
 #endif
 #elif (UNITY_IOS || UNITY_TVOS) && !UNITY_EDITOR
-                    return "";
+                    return "capslide_level6_clock";
 #elif UNITY_EDITOR
                     return "Clock";
 #else

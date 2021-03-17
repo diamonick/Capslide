@@ -16,7 +16,7 @@ namespace CloudOnce
     {
         private static readonly UnifiedLeaderboard s_arena = new UnifiedLeaderboard("Arena",
 #if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
-            ""
+            "capslide_level1_arena"
 #elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
             "CgkIm7Xjl_oXEAIQAA"
 #else
@@ -31,7 +31,7 @@ namespace CloudOnce
 
         private static readonly UnifiedLeaderboard s_diamond = new UnifiedLeaderboard("Diamond",
 #if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
-            ""
+            "capslide_level2_diamond"
 #elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
             "CgkIm7Xjl_oXEAIQAQ"
 #else
@@ -46,7 +46,7 @@ namespace CloudOnce
 
         private static readonly UnifiedLeaderboard s_orbit = new UnifiedLeaderboard("Orbit",
 #if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
-            ""
+            "capslide_level3_orbit"
 #elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
             "CgkIm7Xjl_oXEAIQAg"
 #else
@@ -61,7 +61,7 @@ namespace CloudOnce
 
         private static readonly UnifiedLeaderboard s_pinball = new UnifiedLeaderboard("Pinball",
 #if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
-            ""
+            "capslide_level4_pinball"
 #elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
             "CgkIm7Xjl_oXEAIQAw"
 #else
@@ -76,7 +76,7 @@ namespace CloudOnce
 
         private static readonly UnifiedLeaderboard s_warp = new UnifiedLeaderboard("Warp",
 #if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
-            ""
+            "capslide_level5_warp"
 #elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
             "CgkIm7Xjl_oXEAIQBA"
 #else
@@ -91,7 +91,7 @@ namespace CloudOnce
 
         private static readonly UnifiedLeaderboard s_clock = new UnifiedLeaderboard("Clock",
 #if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
-            ""
+            "capslide_level6_clock"
 #elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
             "CgkIm7Xjl_oXEAIQBQ"
 #else

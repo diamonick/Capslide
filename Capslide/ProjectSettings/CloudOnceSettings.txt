@@ -2,89 +2,89 @@
 	"AchievementIDs":[
 		{
 			"InternalID":"ArenaCleared",
-			"AppleID":"",
+			"AppleID":"capslide_arenacleared_01",
 			"GoogleID":"CgkIm7Xjl_oXEAIQBw"
 		},
 		{
 			"InternalID":"DiamondCleared",
-			"AppleID":"",
+			"AppleID":"capslide_diamondcleared_02",
 			"GoogleID":"CgkIm7Xjl_oXEAIQCA"
 		},
 		{
 			"InternalID":"OrbitCleared",
-			"AppleID":"",
+			"AppleID":"capslide_orbitcleared_03",
 			"GoogleID":"CgkIm7Xjl_oXEAIQCQ"
 		},
 		{
 			"InternalID":"PinballCleared",
-			"AppleID":"",
+			"AppleID":"capslide_pinballcleared_04",
 			"GoogleID":"CgkIm7Xjl_oXEAIQCg"
 		},
 		{
 			"InternalID":"WarpCleared",
-			"AppleID":"",
+			"AppleID":"capslide_warpcleared_05",
 			"GoogleID":"CgkIm7Xjl_oXEAIQCw"
 		},
 		{
 			"InternalID":"ClockCleared",
-			"AppleID":"",
+			"AppleID":"capslide_clockcleared_06",
 			"GoogleID":"CgkIm7Xjl_oXEAIQDA"
 		},
 		{
 			"InternalID":"TokenPlayer",
-			"AppleID":"",
+			"AppleID":"capslide_tokenplayer_07",
 			"GoogleID":"CgkIm7Xjl_oXEAIQDQ"
 		},
 		{
 			"InternalID":"StarPlayer",
-			"AppleID":"",
+			"AppleID":"capslide_starplayer_08",
 			"GoogleID":"CgkIm7Xjl_oXEAIQDg"
 		},
 		{
 			"InternalID":"Capslider",
-			"AppleID":"",
+			"AppleID":"capslide_capslider_09",
 			"GoogleID":"CgkIm7Xjl_oXEAIQDw"
 		},
 		{
 			"InternalID":"ColorMeImpressed",
-			"AppleID":"",
+			"AppleID":"capslide_colormeimpressed_10",
 			"GoogleID":"CgkIm7Xjl_oXEAIQEA"
 		}
 	],
 	"LeaderboardIDs":[
 		{
 			"InternalID":"Arena",
-			"AppleID":"",
+			"AppleID":"capslide_level1_arena",
 			"GoogleID":"CgkIm7Xjl_oXEAIQAA"
 		},
 		{
 			"InternalID":"Diamond",
-			"AppleID":"",
+			"AppleID":"capslide_level2_diamond",
 			"GoogleID":"CgkIm7Xjl_oXEAIQAQ"
 		},
 		{
 			"InternalID":"Orbit",
-			"AppleID":"",
+			"AppleID":"capslide_level3_orbit",
 			"GoogleID":"CgkIm7Xjl_oXEAIQAg"
 		},
 		{
 			"InternalID":"Pinball",
-			"AppleID":"",
+			"AppleID":"capslide_level4_pinball",
 			"GoogleID":"CgkIm7Xjl_oXEAIQAw"
 		},
 		{
 			"InternalID":"Warp",
-			"AppleID":"",
+			"AppleID":"capslide_level5_warp",
 			"GoogleID":"CgkIm7Xjl_oXEAIQBA"
 		},
 		{
 			"InternalID":"Clock",
-			"AppleID":"",
+			"AppleID":"capslide_level6_clock",
 			"GoogleID":"CgkIm7Xjl_oXEAIQBQ"
 		}
 	],
 	"CloudVariables":[],
-	"AppleSupported":false,
+	"AppleSupported":true,
 	"GoogleSupported":true,
 	"GoogleAppID":"823072971419",
 	"GoogleSetupRun":true,
