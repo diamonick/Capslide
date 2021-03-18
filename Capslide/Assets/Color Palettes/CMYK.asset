@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 8
   paletteName: CMYK
-  tokenCost: 10
+  tokenCost: 4
   colors:
   - {r: 0.9960785, g: 0.9450981, b: 0, a: 1}
   - {r: 0, g: 0.68235296, b: 0.94117653, a: 1}

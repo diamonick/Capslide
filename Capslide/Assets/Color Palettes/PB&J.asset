@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b731c021e38e79b4f9af9635388f316c, type: 3}
+  m_Name: PB&J
+  m_EditorClassIdentifier: 
+  ID: 22
+  paletteName: PB&J
+  tokenCost: 8
+  colors:
+  - {r: 1, g: 0.8487976, b: 0.7122642, a: 1}
+  - {r: 0.60784316, g: 0.57254905, b: 0.85098046, a: 1}
+  - {r: 0.5404715, g: 0.20714669, b: 0.8962264, a: 1}
+  - {r: 0.89019614, g: 0.29803923, b: 0.37254903, a: 1}
+  - {r: 0.9245283, g: 0.67489, b: 0.51023495, a: 1}
+  possibleCapsuleColors:
+  - {r: 0.5411765, g: 0.20784315, b: 0.8980393, a: 1}
+  - {r: 0.60784316, g: 0.57254905, b: 0.85098046, a: 1}
+  - {r: 1, g: 0.8470589, b: 0.7137255, a: 1}
+  scoreColor: {r: 1, g: 0.8470589, b: 0.7137255, a: 1}
+  capsuleTimerColor: {r: 0.89019614, g: 0.29803923, b: 0.37254903, a: 1}
+  backButtonColor: {r: 0.5411765, g: 0.20784315, b: 0.8980393, a: 1}
+  retryButtonColor: {r: 1, g: 0.8470589, b: 0.7137255, a: 1}
+  rewardedAdButtonColor: {r: 0.89019614, g: 0.29803923, b: 0.37254903, a: 1}
+  tokenColor: {r: 0.5411765, g: 0.20784315, b: 0.8980393, a: 1}

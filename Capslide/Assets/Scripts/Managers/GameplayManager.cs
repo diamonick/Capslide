@@ -411,12 +411,6 @@ public class GameplayManager : MonoBehaviour
     /// </summary>
     public void TogglePause()
     {
-        if (!gameStarted)
-            return;
-
-        if (GetCapsulesInGame() <= 1 && DispenserIsEmpty() && timeStopped && GetFakeCapsulesInGame() <= 1)
-            return;
-
         AudioManager.Instance.PlaySFX("Click");
         if (Time.timeScale == 1f)
             PauseGame();
@@ -429,6 +423,9 @@ public class GameplayManager : MonoBehaviour
     /// </summary>
     private void PauseGame()
     {
+        if (!gameStarted || GameOver())
+            return;
+
         AudioManager.Instance.SetMusicVolume(0.15f);
         Time.timeScale = 0f;
         pauseAssets.SetActive(true);
@@ -440,6 +437,9 @@ public class GameplayManager : MonoBehaviour
     /// </summary>
     private void ResumeGame(bool trueResume = true)
     {
+        if (!gameStarted && !GameOver())
+            return;
+
         if (trueResume)
             gameplayCanvas.gameObject.SetActive(true);
         else if (gameStarted)

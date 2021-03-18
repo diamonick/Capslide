@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 18
   paletteName: Warm Lightning
-  tokenCost: 15
+  tokenCost: 8
   colors:
   - {r: 1, g: 0.6777429, b: 0, a: 1}
   - {r: 1, g: 0.2326675, b: 0, a: 1}

@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b731c021e38e79b4f9af9635388f316c, type: 3}
+  m_Name: Burger
+  m_EditorClassIdentifier: 
+  ID: 23
+  paletteName: Burger
+  tokenCost: 8
+  colors:
+  - {r: 0.9686275, g: 0.69411767, b: 0.48235297, a: 1}
+  - {r: 0.78823537, g: 0.86274517, b: 0.25490198, a: 1}
+  - {r: 1, g: 0.7137255, b: 0.15686275, a: 1}
+  - {r: 1, g: 0.26666668, b: 0.15686275, a: 1}
+  - {r: 0.23529412, g: 0.022814637, b: 0.011764709, a: 1}
+  possibleCapsuleColors:
+  - {r: 1, g: 0.26666668, b: 0.15686275, a: 1}
+  - {r: 0.78823537, g: 0.86274517, b: 0.25490198, a: 1}
+  - {r: 0.9686275, g: 0.69411767, b: 0.48235297, a: 1}
+  - {r: 1, g: 0.7137255, b: 0.15686275, a: 1}
+  scoreColor: {r: 0.9686275, g: 0.69411767, b: 0.48235297, a: 1}
+  capsuleTimerColor: {r: 1, g: 0.26666668, b: 0.15686275, a: 1}
+  backButtonColor: {r: 0.9686275, g: 0.69411767, b: 0.48235297, a: 1}
+  retryButtonColor: {r: 1, g: 0.26666668, b: 0.15686275, a: 1}
+  rewardedAdButtonColor: {r: 0.78823537, g: 0.86274517, b: 0.25490198, a: 1}
+  tokenColor: {r: 0.78823537, g: 0.86274517, b: 0.25490198, a: 1}

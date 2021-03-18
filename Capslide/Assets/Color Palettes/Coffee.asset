@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b731c021e38e79b4f9af9635388f316c, type: 3}
   m_Name: Coffee
   m_EditorClassIdentifier: 
-  ID: 28
+  ID: 25
   paletteName: Coffee
-  tokenCost: 0
+  tokenCost: 12
   colors:
   - {r: 0.98823535, g: 0.9333334, b: 0.7960785, a: 1}
   - {r: 0.909804, g: 0.7176471, b: 0.54901963, a: 1}

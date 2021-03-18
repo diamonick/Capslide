@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 15
   paletteName: Snowy Sunset
-  tokenCost: 10
+  tokenCost: 4
   colors:
   - {r: 1, g: 0.50980395, b: 0.29803923, a: 1}
   - {r: 0.86274517, g: 0.8705883, b: 1, a: 1}

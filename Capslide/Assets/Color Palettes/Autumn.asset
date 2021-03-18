@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 14
   paletteName: Autumn
-  tokenCost: 10
+  tokenCost: 4
   colors:
   - {r: 1, g: 0.48235297, b: 0, a: 1}
   - {r: 1, g: 0.3820755, b: 0.3820755, a: 1}
