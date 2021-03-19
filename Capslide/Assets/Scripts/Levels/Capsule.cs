@@ -95,7 +95,7 @@ public class Capsule : MonoBehaviour
                 GameObject fp = Instantiate(floatingPoint, this.gameObject.transform.position, Quaternion.identity);
                 GameplayManager.Instance.SetScore(points);
 
-                if (points == 72 && starred)
+                if (points == 99 && starred)
                     CloudOnceServices.Instance.AwardStarPlayer();
 
                 if (faked)
@@ -173,6 +173,8 @@ public class Capsule : MonoBehaviour
             pts -= 5;
         else
             pts += 1;
+
+        pts = Mathf.Clamp(pts, -99, 99);
     }
 
     public void Launch()

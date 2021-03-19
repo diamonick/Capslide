@@ -487,6 +487,7 @@ public class GameplayManager : MonoBehaviour
     public void ResetLevel()
     {
         ResumeGame(false);
+        StopAllCoroutines();
         ResetMainVariables();
         pauseMenu.SetActive(true);
         AudioManager.Instance.Stop("Main Theme");
