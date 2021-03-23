@@ -18,7 +18,7 @@ public class CapslideData
     public bool bgmToggle;
     public bool sfxToggle;
     public bool screenShakeToggle;
-    public bool powerSavingToggle;
+    //public bool powerSavingToggle;
 
     // Miscellaneous
     public int levelsPlayed;
@@ -41,7 +41,7 @@ public class CapslideData
         bgmToggle = GM.bgmON;
         sfxToggle = GM.sfxON;
         screenShakeToggle = GM.screenShake;
-        powerSavingToggle = GM.powerSaving;
+        //powerSavingToggle = GM.powerSaving;
 
         levelsPlayed = GM.levelsPlayed;
         levelsPlayedUntilDisplayAd = GM.levelsPlayedUntilDisplayAd;

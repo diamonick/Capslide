@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b731c021e38e79b4f9af9635388f316c, type: 3}
+  m_Name: Decode
+  m_EditorClassIdentifier: 
+  ID: 40
+  paletteName: Decode
+  tokenCost: 20
+  colors:
+  - {r: 0.88438576, g: 1, b: 0.4575472, a: 1}
+  - {r: 0.9747988, g: 1, b: 0, a: 1}
+  - {r: 0.5499999, g: 1, b: 0.25, a: 1}
+  - {r: 0.49803925, g: 0.8313726, b: 0.7176471, a: 1}
+  - {r: 0.057271287, g: 0.084905684, b: 0.062798165, a: 1}
+  possibleCapsuleColors:
+  - {r: 0.8862746, g: 1, b: 0.45882356, a: 1}
+  - {r: 0.97647065, g: 1, b: 0, a: 1}
+  - {r: 0.54901963, g: 1, b: 0.2509804, a: 1}
+  - {r: 0.49803925, g: 0.8313726, b: 0.7176471, a: 1}
+  scoreColor: {r: 0.54901963, g: 1, b: 0.2509804, a: 1}
+  capsuleTimerColor: {r: 0.49803925, g: 0.8313726, b: 0.7176471, a: 1}
+  backButtonColor: {r: 0.8862746, g: 1, b: 0.45882356, a: 1}
+  retryButtonColor: {r: 0.49803925, g: 0.8313726, b: 0.7176471, a: 1}
+  rewardedAdButtonColor: {r: 0.97647065, g: 1, b: 0, a: 1}
+  tokenColor: {r: 0.97647065, g: 1, b: 0, a: 1}

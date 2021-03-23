@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b731c021e38e79b4f9af9635388f316c, type: 3}
+  m_Name: Blueprint
+  m_EditorClassIdentifier: 
+  ID: 38
+  paletteName: Blueprint
+  tokenCost: 16
+  colors:
+  - {r: 0, g: 0.62097406, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 0.1745283, g: 0.36656585, b: 1, a: 1}
+  - {r: 0, g: 0.3264402, b: 0.9528302, a: 1}
+  - {r: 0, g: 0.26954165, b: 0.4716981, a: 1}
+  possibleCapsuleColors:
+  - {r: 1, g: 1, b: 1, a: 1}
+  scoreColor: {r: 1, g: 1, b: 1, a: 1}
+  capsuleTimerColor: {r: 0.1764706, g: 0.3647059, b: 1, a: 1}
+  backButtonColor: {r: 0, g: 0.61960787, b: 1, a: 1}
+  retryButtonColor: {r: 0, g: 0.61960787, b: 1, a: 1}
+  rewardedAdButtonColor: {r: 0, g: 0.61960787, b: 1, a: 1}
+  tokenColor: {r: 1, g: 1, b: 1, a: 1}

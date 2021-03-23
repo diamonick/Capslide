@@ -45,17 +45,18 @@ public class GameManager : MonoBehaviour
     public bool bgmON;
     public bool sfxON;
     public bool screenShake;
-    public bool powerSaving;
+    //public bool powerSaving;
     [SerializeField] private Button bgmButton;
     [SerializeField] private Button sfxButton;
     [SerializeField] private Button screenShakeButton;
-    [SerializeField] private Button powerSavingButton;
+    //[SerializeField] private Button powerSavingButton;
     [SerializeField] private Image[] toggleFills;
     private readonly Vector2 toggleOffPos = new Vector2(-54f, 0f);
     private readonly Vector2 toggleOnPos = new Vector2(54f, 0f);
 
     private void Awake()
     {
+        Application.targetFrameRate = 60;
         if (Instance == null)
         {
             Instance = this;
@@ -66,7 +67,6 @@ public class GameManager : MonoBehaviour
             Destroy(this.gameObject);
             Debug.LogWarning($"WARNING: There can only be one instance of this class.");
         }
-
     }
 
     private void OnEnable()
@@ -76,9 +76,6 @@ public class GameManager : MonoBehaviour
 
         if (bgmON)
             AudioManager.Instance.PlayMusic("Main Theme", 0.5f);
-
-        // Set current device's framerate (30 or 60 FPS).
-        Application.targetFrameRate = powerSaving ? 30 : 60;
     }
 
     public void Save() => SaveSystem.Save(this);
@@ -103,7 +100,7 @@ public class GameManager : MonoBehaviour
         bgmON = data.bgmToggle;
         sfxON = data.sfxToggle;
         screenShake = data.screenShakeToggle;
-        powerSaving = data.powerSavingToggle;
+        //powerSaving = data.powerSavingToggle;
 
         levelsPlayed = data.levelsPlayed;
         levelsPlayedUntilDisplayAd = data.levelsPlayedUntilDisplayAd;
@@ -193,7 +190,7 @@ public class GameManager : MonoBehaviour
             SetButtonPosition(bgmButton, toggleFills[0], bgmON);
             SetButtonPosition(sfxButton, toggleFills[1], sfxON);
             SetButtonPosition(screenShakeButton, toggleFills[2], screenShake);
-            SetButtonPosition(powerSavingButton, toggleFills[3], powerSaving);
+            //SetButtonPosition(powerSavingButton, toggleFills[3], powerSaving);
         }
 
         if (levelSelectMenu.gameObject.activeSelf)
@@ -251,19 +248,19 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// Toggle Power Saving setting
     /// </summary>
-    public void TogglePowerSaving()
-    {
-        powerSaving = !powerSaving;
+    //public void TogglePowerSaving()
+    //{
+    //    powerSaving = !powerSaving;
 
-        // Turn Power Saving: ON
-        if (powerSaving)
-            Application.targetFrameRate = 30;
-        // Turn Power Saving: OFF
-        else
-            Application.targetFrameRate = 60;
+    //    // Turn Power Saving: ON
+    //    if (powerSaving)
+    //        Application.targetFrameRate = 30;
+    //    // Turn Power Saving: OFF
+    //    else
+    //        Application.targetFrameRate = 60;
 
-        ShiftButton(powerSavingButton, toggleFills[3], powerSaving);
-    }
+    //    ShiftButton(powerSavingButton, toggleFills[3], powerSaving);
+    //}
 
     /// <summary>
     /// Shifts the button left or right.

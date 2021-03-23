@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b731c021e38e79b4f9af9635388f316c, type: 3}
   m_Name: Medical
   m_EditorClassIdentifier: 
-  ID: 0
+  ID: 41
   paletteName: Medical
-  tokenCost: 0
+  tokenCost: 20
   colors:
   - {r: 0.3915094, g: 1, b: 0.80647105, a: 1}
   - {r: 1, g: 0.514151, b: 0.514151, a: 1}

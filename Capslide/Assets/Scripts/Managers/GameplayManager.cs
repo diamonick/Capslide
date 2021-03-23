@@ -17,6 +17,10 @@ public class GameplayManager : MonoBehaviour
     private const float FAKE_SPAWN_TIME = 8f;
     private const float FAKE_FAST_SPAWN_TIME = 4f;
 
+    //READ-ONLY
+    private readonly string doubleTokensMessage = "View ad to earn double Tokens.";
+    private readonly string tripleTokensMessage = "View ad to earn triple Tokens.";
+
     [Header("Properties"), Space(8)]
     [SerializeField] private GameObject startupMenu;
     [SerializeField] private Menu gameplayMenu;
@@ -58,6 +62,7 @@ public class GameplayManager : MonoBehaviour
 
     [Header("Results Screen"), Space(8)]
     [SerializeField] private GameObject resultsScreen;
+    [SerializeField] private RectTransform[] menuCanvasRects;
     [SerializeField] private GameObject resultsButtons1;
     [SerializeField] private GameObject resultsButtons2;
     [SerializeField] private GameObject starIcon;
@@ -65,7 +70,13 @@ public class GameplayManager : MonoBehaviour
     [SerializeField] private TMP_Text bestScoreText;
     [SerializeField] private GameObject tokenCanvas;
     [SerializeField] private TMP_Text tokenText;
+    [SerializeField] private TMP_Text adDescription;
     [SerializeField] private Menu resultsMenu;
+
+    [Header("Rewarded Ad Button"), Space(8)]
+    [SerializeField] private Image rewardedAdIcon;
+    [SerializeField] private Sprite doubleIcon;
+    [SerializeField] private Sprite tripleIcon;
 
     [Header("Token"), Space(8)]
     [SerializeField] private GameObject token;
@@ -297,10 +308,7 @@ public class GameplayManager : MonoBehaviour
 
         // Wait until the interstitial ad is finished.
         while (AdManager.Instance.adIsRunning)
-        {
-            Debug.Log("Waiting...");
             yield return new WaitForEndOfFrame();
-        }
 
         ForegroundOverlay.Instance.FadeOutForeground(0f);
         GameManager.Instance.currentLevel.gameObject.SetActive(false);
@@ -309,11 +317,23 @@ public class GameplayManager : MonoBehaviour
         gameplayCanvas.SetActive(false);
         countdownCanvas.SetActive(false);
         resultsScreen.SetActive(true);
-        foreach (GameObject resultCanvas in resultsMenu.menuCanvases)
-            resultCanvas.transform.position = new Vector3(xTo, resultCanvas.transform.position.y, 0f);
+
+        for (int i = 0; i < menuCanvasRects.Length; i++)
+        {
+            RectTransform resultCanvas = menuCanvasRects[i];
+
+            if (i == 0)
+                resultCanvas.position = new Vector3(xTo, 126f, 0f);
+            else if (i == 1)
+                resultCanvas.position = new Vector3(xTo, 2, 0f);
+            else
+                resultCanvas.position = new Vector3(xTo, resultCanvas.position.y, 0f);
+        }
         yield return StartCoroutine(SetupResults());
 
         resultsButtons1.SetActive(true);
+        rewardedAdIcon.sprite = AdManager.Instance.interstitialAdIsViewed ? tripleIcon : doubleIcon;
+        adDescription.text = AdManager.Instance.interstitialAdIsViewed ? tripleTokensMessage : doubleTokensMessage;
         resultsButtons2.SetActive(false);
     }
 
@@ -344,16 +364,25 @@ public class GameplayManager : MonoBehaviour
         GameManager.Instance.Save();
     }
 
-    public void EarnDoubleTokens()
+    /// <summary>
+    /// Reward player triple the amount of tokens if player has already viewed the whole interstitial ad.
+    /// Otherwise, reward player double the amount of tokens.
+    /// </summary>
+    public void RewardTokens()
     {
+        int multiplier = AdManager.Instance.interstitialAdIsViewed ? 3 : 2;
+        int tokenCount = tokensEarned * multiplier;
+        int tokensRewarded = tokensEarned * (multiplier - 1);
+
         // Disable Rewarded Ad button and ad prompt after you've watched the ad.
         resultsButtons1.SetActive(false);
         resultsButtons2.SetActive(true);
 
-        int tokenCount = tokensEarned * 2;
-        GameManager.Instance.tokens += tokensEarned;
-        GameManager.Instance.tokensNeededForTokenPlayer += tokensEarned;
+        GameManager.Instance.tokens += tokensRewarded;
+        GameManager.Instance.tokensNeededForTokenPlayer += tokensRewarded;
         tokenText.text = $"You got {tokenCount}";
+
+        AdManager.Instance.interstitialAdIsViewed = false;
     }
 
     private void SaveHighscore()
@@ -362,6 +391,7 @@ public class GameplayManager : MonoBehaviour
         if (score > trueScore)
         {
             starIcon.SetActive(true);
+            AudioManager.Instance.PlaySFX("Best Score Get");
             CloudOnceServices.Level levelType = (CloudOnceServices.Level)level.ID;
             Debug.Log($"{levelType}");
             GameManager.Instance.levelHighscores[level.ID] = score;
@@ -411,7 +441,6 @@ public class GameplayManager : MonoBehaviour
     /// </summary>
     public void TogglePause()
     {
-        AudioManager.Instance.PlaySFX("Click");
         if (Time.timeScale == 1f)
             PauseGame();
         else
@@ -426,6 +455,7 @@ public class GameplayManager : MonoBehaviour
         if (!gameStarted || GameOver())
             return;
 
+        AudioManager.Instance.PlaySFX("Click");
         AudioManager.Instance.SetMusicVolume(0.15f);
         Time.timeScale = 0f;
         pauseAssets.SetActive(true);

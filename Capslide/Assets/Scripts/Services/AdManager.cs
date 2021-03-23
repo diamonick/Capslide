@@ -24,9 +24,11 @@ public class AdManager : MonoBehaviour, IUnityAdsListener
     public bool isTargetPlayStore;
     public bool isTestAd;
     public bool adIsRunning;
+    public bool interstitialAdIsViewed;
 
     private void Awake()
     {
+        interstitialAdIsViewed = false;
         if (Instance == null)
         {
             Instance = this;
@@ -114,8 +116,7 @@ public class AdManager : MonoBehaviour, IUnityAdsListener
             case ShowResult.Failed:
                 if (placementId == rewardedAd_ANDROID || placementId == rewardedAd_IOS)
                 {
-                    GameplayManager.Instance.EarnDoubleTokens();
-                    Debug.Log("Rewarded ad failed. You've earned double tokens.");
+                    GameplayManager.Instance.RewardTokens();
                 }
                 if (placementId == interstitialAd_ANDROID || placementId == interstitialAd_IOS)
                     Debug.Log("Interstitial ad failed.");
@@ -127,11 +128,10 @@ public class AdManager : MonoBehaviour, IUnityAdsListener
             case ShowResult.Finished:
                 if (placementId == rewardedAd_ANDROID || placementId == rewardedAd_IOS)
                 {
-                    GameplayManager.Instance.EarnDoubleTokens();
-                    Debug.Log("Finished rewarded ad. You've earned double tokens.");
+                    GameplayManager.Instance.RewardTokens();
                 }
                 if (placementId == interstitialAd_ANDROID || placementId == interstitialAd_IOS)
-                    Debug.Log("Finished interstitial ad.");
+                    interstitialAdIsViewed = true;
                 break;
         }
         adIsRunning = false;
@@ -146,8 +146,8 @@ public class AdManager : MonoBehaviour, IUnityAdsListener
     /// <returns>TRUE if </returns>
     public bool InterstitialAdReady(int score)
     {
-        // Increment this if you've scored at least 100 points.
-        if (score > 100)
+        // Increment this if you've scored at least 256 points.
+        if (score >= 256)
             GameManager.Instance.levelsPlayedUntilDisplayAd++;
 
         bool adReady = GameManager.Instance.levelsPlayedUntilDisplayAd >= LEVELS_PLAYED_AD_LIMIT;

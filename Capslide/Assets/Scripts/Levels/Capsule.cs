@@ -76,17 +76,12 @@ public class Capsule : MonoBehaviour
 
             if (other.CompareTag("Slider") && HasTouchedSlider())
             {
-                // Play Bounce particle effect is Power Saving is OFF.
-                if (!GameManager.Instance.powerSaving)
-                {
-                    var pp = BouncePS.main;
-                    Color col1 = PaletteManager.Instance.GetColor(Random.Range(0, 4));
-                    Color col2 = PaletteManager.Instance.GetColor(Random.Range(0, 4));
-                    pp.startColor = new ParticleSystem.MinMaxGradient(col1, col2);
+                var pp = BouncePS.main;
+                Color col1 = PaletteManager.Instance.GetColor(Random.Range(0, 4));
+                Color col2 = PaletteManager.Instance.GetColor(Random.Range(0, 4));
+                pp.startColor = new ParticleSystem.MinMaxGradient(col1, col2);
+                BouncePS.Play();
 
-                    BouncePS.Play();
-                }
-                
                 if (InDeadZone())
                     return;
 

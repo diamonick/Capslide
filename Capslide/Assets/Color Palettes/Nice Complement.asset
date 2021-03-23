@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b731c021e38e79b4f9af9635388f316c, type: 3}
   m_Name: Nice Complement
   m_EditorClassIdentifier: 
-  ID: 0
+  ID: 43
   paletteName: Nice Complement
-  tokenCost: 0
+  tokenCost: 20
   colors:
   - {r: 1, g: 0.758795, b: 0.3726415, a: 1}
   - {r: 0, g: 0.5394206, b: 1, a: 1}
