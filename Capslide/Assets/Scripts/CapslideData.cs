@@ -34,7 +34,7 @@ public class CapslideData
         for (int i = 0; i < levelHighscores.Length; i++)
             levelHighscores[i] = GM.levelHighscores[i];
 
-        paletteUnlocked = new bool[64];
+        paletteUnlocked = new bool[56];
         for (int i = 0; i < paletteUnlocked.Length; i++)
             paletteUnlocked[i] = GM.palettesUnlocked[i];
 

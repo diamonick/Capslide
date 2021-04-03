@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b731c021e38e79b4f9af9635388f316c, type: 3}
   m_Name: Pop Quiz
   m_EditorClassIdentifier: 
-  ID: 31
+  ID: 32
   paletteName: Pop Quiz
-  tokenCost: 12
+  tokenCost: 20
   colors:
   - {r: 1, g: 0.8235295, b: 0, a: 1}
   - {r: 1, g: 0, b: 0.31764707, a: 1}

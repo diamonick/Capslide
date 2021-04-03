@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b731c021e38e79b4f9af9635388f316c, type: 3}
   m_Name: Camouflage
   m_EditorClassIdentifier: 
-  ID: 42
+  ID: 43
   paletteName: Camouflage
-  tokenCost: 20
+  tokenCost: 25
   colors:
   - {r: 0.78823537, g: 0.74509805, b: 0.50980395, a: 1}
   - {r: 0.40000004, g: 0.32941177, b: 0.227451, a: 1}

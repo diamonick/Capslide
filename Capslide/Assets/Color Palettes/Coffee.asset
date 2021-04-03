@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 25
   paletteName: Coffee
-  tokenCost: 12
+  tokenCost: 15
   colors:
   - {r: 0.98823535, g: 0.9333334, b: 0.7960785, a: 1}
   - {r: 0.909804, g: 0.7176471, b: 0.54901963, a: 1}

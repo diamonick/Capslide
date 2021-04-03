@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 13
   paletteName: Summer
-  tokenCost: 4
+  tokenCost: 5
   colors:
   - {r: 1, g: 1, b: 0.6509804, a: 1}
   - {r: 0.6901961, g: 1, b: 1, a: 1}

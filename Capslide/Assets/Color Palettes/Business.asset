@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b731c021e38e79b4f9af9635388f316c, type: 3}
   m_Name: Business
   m_EditorClassIdentifier: 
-  ID: 37
+  ID: 38
   paletteName: Business
-  tokenCost: 16
+  tokenCost: 20
   colors:
   - {r: 1, g: 0.7843138, b: 0.18431373, a: 1}
   - {r: 0.6066442, g: 1, b: 0.3803922, a: 1}

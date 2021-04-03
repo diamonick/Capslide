@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b731c021e38e79b4f9af9635388f316c, type: 3}
   m_Name: Tennis
   m_EditorClassIdentifier: 
-  ID: 33
+  ID: 34
   paletteName: Tennis
-  tokenCost: 16
+  tokenCost: 20
   colors:
   - {r: 0.9215316, g: 1, b: 0.5235849, a: 1}
   - {r: 0.9960785, g: 0.69411767, b: 0.5019608, a: 1}

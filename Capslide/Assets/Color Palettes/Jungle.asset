@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b731c021e38e79b4f9af9635388f316c, type: 3}
   m_Name: Jungle
   m_EditorClassIdentifier: 
-  ID: 45
+  ID: 46
   paletteName: Jungle
-  tokenCost: 20
+  tokenCost: 25
   colors:
   - {r: 0.98823535, g: 0.37254903, b: 0.3921569, a: 1}
   - {r: 1, g: 0.68235296, b: 0, a: 1}

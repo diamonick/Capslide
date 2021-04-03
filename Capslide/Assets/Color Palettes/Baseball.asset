@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b731c021e38e79b4f9af9635388f316c, type: 3}
   m_Name: Baseball
   m_EditorClassIdentifier: 
-  ID: 34
+  ID: 35
   paletteName: Baseball
-  tokenCost: 16
+  tokenCost: 20
   colors:
   - {r: 0.8862745, g: 0.07790236, b: 0, a: 1}
   - {r: 1, g: 0.77422816, b: 0.2971698, a: 1}

@@ -149,6 +149,6 @@ public class CloudOnceServices : MonoBehaviour
         for (int i = 8; i < GameManager.Instance.palettesUnlocked.Length; i++)
             currentProgress += GameManager.Instance.palettesUnlocked[i] ? 1 : 0;
 
-        Achievements.ColorMeImpressed.Increment(currentProgress, 56.0);
+        Achievements.ColorMeImpressed.Increment(currentProgress, 48.0);
     }
 }

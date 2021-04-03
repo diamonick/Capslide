@@ -14,19 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 15
   paletteName: Snowy Sunset
-  tokenCost: 4
+  tokenCost: 5
   colors:
   - {r: 1, g: 0.50980395, b: 0.29803923, a: 1}
-  - {r: 0.86274517, g: 0.8705883, b: 1, a: 1}
+  - {r: 0.4575472, g: 0.57156587, b: 1, a: 1}
   - {r: 0.8078432, g: 0.96470594, b: 1, a: 1}
-  - {r: 0.75294125, g: 0.6745098, b: 1, a: 1}
+  - {r: 0.6527052, g: 0.5424528, b: 1, a: 1}
   - {r: 0.9921569, g: 0.73333335, b: 0.627451, a: 1}
   possibleCapsuleColors:
-  - {r: 0.75294125, g: 0.6745098, b: 1, a: 1}
+  - {r: 0.45882356, g: 0.57254905, b: 1, a: 1}
   - {r: 1, g: 0.50980395, b: 0.29803923, a: 1}
+  - {r: 0.6509804, g: 0.5411765, b: 1, a: 1}
   scoreColor: {r: 1, g: 0.50980395, b: 0.29803923, a: 1}
-  capsuleTimerColor: {r: 0.86274517, g: 0.8705883, b: 1, a: 1}
+  capsuleTimerColor: {r: 0.6509804, g: 0.5411765, b: 1, a: 1}
   backButtonColor: {r: 1, g: 0.50980395, b: 0.29803923, a: 1}
-  retryButtonColor: {r: 0.86274517, g: 0.8705883, b: 1, a: 1}
-  rewardedAdButtonColor: {r: 0.75294125, g: 0.6745098, b: 1, a: 1}
+  retryButtonColor: {r: 0.6509804, g: 0.5411765, b: 1, a: 1}
+  rewardedAdButtonColor: {r: 0.45882356, g: 0.57254905, b: 1, a: 1}
   tokenColor: {r: 1, g: 0.50980395, b: 0.29803923, a: 1}

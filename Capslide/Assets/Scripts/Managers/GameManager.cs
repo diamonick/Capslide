@@ -182,6 +182,8 @@ public class GameManager : MonoBehaviour
             StartCoroutine(Ease.TranslateXTo(menuCanvas, xAway, 0.25f, 2, Easing.EaseOut));
         yield return new WaitForSeconds(0.25f);
 
+        foreach (GameObject menuCanvas in menuSrc.menuCanvases)
+            StartCoroutine(Ease.TranslateXTo(menuCanvas, xTo, 0f, 2, Easing.EaseOut));
         menuSrc.gameObject.SetActive(false);
         menuDest.gameObject.SetActive(true);
 

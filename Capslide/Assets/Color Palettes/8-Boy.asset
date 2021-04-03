@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b731c021e38e79b4f9af9635388f316c, type: 3}
   m_Name: 8-Boy
   m_EditorClassIdentifier: 
-  ID: 63
+  ID: 55
   paletteName: 8-Boy
-  tokenCost: 0
+  tokenCost: 30
   colors:
   - {r: 0.9058824, g: 0.9686275, b: 0.38823533, a: 1}
   - {r: 0.19607845, g: 0.4039216, b: 0.20000002, a: 1}

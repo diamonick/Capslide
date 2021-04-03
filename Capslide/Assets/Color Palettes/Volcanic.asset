@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b731c021e38e79b4f9af9635388f316c, type: 3}
   m_Name: Volcanic
   m_EditorClassIdentifier: 
-  ID: 44
+  ID: 45
   paletteName: Volcanic
-  tokenCost: 20
+  tokenCost: 25
   colors:
   - {r: 1, g: 0.48235297, b: 0, a: 1}
   - {r: 1, g: 0, b: 0.24705884, a: 1}

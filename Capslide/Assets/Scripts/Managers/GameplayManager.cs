@@ -318,17 +318,11 @@ public class GameplayManager : MonoBehaviour
         countdownCanvas.SetActive(false);
         resultsScreen.SetActive(true);
 
-        for (int i = 0; i < menuCanvasRects.Length; i++)
-        {
-            RectTransform resultCanvas = menuCanvasRects[i];
-
-            if (i == 0)
-                resultCanvas.position = new Vector3(xTo, 126f, 0f);
-            else if (i == 1)
-                resultCanvas.position = new Vector3(xTo, 2, 0f);
-            else
-                resultCanvas.position = new Vector3(xTo, resultCanvas.position.y, 0f);
-        }
+        //for (int i = 0; i < menuCanvasRects.Length; i++)
+        //{
+        //    RectTransform resultCanvas = menuCanvasRects[i];
+        //    resultCanvas.position = new Vector3(xTo, resultCanvas.position.y, 0f);
+        //}
         yield return StartCoroutine(SetupResults());
 
         resultsButtons1.SetActive(true);

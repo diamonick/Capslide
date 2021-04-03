@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b731c021e38e79b4f9af9635388f316c, type: 3}
   m_Name: Medals
   m_EditorClassIdentifier: 
-  ID: 35
+  ID: 36
   paletteName: Medals
-  tokenCost: 16
+  tokenCost: 20
   colors:
   - {r: 1, g: 0.8705883, b: 0, a: 1}
   - {r: 0.7490196, g: 0.7843138, b: 0.8352942, a: 1}

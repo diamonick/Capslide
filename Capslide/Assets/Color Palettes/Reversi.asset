@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b731c021e38e79b4f9af9635388f316c, type: 3}
   m_Name: Reversi
   m_EditorClassIdentifier: 
-  ID: 29
+  ID: 30
   paletteName: Reversi
-  tokenCost: 12
+  tokenCost: 15
   colors:
   - {r: 1, g: 1, b: 1, a: 1}
   - {r: 0.12482202, g: 0.14421585, b: 0.16037738, a: 1}

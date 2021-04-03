@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b731c021e38e79b4f9af9635388f316c, type: 3}
   m_Name: Dark Edge
   m_EditorClassIdentifier: 
-  ID: 0
+  ID: 53
   paletteName: Dark Edge
-  tokenCost: 0
+  tokenCost: 30
   colors:
   - {r: 0.786769, g: 0.8134972, b: 0.88699996, a: 1}
   - {r: 0.31728375, g: 0.348398, b: 0.4339623, a: 1}

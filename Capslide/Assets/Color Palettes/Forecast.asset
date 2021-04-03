@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 17
   paletteName: Forecast
-  tokenCost: 8
+  tokenCost: 10
   colors:
   - {r: 0.8503916, g: 0.88301176, b: 0.9245283, a: 1}
   - {r: 0.5518868, g: 0.83392423, b: 1, a: 1}

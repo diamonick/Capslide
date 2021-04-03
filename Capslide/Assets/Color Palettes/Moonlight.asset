@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 16
   paletteName: Moonlight
-  tokenCost: 8
+  tokenCost: 10
   colors:
   - {r: 0.84705883, g: 0.96862745, b: 1, a: 1}
   - {r: 1, g: 0.92941177, b: 0.6117647, a: 1}

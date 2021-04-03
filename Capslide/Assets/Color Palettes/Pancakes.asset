@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 19
   paletteName: Pancakes
-  tokenCost: 8
+  tokenCost: 10
   colors:
   - {r: 1, g: 0.7843138, b: 0.5254902, a: 1}
   - {r: 0.6037736, g: 0.20069411, b: 0.05980776, a: 1}

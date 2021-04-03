@@ -170,6 +170,11 @@ public class Ease
 
         Obj.transform.position = SP;
 
+        if (duration == 0)
+        {
+            Obj.transform.position = new Vector3(TP.x, Obj.transform.position.y, Obj.transform.position.z);
+            yield break;
+        }
         while (time <= duration)
         {
             Vector3 currentPosition = SP;
