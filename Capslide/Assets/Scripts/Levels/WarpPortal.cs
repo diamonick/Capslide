@@ -4,18 +4,11 @@ using UnityEngine;
 
 public class WarpPortal : MonoBehaviour
 {
-    [SerializeField] private Transform destination;
+    [SerializeField] private Transform[] destinations;
     [SerializeField] private SpriteRenderer SPR;
     [SerializeField] private ParticleSystem warpPS;
 
-    private void OnEnable()
-    {
-        //var main = warpPS.main;
-        //main.startColor = PaletteManager.Instance.GetColor(2);
-        InvokeRepeating("RandomizeColors", 0f, 2f);
-        //RandomizeColors();
-
-    }
+    private void OnEnable() => InvokeRepeating("RandomizeColors", 0f, 2f);
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -30,7 +23,8 @@ public class WarpPortal : MonoBehaviour
         if (capsule.isLaunched)
             return;
 
-        capsule.transform.position = destination.position;
+        Transform dest = destinations.Length == 1 ? destinations[0] : destinations[Random.Range(0, 2)];
+        capsule.transform.position = dest.position;
         capsule.Launch();
     }
 

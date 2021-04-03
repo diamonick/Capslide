@@ -56,7 +56,12 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        // Set target framerate to 60FPS
         Application.targetFrameRate = 60;
+
+        // Disable multiple touch inputs
+        Input.multiTouchEnabled = false;
+
         if (Instance == null)
         {
             Instance = this;
