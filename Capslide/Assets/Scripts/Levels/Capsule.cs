@@ -30,6 +30,10 @@ public class Capsule : MonoBehaviour
     // Start is called before the first frame update
     void OnEnable()
     {
+        RB.isKinematic = false;
+        circleCollider2d.enabled = true;
+        SPR.color = new Color(SPR.color.r, SPR.color.g, SPR.color.b, 1f);
+
         points = 0;
         StartLaunch();
         //startForce = new Vector3(Random.Range(-MAX_SPEED, MAX_SPEED), 0f, 0f);
@@ -63,6 +67,27 @@ public class Capsule : MonoBehaviour
         return force;
     }
 
+    private void Emit()
+    {
+        var pp = BouncePS.main;
+        Color col1 = PaletteManager.Instance.GetColor(Random.Range(0, 4));
+        Color col2 = PaletteManager.Instance.GetColor(Random.Range(0, 4));
+        pp.startColor = new ParticleSystem.MinMaxGradient(col1, col2);
+        BouncePS.Play();
+    }
+
+    public IEnumerator Deactivate()
+    {
+        Emit();
+        trailPS.Stop();
+        RB.velocity = Vector2.zero;
+        RB.isKinematic = true;
+        circleCollider2d.enabled = false;
+        SPR.color = new Color(0f, 0f, 0f, 0f);
+        yield return new WaitForSeconds(2f);
+        gameObject.SetActive(false);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject other = collision.gameObject;
@@ -76,11 +101,7 @@ public class Capsule : MonoBehaviour
 
             if (other.CompareTag("Slider") && HasTouchedSlider())
             {
-                var pp = BouncePS.main;
-                Color col1 = PaletteManager.Instance.GetColor(Random.Range(0, 4));
-                Color col2 = PaletteManager.Instance.GetColor(Random.Range(0, 4));
-                pp.startColor = new ParticleSystem.MinMaxGradient(col1, col2);
-                BouncePS.Play();
+                Emit();
 
                 if (InDeadZone())
                     return;
@@ -123,12 +144,15 @@ public class Capsule : MonoBehaviour
         starred = false;
         this.gameObject.SetActive(false);
 
+        if (faked)
+            yield break;
+
         if (GameplayManager.Instance.NoCapsulesInGame())
         {
             if (GameplayManager.Instance.DispenserIsEmpty())
             {
-                if (GameplayManager.Instance.NoFakeCapsulesInGame())
-                    GameplayManager.Instance.EndGame();
+                //if (GameplayManager.Instance.NoFakeCapsulesInGame())
+                GameplayManager.Instance.EndGame();
             }
             else
                 GameplayManager.Instance.DispenseCapsule();

@@ -68,7 +68,7 @@ public class GameplayManager : MonoBehaviour
     [SerializeField] private GameObject starIcon;
     [SerializeField] private TMP_Text totalScoreText;
     [SerializeField] private TMP_Text bestScoreText;
-    [SerializeField] private GameObject tokenCanvas;
+    [SerializeField] private GameObject tokenInfo;
     [SerializeField] private TMP_Text tokenText;
     [SerializeField] private TMP_Text adDescription;
     [SerializeField] private Menu resultsMenu;
@@ -284,6 +284,10 @@ public class GameplayManager : MonoBehaviour
     /// </summary>
     public void EndGame()
     {
+        // Deactivate visible Fake Capsules.
+        foreach (Capsule capsule in fakeCapsules)
+            StartCoroutine(capsule.Deactivate());
+
         gameStarted = false;
         gameOver = true;
         GameManager.Instance.levelsPlayed++;
@@ -318,11 +322,7 @@ public class GameplayManager : MonoBehaviour
         countdownCanvas.SetActive(false);
         resultsScreen.SetActive(true);
 
-        //for (int i = 0; i < menuCanvasRects.Length; i++)
-        //{
-        //    RectTransform resultCanvas = menuCanvasRects[i];
-        //    resultCanvas.position = new Vector3(xTo, resultCanvas.position.y, 0f);
-        //}
+        menuCanvasRects[0].position = new Vector3(xTo, Screen.height * 0.45f, 0f);
         yield return StartCoroutine(SetupResults());
 
         resultsButtons1.SetActive(true);
@@ -348,7 +348,7 @@ public class GameplayManager : MonoBehaviour
         SaveHighscore();
         yield return new WaitForSeconds(0.5f);
 
-        tokenCanvas.SetActive(true);
+        tokenInfo.SetActive(true);
         tokenText.text = $"You got {tokenCount}";
         GameManager.Instance.tokens += tokensEarned;
         GameManager.Instance.tokensNeededForTokenPlayer += tokensEarned;
@@ -496,7 +496,7 @@ public class GameplayManager : MonoBehaviour
         starIcon.SetActive(false);
         token.SetActive(false);
         bestScoreText.gameObject.SetActive(false);
-        tokenCanvas.SetActive(false);
+        tokenInfo.SetActive(false);
         resultsButtons1.SetActive(false);
         resultsButtons2.SetActive(false);
         resultsScreen.SetActive(false);
@@ -527,6 +527,9 @@ public class GameplayManager : MonoBehaviour
         ResetMainVariables();
         GameManager.Instance.currentLevel.gameObject.SetActive(false);
         GameManager.Instance.GoToStartupMenu(gameplayMenu);
+        
+        if (AudioManager.Instance.musicSource.pitch != 1f)
+            AudioManager.Instance.PlayMusic("Main Theme", 0.5f, 1f);
     }
 
     /// <summary>

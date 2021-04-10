@@ -55,6 +55,7 @@ public class Slider : MonoBehaviour
         SetupSlider();
 
         ResetFillBars();
+        AllowDrag();
         obj.transform.position = GetPlacement();
         origin = obj.transform.position;
 
@@ -76,36 +77,21 @@ public class Slider : MonoBehaviour
         if (GameplayManager.Instance.GameOver())
             return;
 
-        //if (positionPrev != obj.transform.position)
-        //    positionPrev = obj.transform.position;
-
         if (AtOrigin())
         {
-            StopAllCoroutines();
-            obj.transform.position = origin;
+            AllowDrag();
             atOriginPS.Play();
-            isDraggable = true;
-            dragTime = DRAG_TIME_INTERVAL;
         }
 
-        //if (Input.touchCount > 1)
-        //{
-        //    Touch touch = Input.GetTouch(0);
-
-        //    switch (touch.phase)
-        //    {
-        //        case TouchPhase.Began:
-        //            obj.transform.position = AdjustSliderRange(touch.position);
-        //            break;
-        //        case TouchPhase.Moved:
-        //            obj.transform.position = AdjustSliderRange(touch.position);
-        //            break;
-        //        case TouchPhase.Ended:
-        //            break;
-        //    }
-        //}
-
         DragTimer();
+    }
+
+    private void AllowDrag()
+    {
+        StopAllCoroutines();
+        obj.transform.position = origin;
+        isDraggable = true;
+        dragTime = DRAG_TIME_INTERVAL;
     }
 
     public float GetBarRatio() => Vector2.Distance((Vector2)obj.transform.position, origin) / barLength;
