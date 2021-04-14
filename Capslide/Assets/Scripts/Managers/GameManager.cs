@@ -153,7 +153,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator ShiftToLevel(Menu menuSrc, Level level)
     {
         if (!canSelect)
-            yield return null;
+            yield break;
 
         float xAway = menuSrc.transform.position.x;
         float xTo = menuSrc.transform.position.x + (Screen.width / 2f);
@@ -175,7 +175,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator ShiftMenu(Menu menuSrc, Menu menuDest)
     {
         if (!canSelect)
-            yield return null;
+            yield break;
 
         float xAway = menuSrc.transform.position.x;
         float xTo = menuSrc.transform.position.x + (Screen.width / 2f);

@@ -27896,7 +27896,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 666298784}
   m_LocalRotation: {x: 0, y: 0, z: -0.38268343, w: 0.92387956}
-  m_LocalPosition: {x: 774.5, y: 557, z: 0}
+  m_LocalPosition: {x: 774.5, y: 488, z: 0}
   m_LocalScale: {x: 32, y: 200, z: 1}
   m_Children: []
   m_Father: {fileID: 1552195554}
@@ -29104,8 +29104,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 690518234}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 640, y: 491, z: 0}
-  m_LocalScale: {x: 32, y: 150, z: 1}
+  m_LocalPosition: {x: 595, y: 422, z: 0}
+  m_LocalScale: {x: 32, y: 240, z: 1}
   m_Children: []
   m_Father: {fileID: 1552195554}
   m_RootOrder: 12
@@ -37789,7 +37789,7 @@ MonoBehaviour:
   paletteMenu: {fileID: 907703093}
   settingsMenu: {fileID: 247505659}
   gameplayMenu: {fileID: 490373420}
-  canSelect: 0
+  canSelect: 1
   levelHighscores: 000000000000000000000000000000000000000000000000
   highscoreTexts:
   - {fileID: 2090144723}
