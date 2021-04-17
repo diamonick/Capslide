@@ -53769,7 +53769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0b61b1435f9334fa4019bbbedc28f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTargetPlayStore: 0
+  isTargetPlayStore: 1
   isTestAd: 1
   adIsRunning: 0
   interstitialAdIsViewed: 0
@@ -76156,7 +76156,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &1821101447
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -87677,7 +87677,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &2112161795
 BoxCollider2D:
   m_ObjectHideFlags: 0

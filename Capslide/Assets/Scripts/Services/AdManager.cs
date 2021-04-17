@@ -53,8 +53,10 @@ public class AdManager : MonoBehaviour, IUnityAdsListener
     /// </summary>
     private void InitializeAd()
     {
-        if (isTargetPlayStore) { Advertisement.Initialize(playStoreID, isTestAd); return; }
-        Advertisement.Initialize(appStoreID, isTestAd);
+        if (isTargetPlayStore)
+            Advertisement.Initialize(playStoreID, isTestAd);
+        else
+            Advertisement.Initialize(appStoreID, isTestAd);
     }
 
     /// <summary>
@@ -62,15 +64,17 @@ public class AdManager : MonoBehaviour, IUnityAdsListener
     /// </summary>
     public void PlayInterstitialAd()
     {
-        adIsRunning = true;
-
 #if UNITY_ANDROID
         if (!Advertisement.IsReady(interstitialAd_ANDROID)) { return; }
+
+        adIsRunning = true;
         Advertisement.Show(interstitialAd_ANDROID);
 #endif
 
 #if UNITY_IOS
         if (!Advertisement.IsReady(interstitialAd_IOS)) { return; }
+
+        adIsRunning = true;
         Advertisement.Show(interstitialAd_IOS);
 #endif
     }
@@ -83,15 +87,17 @@ public class AdManager : MonoBehaviour, IUnityAdsListener
         if (adIsRunning)
             return;
 
-        adIsRunning = true;
-
 #if UNITY_ANDROID
         if (!Advertisement.IsReady(rewardedAd_ANDROID)) { return; }
+
+        adIsRunning = true;
         Advertisement.Show(rewardedAd_ANDROID);
 #endif
 
 #if UNITY_IOS
         if (!Advertisement.IsReady(rewardedAd_IOS)) { return; }
+
+        adIsRunning = true;
         Advertisement.Show(rewardedAd_IOS);
 #endif
     }
