@@ -80,6 +80,9 @@ public class AdManager : MonoBehaviour, IUnityAdsListener
     /// </summary>
     public void PlayRewardedAd()
     {
+        if (adIsRunning)
+            return;
+
         adIsRunning = true;
 
 #if UNITY_ANDROID

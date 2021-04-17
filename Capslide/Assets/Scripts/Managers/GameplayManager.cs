@@ -523,6 +523,9 @@ public class GameplayManager : MonoBehaviour
     /// </summary>
     public void GoToStartupMenu(GameObject menuScreen)
     {
+        if (!GameManager.Instance.canSelect || AdManager.Instance.adIsRunning)
+            return;
+
         ResumeGame(false);
         ResetMainVariables();
         GameManager.Instance.currentLevel.gameObject.SetActive(false);

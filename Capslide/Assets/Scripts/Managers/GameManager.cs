@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Menu paletteMenu;
     [SerializeField] private Menu settingsMenu;
     [SerializeField] private GameObject gameplayMenu;
-    [SerializeField] private bool canSelect;
+    public bool canSelect;
 
     // Level Select Variables
     [Header("Level Select"), Space(8)]
@@ -174,7 +174,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator ShiftMenu(Menu menuSrc, Menu menuDest)
     {
-        if (!canSelect)
+        if (!canSelect || AdManager.Instance.adIsRunning)
             yield break;
 
         float xAway = menuSrc.transform.position.x;
@@ -229,6 +229,9 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void ToggleBGM()
     {
+        if (!canSelect)
+            return;
+
         bgmON = !bgmON;
         AudioManager.Instance.ToggleMusic();
         ShiftButton(bgmButton, toggleFills[0], bgmON);
@@ -239,6 +242,9 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void ToggleSFX()
     {
+        if (!canSelect)
+            return;
+
         sfxON = !sfxON;
         ShiftButton(sfxButton, toggleFills[1], sfxON);
     }
@@ -248,6 +254,9 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void ToggleScreenShake()
     {
+        if (!canSelect)
+            return;
+
         screenShake = !screenShake;
         ShiftButton(screenShakeButton, toggleFills[2], screenShake);
     }
