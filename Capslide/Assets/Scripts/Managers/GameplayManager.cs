@@ -232,11 +232,10 @@ public class GameplayManager : MonoBehaviour
             return;
 
         Capsule newCapsule = capsules[GetExistingCapsules()];
+        newCapsule.gameObject.SetActive(true);
 
         if (isCompleted)
             newCapsule.GetComponent<Capsule>().StarCapsule();
-        else
-            newCapsule.gameObject.SetActive(true);
 
         capsuleDispenserCount--;
 

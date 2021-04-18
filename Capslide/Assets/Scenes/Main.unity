@@ -11493,7 +11493,7 @@ Transform:
   m_Children:
   - {fileID: 1411879874}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &247505659
 MonoBehaviour:
@@ -20817,7 +20817,7 @@ Transform:
   - {fileID: 2069372503}
   - {fileID: 425473278}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &490373422
 MonoBehaviour:
@@ -25705,7 +25705,7 @@ Transform:
   m_Children:
   - {fileID: 715900356}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &613904231
 MonoBehaviour:
@@ -26253,7 +26253,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &621829785
 GameObject:
@@ -36185,6 +36185,8 @@ MonoBehaviour:
     sound: {fileID: 8300000, guid: d9e0f738dd927f744af9f9a394068974, type: 3}
   - name: Best Score Get
     sound: {fileID: 8300000, guid: 3b50d6b200ce8f142a6563b5693b1a40, type: 3}
+  - name: Star Chime
+    sound: {fileID: 8300000, guid: 2cb4ba6857c2aa74ab19cbb374b4c729, type: 3}
   masterVolume: 1
   musicVolume: 1
   sfxVolume: 1
@@ -38070,7 +38072,7 @@ Transform:
   m_Children:
   - {fileID: 1112795568}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &907703093
 MonoBehaviour:
@@ -47175,7 +47177,7 @@ RectTransform:
   m_Children:
   - {fileID: 299989626}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -53357,53 +53359,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1301707006}
   m_CullTransparentMesh: 0
---- !u!1 &1302170538
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1302170540}
-  - component: {fileID: 1302170539}
-  m_Layer: 0
-  m_Name: Ad Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
---- !u!114 &1302170539
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1302170538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c0b61b1435f9334fa4019bbbedc28f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isTargetPlayStore: 1
-  isTestAd: 1
-  adIsRunning: 0
-  interstitialAdIsViewed: 0
---- !u!4 &1302170540
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1302170538}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1303459812
 GameObject:
   m_ObjectHideFlags: 0
@@ -63844,7 +63799,7 @@ Transform:
   m_Children:
   - {fileID: 777031690}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1544861355
 MonoBehaviour:

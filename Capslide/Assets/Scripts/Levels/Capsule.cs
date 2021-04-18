@@ -15,6 +15,7 @@ public class Capsule : MonoBehaviour
     public SpriteRenderer SPR;
     [SerializeField] private int points = 0;
     [SerializeField] private ParticleSystem trailPS;
+    [SerializeField] private ParticleSystem specialTrailPS;
     [SerializeField] private ParticleSystem BouncePS;
     [SerializeField] private GameObject floatingPoint;
     [SerializeField] private Sprite normalSprite;
@@ -40,14 +41,20 @@ public class Capsule : MonoBehaviour
         //startForce = new Vector3(Random.Range(-MAX_SPEED, MAX_SPEED), 0f, 0f);
         //RB.AddForce(startForce, ForceMode2D.Impulse);
 
+        // Set color of trail particle system.
         var main = trailPS.main;
         main.startColor = SPR.color;
+
+        // Set color of special trail particle system.
+        var main2 = specialTrailPS.main;
+        main2.startColor = SPR.color;
     }
 
     // Update is called once per frame
     void Update()
     {
-        RB.velocity = new Vector2(Mathf.Clamp(RB.velocity.x, -MAX_SPEED, MAX_SPEED), Mathf.Clamp(RB.velocity.y, -MAX_SPEED, MAX_SPEED));
+        float speedMax = RB.isKinematic ? 1440f : MAX_SPEED;
+        RB.velocity = new Vector2(Mathf.Clamp(RB.velocity.x, -speedMax, speedMax), Mathf.Clamp(RB.velocity.y, -speedMax, speedMax));
         HasTouchedSlider();
     }
 
@@ -131,12 +138,12 @@ public class Capsule : MonoBehaviour
             StartCoroutine(ShakeScreen());
     }
 
-    private IEnumerator ShakeScreen()
+    private IEnumerator ShakeScreen(bool specialLaunch = false)
     {
         if (GameplayManager.Instance.GetCapsulesInGame() == 1 && !faked)
             GameplayManager.Instance.timeStopped = true;
 
-        if (GameManager.Instance.screenShake)
+        if (GameManager.Instance.screenShake && !specialLaunch)
             yield return StartCoroutine(ScreenShake.Shake(20f, 0.5f));
 
         points = 0;
@@ -151,10 +158,7 @@ public class Capsule : MonoBehaviour
         if (GameplayManager.Instance.NoCapsulesInGame())
         {
             if (GameplayManager.Instance.DispenserIsEmpty())
-            {
-                //if (GameplayManager.Instance.NoFakeCapsulesInGame())
                 GameplayManager.Instance.EndGame();
-            }
             else
                 GameplayManager.Instance.DispenseCapsule();
         }
@@ -195,6 +199,22 @@ public class Capsule : MonoBehaviour
             pts += 1;
 
         pts = Mathf.Clamp(pts, -99, 99);
+        
+        if (pts == 99)
+            StartCoroutine(SpecialLaunch());
+    }
+
+    private IEnumerator SpecialLaunch()
+    {
+        AudioManager.Instance.PlaySFX("Star Chime", Random.Range(0.75f, 1f));
+
+        RB.isKinematic = true;
+        circleCollider2d.enabled = false;
+        trailPS.Stop();
+        specialTrailPS.Play();
+        RB.velocity = new Vector2(0f, 1920f);
+        yield return new WaitForSeconds(1f);
+        StartCoroutine(ShakeScreen(true));
     }
 
     public void Launch()
