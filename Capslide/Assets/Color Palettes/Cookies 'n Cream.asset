@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 21
   paletteName: Cookies 'n Cream
-  tokenCost: 10
+  tokenCost: 8
   colors:
   - {r: 1, g: 1, b: 1, a: 1}
   - {r: 0.83921576, g: 0.7725491, b: 0.6862745, a: 1}

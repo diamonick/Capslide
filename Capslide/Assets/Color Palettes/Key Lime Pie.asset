@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 20
   paletteName: Key Lime Pie
-  tokenCost: 10
+  tokenCost: 8
   colors:
   - {r: 0.87843144, g: 0.97647065, b: 0.7490196, a: 1}
   - {r: 0.76470596, g: 0.5372549, b: 0.34901962, a: 1}

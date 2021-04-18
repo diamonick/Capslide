@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 51
   paletteName: Clockwork
-  tokenCost: 30
+  tokenCost: 24
   colors:
   - {r: 0.5921569, g: 0.7176471, b: 0.6666667, a: 1}
   - {r: 0.8470589, g: 0.78823537, b: 0.6666667, a: 1}

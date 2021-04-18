@@ -41,9 +41,7 @@ public class CapslideData
         bgmToggle = GM.bgmON;
         sfxToggle = GM.sfxON;
         screenShakeToggle = GM.screenShake;
-        //powerSavingToggle = GM.powerSaving;
 
         levelsPlayed = GM.levelsPlayed;
-        levelsPlayedUntilDisplayAd = GM.levelsPlayedUntilDisplayAd;
     }
 }

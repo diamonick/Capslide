@@ -7,7 +7,8 @@ public class Capsule : MonoBehaviour
 {
     // Constants
     private const float INITIAL_GRAVITY = 50f;
-    private const float GRAVITY_INTERVAL = 1f;
+    private const float GRAVITY_NORMAL = 1f;
+    private const float GRAVITY_STAR = 1.8f;
     private const float MAX_SPEED = 720f;
     private const float DEADZONE_VALUE = 144f;
 
@@ -22,8 +23,8 @@ public class Capsule : MonoBehaviour
     [SerializeField] private Rigidbody2D RB;
     [SerializeField] private CircleCollider2D circleCollider2d;
     [SerializeField] private LayerMask groundLayer;
-    [SerializeField] private bool starred = false;
-    [SerializeField] private bool faked = false;
+    public bool starred = false;
+    public bool faked = false;
     public bool isLaunched = false;
     private Vector3 startForce;
 
@@ -96,7 +97,7 @@ public class Capsule : MonoBehaviour
 
         if (other.CompareTag("Slider") || other.CompareTag("Platform"))
         {
-            RB.gravityScale += GRAVITY_INTERVAL;
+            RB.gravityScale += starred ? GRAVITY_STAR : GRAVITY_NORMAL;
             RB.velocity = new Vector2(Mathf.Clamp(RB.velocity.x, -MAX_SPEED, MAX_SPEED), Mathf.Clamp(RB.velocity.y, -MAX_SPEED, MAX_SPEED));
 
             if (other.CompareTag("Slider") && HasTouchedSlider())

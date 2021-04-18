@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 27
   paletteName: Ramen
-  tokenCost: 15
+  tokenCost: 12
   colors:
   - {r: 0.28627452, g: 0.61960787, b: 0.19607845, a: 1}
   - {r: 1, g: 0.95687705, b: 0.6367924, a: 1}

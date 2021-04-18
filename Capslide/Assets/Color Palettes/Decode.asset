@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 41
   paletteName: Decode
-  tokenCost: 25
+  tokenCost: 20
   colors:
   - {r: 0.88438576, g: 1, b: 0.4575472, a: 1}
   - {r: 0.9747988, g: 1, b: 0, a: 1}

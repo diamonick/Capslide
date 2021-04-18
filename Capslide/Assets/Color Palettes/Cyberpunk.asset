@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 54
   paletteName: Cyberpunk
-  tokenCost: 30
+  tokenCost: 24
   colors:
   - {r: 0.28773582, g: 1, b: 0.90727925, a: 1}
   - {r: 1, g: 0.572093, b: 0, a: 1}

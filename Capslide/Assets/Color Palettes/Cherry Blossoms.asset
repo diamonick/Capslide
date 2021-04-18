@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 48
   paletteName: Cherry Blossoms
-  tokenCost: 30
+  tokenCost: 24
   colors:
   - {r: 1, g: 0.33490568, b: 0.493552, a: 1}
   - {r: 0.8962264, g: 0.41006586, b: 0.47194263, a: 1}

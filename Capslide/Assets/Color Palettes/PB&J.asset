@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 22
   paletteName: PB&J
-  tokenCost: 10
+  tokenCost: 8
   colors:
   - {r: 1, g: 0.8487976, b: 0.7122642, a: 1}
   - {r: 0.60784316, g: 0.57254905, b: 0.85098046, a: 1}

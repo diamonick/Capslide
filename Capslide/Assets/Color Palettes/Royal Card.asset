@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 29
   paletteName: Royal Card
-  tokenCost: 15
+  tokenCost: 12
   colors:
   - {r: 1, g: 1, b: 1, a: 1}
   - {r: 0.8313726, g: 0, b: 0, a: 1}

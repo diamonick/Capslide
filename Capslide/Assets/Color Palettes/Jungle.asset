@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 46
   paletteName: Jungle
-  tokenCost: 25
+  tokenCost: 20
   colors:
   - {r: 0.98823535, g: 0.37254903, b: 0.3921569, a: 1}
   - {r: 1, g: 0.68235296, b: 0, a: 1}

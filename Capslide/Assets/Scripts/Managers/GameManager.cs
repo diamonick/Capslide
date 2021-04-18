@@ -25,7 +25,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text[] highscoreTexts = new TMP_Text[6];
     [Range(0, 999)]
     public int levelsPlayed;
-    public int levelsPlayedUntilDisplayAd;
     [HideInInspector] public Level currentLevel;
 
     [Header("Game Info"), Space(8)]
@@ -105,10 +104,8 @@ public class GameManager : MonoBehaviour
         bgmON = data.bgmToggle;
         sfxON = data.sfxToggle;
         screenShake = data.screenShakeToggle;
-        //powerSaving = data.powerSavingToggle;
 
         levelsPlayed = data.levelsPlayed;
-        levelsPlayedUntilDisplayAd = data.levelsPlayedUntilDisplayAd;
     }
 
     public void LoadPalettesUnlocked()
@@ -174,7 +171,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator ShiftMenu(Menu menuSrc, Menu menuDest)
     {
-        if (!canSelect || AdManager.Instance.adIsRunning)
+        if (!canSelect)
             yield break;
 
         float xAway = menuSrc.transform.position.x;
@@ -260,23 +257,6 @@ public class GameManager : MonoBehaviour
         screenShake = !screenShake;
         ShiftButton(screenShakeButton, toggleFills[2], screenShake);
     }
-
-    /// <summary>
-    /// Toggle Power Saving setting
-    /// </summary>
-    //public void TogglePowerSaving()
-    //{
-    //    powerSaving = !powerSaving;
-
-    //    // Turn Power Saving: ON
-    //    if (powerSaving)
-    //        Application.targetFrameRate = 30;
-    //    // Turn Power Saving: OFF
-    //    else
-    //        Application.targetFrameRate = 60;
-
-    //    ShiftButton(powerSavingButton, toggleFills[3], powerSaving);
-    //}
 
     /// <summary>
     /// Shifts the button left or right.

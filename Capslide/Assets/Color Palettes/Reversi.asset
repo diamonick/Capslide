@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 30
   paletteName: Reversi
-  tokenCost: 15
+  tokenCost: 12
   colors:
   - {r: 1, g: 1, b: 1, a: 1}
   - {r: 0.12482202, g: 0.14421585, b: 0.16037738, a: 1}

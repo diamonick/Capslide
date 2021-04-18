@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 42
   paletteName: Medical
-  tokenCost: 25
+  tokenCost: 20
   colors:
   - {r: 0.3915094, g: 1, b: 0.80647105, a: 1}
   - {r: 1, g: 0.514151, b: 0.514151, a: 1}

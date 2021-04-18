@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 44
   paletteName: Nice Complement
-  tokenCost: 25
+  tokenCost: 20
   colors:
   - {r: 1, g: 0.758795, b: 0.3726415, a: 1}
   - {r: 0, g: 0.5394206, b: 1, a: 1}

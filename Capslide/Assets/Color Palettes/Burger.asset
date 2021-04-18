@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 23
   paletteName: Burger
-  tokenCost: 10
+  tokenCost: 8
   colors:
   - {r: 0.9686275, g: 0.69411767, b: 0.48235297, a: 1}
   - {r: 0.78823537, g: 0.86274517, b: 0.25490198, a: 1}

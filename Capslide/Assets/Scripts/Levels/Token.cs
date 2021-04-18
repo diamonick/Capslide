@@ -5,7 +5,7 @@ using UnityEngine;
 public class Token : MonoBehaviour
 {
     // Constants
-    private const float TIME_MAX = 10f;
+    private const float TIME_MAX = 8f;
 
     private GameObject obj;
     [SerializeField] private SpriteRenderer SPR;
@@ -61,6 +61,10 @@ public class Token : MonoBehaviour
 
         if (other.CompareTag("Capsule"))
         {
+            Capsule capsule = other.GetComponent<Capsule>();
+            if (capsule.faked)
+                return;
+
             isCollected = true;
             AudioManager.Instance.PlaySFX("CollectToken");
             CollectPS.Play();

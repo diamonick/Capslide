@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 34
   paletteName: Tennis
-  tokenCost: 20
+  tokenCost: 16
   colors:
   - {r: 0.9215316, g: 1, b: 0.5235849, a: 1}
   - {r: 0.9960785, g: 0.69411767, b: 0.5019608, a: 1}

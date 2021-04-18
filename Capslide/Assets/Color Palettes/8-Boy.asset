@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 55
   paletteName: 8-Boy
-  tokenCost: 30
+  tokenCost: 24
   colors:
   - {r: 0.9058824, g: 0.9686275, b: 0.38823533, a: 1}
   - {r: 0.19607845, g: 0.4039216, b: 0.20000002, a: 1}

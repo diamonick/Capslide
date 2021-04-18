@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 52
   paletteName: Synthwave
-  tokenCost: 30
+  tokenCost: 24
   colors:
   - {r: 0.93725497, g: 0, b: 1, a: 1}
   - {r: 0, g: 0.88507795, b: 1, a: 1}

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 31
   paletteName: Confetti
-  tokenCost: 15
+  tokenCost: 12
   colors:
   - {r: 0.92156863, g: 1, b: 0.6, a: 1}
   - {r: 0, g: 0.8627451, b: 1, a: 1}

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 11
   paletteName: Winter
-  tokenCost: 5
+  tokenCost: 4
   colors:
   - {r: 0.8980392, g: 0.96862745, b: 1, a: 1}
   - {r: 0.65882355, g: 0.89411765, b: 1, a: 1}

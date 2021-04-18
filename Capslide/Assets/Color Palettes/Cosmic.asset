@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 50
   paletteName: Cosmic
-  tokenCost: 30
+  tokenCost: 24
   colors:
   - {r: 0.10196079, g: 0.61960787, b: 0.86274517, a: 1}
   - {r: 1, g: 0.962333, b: 0.4009434, a: 1}

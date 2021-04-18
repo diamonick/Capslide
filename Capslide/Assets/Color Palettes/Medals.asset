@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 36
   paletteName: Medals
-  tokenCost: 20
+  tokenCost: 16
   colors:
   - {r: 1, g: 0.8705883, b: 0, a: 1}
   - {r: 0.7490196, g: 0.7843138, b: 0.8352942, a: 1}

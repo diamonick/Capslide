@@ -16,10 +16,7 @@ public class GameplayManager : MonoBehaviour
     private const float COUNTDOWN_TIME = 3f;
     private const float FAKE_SPAWN_TIME = 8f;
     private const float FAKE_FAST_SPAWN_TIME = 4f;
-
-    //READ-ONLY
-    private readonly string doubleTokensMessage = "View ad to earn double Tokens.";
-    private readonly string tripleTokensMessage = "View ad to earn triple Tokens.";
+    private const float FAKE_FASTER_SPAWN_TIME = 2f;
 
     [Header("Properties"), Space(8)]
     [SerializeField] private GameObject startupMenu;
@@ -70,13 +67,7 @@ public class GameplayManager : MonoBehaviour
     [SerializeField] private TMP_Text bestScoreText;
     [SerializeField] private GameObject tokenInfo;
     [SerializeField] private TMP_Text tokenText;
-    [SerializeField] private TMP_Text adDescription;
     [SerializeField] private Menu resultsMenu;
-
-    [Header("Rewarded Ad Button"), Space(8)]
-    [SerializeField] private Image rewardedAdIcon;
-    [SerializeField] private Sprite doubleIcon;
-    [SerializeField] private Sprite tripleIcon;
 
     [Header("Token"), Space(8)]
     [SerializeField] private GameObject token;
@@ -241,10 +232,11 @@ public class GameplayManager : MonoBehaviour
             return;
 
         Capsule newCapsule = capsules[GetExistingCapsules()];
-        newCapsule.gameObject.SetActive(true);
 
         if (isCompleted)
             newCapsule.GetComponent<Capsule>().StarCapsule();
+        else
+            newCapsule.gameObject.SetActive(true);
 
         capsuleDispenserCount--;
 
@@ -306,14 +298,6 @@ public class GameplayManager : MonoBehaviour
         yield return StartCoroutine(Ease.TranslateXTo(leftWall, leftX, 0.5f, 2, Easing.EaseOut));
         yield return StartCoroutine(Ease.ChangeImageColor(overlay, fullColor, 1f));
 
-        // Show interstitial ad if you've reached
-        if (AdManager.Instance.InterstitialAdReady(score))
-            AdManager.Instance.PlayInterstitialAd();
-
-        // Wait until the interstitial ad is finished.
-        while (AdManager.Instance.adIsRunning)
-            yield return new WaitForEndOfFrame();
-
         ForegroundOverlay.Instance.FadeOutForeground(0f);
         GameManager.Instance.currentLevel.gameObject.SetActive(false);
         token.SetActive(false);
@@ -326,8 +310,6 @@ public class GameplayManager : MonoBehaviour
         yield return StartCoroutine(SetupResults());
 
         resultsButtons1.SetActive(true);
-        rewardedAdIcon.sprite = AdManager.Instance.interstitialAdIsViewed ? tripleIcon : doubleIcon;
-        adDescription.text = AdManager.Instance.interstitialAdIsViewed ? tripleTokensMessage : doubleTokensMessage;
         resultsButtons2.SetActive(false);
     }
 
@@ -356,27 +338,6 @@ public class GameplayManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         GameManager.Instance.Save();
-    }
-
-    /// <summary>
-    /// Reward player triple the amount of tokens if player has already viewed the whole interstitial ad.
-    /// Otherwise, reward player double the amount of tokens.
-    /// </summary>
-    public void RewardTokens()
-    {
-        int multiplier = AdManager.Instance.interstitialAdIsViewed ? 3 : 2;
-        int tokenCount = tokensEarned * multiplier;
-        int tokensRewarded = tokensEarned * (multiplier - 1);
-
-        // Disable Rewarded Ad button and ad prompt after you've watched the ad.
-        resultsButtons1.SetActive(false);
-        resultsButtons2.SetActive(true);
-
-        GameManager.Instance.tokens += tokensRewarded;
-        GameManager.Instance.tokensNeededForTokenPlayer += tokensRewarded;
-        tokenText.text = $"You got {tokenCount}";
-
-        AdManager.Instance.interstitialAdIsViewed = false;
     }
 
     private void SaveHighscore()
@@ -523,7 +484,7 @@ public class GameplayManager : MonoBehaviour
     /// </summary>
     public void GoToStartupMenu(GameObject menuScreen)
     {
-        if (!GameManager.Instance.canSelect || AdManager.Instance.adIsRunning)
+        if (!GameManager.Instance.canSelect)
             return;
 
         ResumeGame(false);
@@ -601,7 +562,12 @@ public class GameplayManager : MonoBehaviour
     private void SetFakeSpawnTimer()
     {
         if (finalStretch)
-            timeUntilDispenseFake = FAKE_FAST_SPAWN_TIME;
+        {
+            if (DispenserIsEmpty())
+                timeUntilDispenseFake = FAKE_FASTER_SPAWN_TIME;
+            else
+                timeUntilDispenseFake = FAKE_FAST_SPAWN_TIME;
+        }
         else
             timeUntilDispenseFake = FAKE_SPAWN_TIME;
     }

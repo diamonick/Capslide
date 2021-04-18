@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 24
   paletteName: Banana
-  tokenCost: 15
+  tokenCost: 12
   colors:
   - {r: 1, g: 0.6504425, b: 0, a: 1}
   - {r: 1, g: 0.7461736, b: 0.19339621, a: 1}

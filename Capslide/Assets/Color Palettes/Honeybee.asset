@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 49
   paletteName: Honeybee
-  tokenCost: 30
+  tokenCost: 24
   colors:
   - {r: 1, g: 0.8705883, b: 0.46274513, a: 1}
   - {r: 0.93725497, g: 0.62352943, b: 0.10980393, a: 1}
