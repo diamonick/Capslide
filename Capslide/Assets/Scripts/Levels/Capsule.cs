@@ -145,6 +145,8 @@ public class Capsule : MonoBehaviour
 
         if (GameManager.Instance.screenShake && !specialLaunch)
             yield return StartCoroutine(ScreenShake.Shake(20f, 0.5f));
+        else if (!GameManager.Instance.screenShake)
+            yield return new WaitForSeconds(0.5f);
 
         points = 0;
         RB.gravityScale = INITIAL_GRAVITY;
@@ -213,7 +215,7 @@ public class Capsule : MonoBehaviour
         trailPS.Stop();
         specialTrailPS.Play();
         RB.velocity = new Vector2(0f, 1920f);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.2f);
         StartCoroutine(ShakeScreen(true));
     }
 

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 39
   paletteName: Blueprint
-  tokenCost: 20
+  tokenCost: 16
   colors:
   - {r: 0, g: 0.62097406, b: 1, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}

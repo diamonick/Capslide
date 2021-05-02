@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 38
   paletteName: Business
-  tokenCost: 20
+  tokenCost: 16
   colors:
   - {r: 1, g: 0.7843138, b: 0.18431373, a: 1}
   - {r: 0.6066442, g: 1, b: 0.3803922, a: 1}

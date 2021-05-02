@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 33
   paletteName: Golf
-  tokenCost: 20
+  tokenCost: 16
   colors:
   - {r: 0.6131673, g: 1, b: 0.4764151, a: 1}
   - {r: 1, g: 0.868977, b: 0.5330188, a: 1}

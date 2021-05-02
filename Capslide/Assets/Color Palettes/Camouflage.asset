@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 43
   paletteName: Camouflage
-  tokenCost: 25
+  tokenCost: 20
   colors:
   - {r: 0.78823537, g: 0.74509805, b: 0.50980395, a: 1}
   - {r: 0.40000004, g: 0.32941177, b: 0.227451, a: 1}
