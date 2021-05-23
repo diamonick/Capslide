@@ -23,9 +23,8 @@ MonoBehaviour:
   - {r: 0.2227015, g: 0.12953897, b: 0.6698113, a: 1}
   possibleCapsuleColors:
   - {r: 0, g: 0.9607844, b: 0.73333335, a: 1}
-  - {r: 1, g: 0, b: 0.31764707, a: 1}
-  - {r: 1, g: 0.8235295, b: 0, a: 1}
   - {r: 0.6627451, g: 0, b: 1, a: 1}
+  - {r: 1, g: 0.8235295, b: 0, a: 1}
   scoreColor: {r: 1, g: 0.8235295, b: 0, a: 1}
   capsuleTimerColor: {r: 1, g: 0, b: 0.31764707, a: 1}
   backButtonColor: {r: 1, g: 0, b: 0.31764707, a: 1}

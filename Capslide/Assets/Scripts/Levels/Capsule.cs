@@ -32,14 +32,18 @@ public class Capsule : MonoBehaviour
     // Start is called before the first frame update
     void OnEnable()
     {
+        points = 0;
+        RB.gravityScale = INITIAL_GRAVITY;
+        starred = false;
+        faked = false;
+        SPR.sprite = normalSprite;
+        TurnOffLaunch();
+
         RB.isKinematic = false;
         circleCollider2d.enabled = true;
         SPR.color = new Color(SPR.color.r, SPR.color.g, SPR.color.b, 1f);
 
-        points = 0;
         StartLaunch();
-        //startForce = new Vector3(Random.Range(-MAX_SPEED, MAX_SPEED), 0f, 0f);
-        //RB.AddForce(startForce, ForceMode2D.Impulse);
 
         // Set color of trail particle system.
         var main = trailPS.main;
@@ -152,6 +156,7 @@ public class Capsule : MonoBehaviour
         RB.gravityScale = INITIAL_GRAVITY;
         SPR.sprite = normalSprite;
         starred = false;
+        faked = false;
         this.gameObject.SetActive(false);
 
         if (faked)

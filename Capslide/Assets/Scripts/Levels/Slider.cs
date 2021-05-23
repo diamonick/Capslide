@@ -17,7 +17,7 @@ public class Slider : MonoBehaviour
 
     // Constants
     private const float SLIDER_WEIGHT = 8f;
-    private const float DRAG_TIME_INTERVAL = 3f;
+    private const float DRAG_TIME_INTERVAL = 2f;
 
     private GameObject obj;
 
