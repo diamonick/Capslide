@@ -37715,6 +37715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90867b6b6b347a9429f2af0cc2a1b081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camera: {fileID: 1632175711}
   startupMenu: {fileID: 1544861355}
   levelSelectMenu: {fileID: 613904231}
   paletteMenu: {fileID: 907703093}
@@ -72469,7 +72470,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 3
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2

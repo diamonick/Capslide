@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
     // Game Manager Singleton
     public static GameManager Instance { get; private set; }
 
+    [SerializeField] private Camera camera;
+    private bool takeSnapshotNextFrame;
+
     [Header("Game Manager")]
     [SerializeField] private Menu startupMenu;
     [SerializeField] private Menu levelSelectMenu;
@@ -80,6 +83,37 @@ public class GameManager : MonoBehaviour
 
         if (bgmON)
             AudioManager.Instance.PlayMusic("Main Theme", 0.5f);
+    }
+
+    private void OnPostRender()
+    {
+        if (takeSnapshotNextFrame)
+        {
+            takeSnapshotNextFrame = false;
+            RenderTexture rt = camera.targetTexture;
+
+            Texture2D renderResult = new Texture2D(rt.width, rt.height, TextureFormat.ARGB32, false);
+            Rect rect = new Rect(0, 0, rt.width, rt.height);
+            renderResult.ReadPixels(rect, 0, 0);
+
+            byte[] byteArray = renderResult.EncodeToPNG();
+            System.IO.File.WriteAllBytes(Application.dataPath + "/Capslide_IPad_Photo.png", byteArray);
+            Debug.Log("Saved Capslide_IPad_Photo.png");
+
+            RenderTexture.ReleaseTemporary(rt);
+            camera.targetTexture = null;
+        }
+    }
+
+    public void PrepareSnapshot(float seconds) => Invoke("TakeSnapshot", seconds);
+
+    private void TakeSnapshot()
+    {
+        int width = Screen.width;
+        int height = Screen.height;
+
+        ScreenCapture.CaptureScreenshot(Application.dataPath + "/Capslide_IPad_Photo1.png");
+        Debug.Log("Saved Capslide_IPad_Photo.png");
     }
 
     public void Save() => SaveSystem.Save(this);
